@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpdj3ih3bxf7s"]
+
+[ext_resource type="Script" path="res://objects/entity_objects/crawl_AND_gate_3d/DE_AND_gate_editor/DE_ANDGateEditor.gd" id="1_nhudm"]
+[ext_resource type="PackedScene" uid="uid://cq87lj6f3n5mh" path="res://objects/entity_objects/DE_UI_Elements/available_trigger_connections/AvailableTriggerConnections.tscn" id="2_y2hh3"]
+
+[node name="DE_ANDGateEditor" type="VBoxContainer"]
+offset_right = 384.0
+offset_bottom = 540.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_nhudm")
+
+[node name="Label_Connections" type="Label" parent="."]
+layout_mode = 2
+text = "Input Connections:"
+
+[node name="AvailableTriggerConnections" parent="." instance=ExtResource("2_y2hh3")]
+layout_mode = 2
+size_flags_vertical = 3

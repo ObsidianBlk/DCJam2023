@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://ch62t1oie4k6c"]
+
+[ext_resource type="Shader" path="res://scenes/world/effect_layer/Transition.gdshader" id="1_3wjsg"]
+[ext_resource type="Script" path="res://scenes/world/effect_layer/EffectLayer.gd" id="1_xwjb8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qtfa8"]
+shader = ExtResource("1_3wjsg")
+shader_parameter/progress = null
+shader_parameter/smoothness = null
+
+[node name="EffectLayer" type="CanvasLayer"]
+layer = 128
+script = ExtResource("1_xwjb8")
+
+[node name="Transition" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_qtfa8")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

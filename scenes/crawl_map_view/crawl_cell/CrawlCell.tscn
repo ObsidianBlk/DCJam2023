@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://chnyvtfu5xon8"]
+
+[ext_resource type="Script" path="res://scenes/crawl_map_view/crawl_cell/CrawlCell.gd" id="1_q4emb"]
+
+[node name="CrawlCell" type="Node3D"]
+script = ExtResource("1_q4emb")

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://cq87lj6f3n5mh"]
+
+[ext_resource type="Script" path="res://objects/entity_objects/DE_UI_Elements/available_trigger_connections/AvailableTriggerConnections.gd" id="1_wqijs"]
+
+[node name="AvailableTriggerConnections" type="ScrollContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_wqijs")
+
+[node name="Tree" type="Tree" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+allow_reselect = true
+hide_root = true
