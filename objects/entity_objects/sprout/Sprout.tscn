@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://dm20o8b7x2ysy"]
+
+[ext_resource type="Texture2D" uid="uid://uety3y2l3vps" path="res://assets/textures/POD.png" id="1_ih7mt"]
+[ext_resource type="Script" path="res://objects/entity_objects/sprout/Sprout.gd" id="1_wemaf"]
+
+[node name="Sprout" type="Node3D"]
+script = ExtResource("1_wemaf")
+
+[node name="Sprout_1" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.625, 0)
+offset = Vector2(0, 32)
+billboard = 2
+double_sided = false
+texture_filter = 0
+texture = ExtResource("1_ih7mt")
+region_enabled = true
+region_rect = Rect2(0, 128, 64, 64)
+
+[node name="Sprout_2" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.24233, 0.625, 1.16301)
+offset = Vector2(0, 32)
+billboard = 2
+double_sided = false
+texture_filter = 0
+texture = ExtResource("1_ih7mt")
+region_enabled = true
+region_rect = Rect2(0, 128, 64, 64)
+
+[node name="Sprout_3" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.772939, 0.625, -0.736747)
+offset = Vector2(0, 32)
+billboard = 2
+double_sided = false
+texture_filter = 0
+texture = ExtResource("1_ih7mt")
+region_enabled = true
+region_rect = Rect2(0, 128, 64, 64)
+
+[node name="Sprout_4" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.729948, 0.625, -1.6111)
+offset = Vector2(0, 32)
+billboard = 2
+double_sided = false
+texture_filter = 0
+texture = ExtResource("1_ih7mt")
+region_enabled = true
+region_rect = Rect2(0, 128, 64, 64)
+
+[node name="Sprout_5" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.17478, 0.625, 0.895148)
+offset = Vector2(0, 32)
+billboard = 2
+double_sided = false
+texture_filter = 0
+texture = ExtResource("1_ih7mt")
+region_enabled = true
+region_rect = Rect2(0, 128, 64, 64)

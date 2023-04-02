@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://jal4u750mvgh"]
+
+[ext_resource type="PackedScene" uid="uid://kjlacftvnooq" path="res://assets/models/POD/Floor_Pod.glb" id="1_t2uev"]
+
+[node name="Floor_POD" type="Node3D"]
+
+[node name="Floor_Pod" parent="." instance=ExtResource("1_t2uev")]

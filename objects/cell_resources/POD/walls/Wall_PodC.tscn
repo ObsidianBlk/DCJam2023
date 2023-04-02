@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwitaqyvbit70"]
+
+[ext_resource type="PackedScene" uid="uid://bucpgg2nke64k" path="res://assets/models/POD/Wall_PodC.glb" id="1_wxfy1"]
+
+[node name="Wall_PodC" type="Node3D"]
+
+[node name="Wall_PodC" parent="." instance=ExtResource("1_wxfy1")]

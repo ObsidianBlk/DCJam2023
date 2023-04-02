@@ -16,6 +16,10 @@ const ENTITIES_LOOKUP : Dictionary = {
 	&"Unique":{
 		&"Player":{&"name":&"Player Start"}
 	},
+	&"Mob":{
+		&"Sprout":{&"name":&"Sprout Plant"},
+		&"PODPlant":{&"name":&"POD Plant"}
+	},
 	&"Door":{
 		&"Basic_Interactable":{&"name":&"Basic Door"}
 	},
@@ -73,6 +77,10 @@ const LOOKUP : Dictionary = {
 			&"src":"res://objects/cell_resources/floors/Floor_Basic.tscn",
 			&"description":"Basic ground floor"
 		},
+		&"floor_pod":{
+			&"src":"res://objects/cell_resources/POD/floors/Floor_POD.tscn",
+			&"description":"Escape Pod Floor"
+		},
 	},
 	&"ceiling":{
 		&"tileA":{
@@ -87,6 +95,10 @@ const LOOKUP : Dictionary = {
 			&"src":"res://objects/cell_resources/ceilings/Ceiling_Basic.tscn",
 			&"description":"Basic ceiling"
 		},
+		&"ceiling_pod":{
+			&"src":"res://objects/cell_resources/POD/ceilings/Ceiling_POD.tscn",
+			&"description":"Escape Pod Ceiling"
+		},
 	},
 	&"wall":{
 		&"tileA":{
@@ -100,6 +112,18 @@ const LOOKUP : Dictionary = {
 		&"basic":{
 			&"src":"res://objects/cell_resources/walls/Wall_Basic.tscn",
 			&"description":"Basic wall"
+		},
+		&"wall_pod_a":{
+			&"src":"res://objects/cell_resources/POD/walls/Wall_PodA.tscn",
+			&"description":"Escape Pod Wall"
+		},
+		&"wall_pod_b":{
+			&"src":"res://objects/cell_resources/POD/walls/Wall_PodB.tscn",
+			&"description":"Escape Pod Wall with Air Ducts"
+		},
+		&"wall_pod_c":{
+			&"src":"res://objects/cell_resources/POD/walls/Wall_PodC.tscn",
+			&"description":"Escape Pod Wall with Screen"
 		},
 	},
 	&"stair":{
@@ -119,6 +143,14 @@ const LOOKUP : Dictionary = {
 		&"Door:Basic_Interactable":{
 			&"src":"res://objects/entity_objects/door_basic_interactable/DoorBasicInteractable.tscn",
 			&"description":"Basic Interactable Door"
+		},
+		&"Mob:Sprout":{
+			&"src":"res://objects/entity_objects/sprout/Sprout.tscn",
+			&"description":"Sprout Plant"
+		},
+		&"Mob:PODPlant":{
+			&"src":"res://objects/entity_objects/pod_plant/POD_Plant.tscn",
+			&"description":"POD Plant"
 		},
 		&"Trigger:Gate_AND":{
 			&"src":"res://objects/entity_objects/crawl_AND_gate_3d/CrawlANDGate3D.tscn",

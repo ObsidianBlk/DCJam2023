@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://iovna8e7iktn"]
+
+[ext_resource type="Texture2D" uid="uid://uety3y2l3vps" path="res://assets/textures/POD.png" id="1_0fnd1"]
+[ext_resource type="Script" path="res://objects/entity_objects/pod_plant/POD_Plant.gd" id="1_425rj"]
+
+[node name="POD_Plant" type="Node3D"]
+script = ExtResource("1_425rj")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.625, 0)
+offset = Vector2(0, 64)
+billboard = 2
+texture = ExtResource("1_0fnd1")
+region_enabled = true
+region_rect = Rect2(129, 65, 63, 127)

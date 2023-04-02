@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://nyaur2vakw2j"]
+
+[ext_resource type="PackedScene" uid="uid://c7ku6baovjxxg" path="res://assets/models/POD/Ceiling_Pod.glb" id="1_4o2rb"]
+
+[node name="Ceiling_POD" type="Node3D"]
+
+[node name="Ceiling_Pod" parent="." instance=ExtResource("1_4o2rb")]

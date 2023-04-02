@@ -1,0 +1,1 @@
+extends CrawlEntityNode3D

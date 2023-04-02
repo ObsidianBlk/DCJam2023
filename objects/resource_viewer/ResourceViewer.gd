@@ -136,6 +136,11 @@ func set_resource(section : StringName, resource_name : StringName) -> void:
 		_: # For now, this will be for "everything else", including walls
 			_camera_wall.current = true
 
+func get_resource_section() -> StringName:
+	return _section
+
+func get_resource_name() -> StringName:
+	return _resource_name
 
 # ------------------------------------------------------------------------------
 # Handler Methods

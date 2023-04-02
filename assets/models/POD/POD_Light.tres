@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dw27gx7p0wriy"]
+
+[resource]
+resource_name = "POD_Light"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.547036, 0.620534, 0.906332, 1)
+roughness = 0.5
+emission_enabled = true
+emission = Color(0.799991, 0.799991, 0.799991, 1)

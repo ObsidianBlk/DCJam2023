@@ -1,46 +1,134 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3ecq2idamo78"]
+[gd_scene load_steps=6 format=3 uid="uid://b3ecq2idamo78"]
 
 [ext_resource type="PackedScene" uid="uid://ct2dmvumoh544" path="res://objects/resource_viewer/ResourceViewer.tscn" id="1_0ra7w"]
 [ext_resource type="Script" path="res://scenes/dungeon_editor/default_cell_editor/DefaultCellEditor.gd" id="1_tatsh"]
+[ext_resource type="Texture2D" uid="uid://bfukakuhrcmnq" path="res://assets/icons/store.svg" id="2_yv6mq"]
+[ext_resource type="Texture2D" uid="uid://vkowrplb7y6x" path="res://assets/icons/cancel.svg" id="3_lvcyd"]
+[ext_resource type="Texture2D" uid="uid://ccrsme6ixxdg8" path="res://assets/icons/arrow_down.svg" id="4_cg3si"]
 
-[node name="DefaultCellEditor" type="GridContainer"]
-offset_right = 40.0
-offset_bottom = 40.0
-columns = 3
+[node name="DefaultCellEditor" type="VBoxContainer"]
+offset_right = 200.0
+offset_bottom = 200.0
 script = ExtResource("1_tatsh")
 
-[node name="CeilingView" parent="." instance=ExtResource("1_0ra7w")]
+[node name="CreateSet" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Info" type="GridContainer" parent="CreateSet"]
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 2
+
+[node name="Label_SetName" type="Label" parent="CreateSet/Info"]
+layout_mode = 2
+text = "Set Name: "
+
+[node name="LineEdit_SetName" type="LineEdit" parent="CreateSet/Info"]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "Enter Set Name"
+
+[node name="Label_CreateDesc" type="Label" parent="CreateSet/Info"]
+layout_mode = 2
+text = "Description: "
+
+[node name="LineEdit_CreateDesc" type="LineEdit" parent="CreateSet/Info"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Enter Set Description"
+
+[node name="Btns" type="VBoxContainer" parent="CreateSet"]
+layout_mode = 2
+
+[node name="StoreSet" type="Button" parent="CreateSet/Btns"]
+layout_mode = 2
+icon = ExtResource("2_yv6mq")
+
+[node name="Spacer" type="Control" parent="CreateSet/Btns"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CancelSet" type="Button" parent="CreateSet/Btns"]
+layout_mode = 2
+icon = ExtResource("3_lvcyd")
+
+[node name="SetInfo" type="VBoxContainer" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="NorthView" parent="." instance=ExtResource("1_0ra7w")]
+[node name="TopRow" type="HBoxContainer" parent="SetInfo"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SetInfo/TopRow"]
+layout_mode = 2
+text = "Set: "
+
+[node name="SetSelection" type="OptionButton" parent="SetInfo/TopRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SetOptions" type="MenuButton" parent="SetInfo/TopRow"]
+unique_name_in_owner = true
+layout_mode = 2
+icon = ExtResource("4_cg3si")
+flat = false
+item_count = 2
+popup/item_0/text = "Create Set"
+popup/item_0/id = 0
+popup/item_1/text = "Remove Set"
+popup/item_1/id = 1
+
+[node name="Label_Description" type="Label" parent="SetInfo"]
+unique_name_in_owner = true
+layout_mode = 2
+autowrap_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="."]
+layout_mode = 2
+
+[node name="Layout" type="GridContainer" parent="."]
+layout_mode = 2
+columns = 3
+
+[node name="CeilingView" parent="Layout" instance=ExtResource("1_0ra7w")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 2
-
-[node name="WestView" parent="." instance=ExtResource("1_0ra7w")]
+[node name="NorthView" parent="Layout" instance=ExtResource("1_0ra7w")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Control2" type="Control" parent="."]
+[node name="Control" type="Control" parent="Layout"]
 layout_mode = 2
 
-[node name="EastView" parent="." instance=ExtResource("1_0ra7w")]
+[node name="WestView" parent="Layout" instance=ExtResource("1_0ra7w")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Control3" type="Control" parent="."]
+[node name="Control2" type="Control" parent="Layout"]
 layout_mode = 2
 
-[node name="SouthView" parent="." instance=ExtResource("1_0ra7w")]
+[node name="EastView" parent="Layout" instance=ExtResource("1_0ra7w")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="GroundView" parent="." instance=ExtResource("1_0ra7w")]
+[node name="Control3" type="Control" parent="Layout"]
+layout_mode = 2
+
+[node name="SouthView" parent="Layout" instance=ExtResource("1_0ra7w")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="GroundView" parent="Layout" instance=ExtResource("1_0ra7w")]
 unique_name_in_owner = true
 layout_mode = 2
 
 [node name="ResourceOptions" type="PopupMenu" parent="."]
 initial_position = 1
+
+[connection signal="pressed" from="CreateSet/Btns/StoreSet" to="." method="_on_store_set_pressed"]
+[connection signal="pressed" from="CreateSet/Btns/CancelSet" to="." method="_on_cancel_set_pressed"]
