@@ -37,6 +37,9 @@ var _entity_nodes : Dictionary = {}
 @onready var _label_localcoord : Label = %Label_LocalCoord
 @onready var _texture_facing : TextureRect = %Texture_Facing
 
+@onready var _fd_open : FileDialog = $UI/FDOpen
+@onready var _fd_save : FileDialog = $UI/FDSave
+
 
 # ------------------------------------------------------------------------------
 # Override Methods
@@ -45,6 +48,9 @@ func _ready() -> void:
 	CrawlGlobals.Set_Editor_Mode(true)
 	CrawlGlobals.crawl_config_value_changed.connect(_on_config_value_changed)
 	CrawlGlobals.crawl_config_loaded.connect(_on_config_loaded)
+
+	_fd_open.file_selected.connect(_on_file_selected.bind(&"load"))
+	_fd_save.file_selected.connect(_on_file_selected.bind(&"save"))
 	
 	_default_cell_editor.ceiling_resource = &"basic"
 	_default_cell_editor.ground_resource = &"basic"
@@ -129,6 +135,46 @@ func _UpdateMapName() -> void:
 		_label_mapname.tooltip_text = "Unknown Author"
 	else:
 		_label_mapname.tooltip_text = "Authored By: %s"%[_active_map.author]
+
+func _SaveDungeon(dungeon_filepath : String) -> void:
+	if _active_map == null: return
+	var res : int = ResourceSaver.save(_active_map, dungeon_filepath)
+	if res == OK:
+		print("Save Successful")
+
+func _LoadDungeon(dungeon_filepath : String) -> void:
+	var map = ResourceLoader.load(dungeon_filepath)
+	if not is_instance_of(map, CrawlMap):
+		print("Failed to load dungeon: ", dungeon_filepath)
+		return
+	
+	# As resources are cached, it is possible we load in an already cached map.
+	# as such, I want to clear it's current focus entity for consistency sake.
+	map.clear_focus_entity()
+	
+	if _active_map != null:
+		_RemoveMap()
+	
+	var elist : Array = map.get_entities({&"type":&"Editor"})
+	if elist.size() <= 0:
+		print("Failed to find Editor entity.")
+		return
+	_active_map = map
+	_active_map.entity_added.connect(_on_entity_added)
+	_active_map.entity_removed.connect(_on_entity_removed)
+	_active_map.focus_position_changed.connect(_on_focus_position_changed)
+	_active_map.focus_facing_changed.connect(_on_focus_facing_changed)
+	
+	_SetWorldEnvironment()
+	_UpdateMapName()
+	
+	_map_view.map = _active_map
+	_mini_map.map = _active_map
+
+	#_viewer.entity = elist[0]
+	_active_cell_editor.map = _active_map
+	_active_cell_entities.map = _active_map
+	_AddMapEntities()
 
 # ------------------------------------------------------------------------------
 # Handler Methods
@@ -269,44 +315,25 @@ func _on_new_map_pressed():
 
 
 func _on_save_pressed():
-	if _active_map == null: return
-	var res : int = ResourceSaver.save(_active_map, "user://map.tres")
-	if res == OK:
-		print("Save Successful")
+	if _active_map == null:
+		print("No active dungeon to save.")
+		return
+	if _fd_save.visible or _fd_open.visible: return
+	_fd_save.popup_centered()
 
 func _on_load_pressed():
-	var map = ResourceLoader.load("user://map.tres")
-	if not is_instance_of(map, CrawlMap):
-		print("Failed to load map")
-		return
-	
-	# As resources are cached, it is possible we load in an already cached map.
-	# as such, I want to clear it's current focus entity for consistency sake.
-	map.clear_focus_entity()
-	
-	if _active_map != null:
-		_RemoveMap()
-	
-	var elist : Array = map.get_entities({&"type":&"Editor"})
-	if elist.size() <= 0:
-		print("Failed to find Editor entity.")
-		return
-	_active_map = map
-	_active_map.entity_added.connect(_on_entity_added)
-	_active_map.entity_removed.connect(_on_entity_removed)
-	_active_map.focus_position_changed.connect(_on_focus_position_changed)
-	_active_map.focus_facing_changed.connect(_on_focus_facing_changed)
-	
-	_SetWorldEnvironment()
-	_UpdateMapName()
-	
-	_map_view.map = _active_map
-	_mini_map.map = _active_map
+	if _fd_open.visible or _fd_save.visible: return
+	_fd_open.popup_centered()
 
-	#_viewer.entity = elist[0]
-	_active_cell_editor.map = _active_map
-	_active_cell_entities.map = _active_map
-	_AddMapEntities()
+func _on_file_selected(filepath : String, mode : StringName) -> void:
+	_fd_save.visible = false
+	_fd_open.visible = false
+	if filepath.is_empty(): return
+	match mode:
+		&"save":
+			_SaveDungeon(filepath)
+		&"load":
+			_LoadDungeon(filepath)
 
 func _on_entity_pressed() -> void:
 	if _entity_selector.visible == true : return

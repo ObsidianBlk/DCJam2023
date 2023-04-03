@@ -1,0 +1,53 @@
+[gd_resource type="Resource" script_class="CrawlMap" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/CrawlEntity.gd" id="1_4icuq"]
+[ext_resource type="Script" path="res://scripts/CrawlMap.gd" id="2_jo8ux"]
+
+[sub_resource type="Resource" id="Resource_qeun7"]
+script = ExtResource("1_4icuq")
+uuid = &"80de2a64-4062-722c-b8e3-5a40a2a56dec"
+entity_name = ""
+type = &"Editor"
+position = Vector3i(0, 0, 0)
+facing = 1
+blocking = 0
+meta = {}
+
+[sub_resource type="Resource" id="Resource_v6jnu"]
+script = ExtResource("1_4icuq")
+uuid = &"85de2a64-9014-7d89-6803-ace755ff4ade"
+entity_name = ""
+type = &"Player"
+position = Vector3i(0, 0, 0)
+facing = 1
+blocking = 63
+meta = {}
+
+[resource]
+script = ExtResource("2_jo8ux")
+name = ""
+author = ""
+world_env = &""
+grid = {
+Vector3i(0, 0, 0): {
+"blocking": 62,
+"rid": [-1, 2, 2, 2, 0, 1],
+"visited": false
+},
+Vector3i(0, 0, 1): {
+"blocking": 59,
+"rid": [3, 2, -1, 4, 0, 1],
+"visited": false
+}
+}
+entities = {
+"80de2a64-4062-722c-b8e3-5a40a2a56dec": SubResource("Resource_qeun7"),
+"85de2a64-9014-7d89-6803-ace755ff4ade": SubResource("Resource_v6jnu")
+}
+resources = {
+"ceiling_pod": 1,
+"floor_pod": 0,
+"wall_pod_a": 2,
+"wall_pod_b": 4,
+"wall_pod_c": 3
+}
