@@ -344,8 +344,8 @@ func _on_entity_created(entity : CrawlEntity) -> void:
 	if _active_map == null: return
 	if _active_map.has_entity(entity): return
 	
-	if entity.type == &"Player":
-		var elist : Array = _active_map.get_entities({&"type":&"Player"})
+	if [&"Player", &"Viewer"].find(entity.type) >= 0:
+		var elist : Array = _active_map.get_entities({&"type":entity.type})
 		if elist.size() > 0:
 			_active_map.remove_entity(elist[0])
 	

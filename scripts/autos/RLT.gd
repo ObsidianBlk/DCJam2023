@@ -14,7 +14,8 @@ const ENV_LOOKUP : Dictionary = {
 
 const ENTITIES_LOOKUP : Dictionary = {
 	&"Unique":{
-		&"Player":{&"name":&"Player Start"}
+		&"Player":{&"name":&"Player Start"},
+		&"Viewer":{&"name":&"Viewer Start"},
 	},
 	&"Mob":{
 		&"Sprout":{&"name":&"Sprout Plant"},
@@ -133,12 +134,16 @@ const LOOKUP : Dictionary = {
 	
 	&"entity":{
 		&"Editor":{
-			&"src":"res://objects/viewer/Viewer.tscn",
+			&"src":"res://objects/editor/Editor.tscn",
 			&"description":"Editor entity"
 		},
 		&"Player":{
 			&"src":"res://objects/player/Player.tscn",
 			&"description":"Player start"
+		},
+		&"Viewer":{
+			&"src":"res://objects/viewer/Viewer.tscn",
+			&"description":"Viewer Start (for menu dungeons)"
 		},
 		&"Door:Basic_Interactable":{
 			&"src":"res://objects/entity_objects/door_basic_interactable/DoorBasicInteractable.tscn",

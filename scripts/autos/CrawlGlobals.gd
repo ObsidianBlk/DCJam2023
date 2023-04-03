@@ -38,7 +38,11 @@ var _section_handlers : Dictionary = {
 			if config == null: return
 			if section.is_empty(): return
 			if not config.has_section_key(section, "look_toward_stairs") or not only_if_missing:
-				config.set_value(section, "look_toward_stairs", true))	
+				config.set_value(section, "look_toward_stairs", true)
+			if not config.has_section_key(section, "fov") or not only_if_missing:
+				config.set_value(section, "fov", 70.0)
+			if not config.has_section_key(section, "ignore_transitions") or not only_if_missing:
+				config.set_value(section, "ignore_transitions", false))
 	],
 	
 	"Dungeon_Editor":[
@@ -46,9 +50,7 @@ var _section_handlers : Dictionary = {
 			if config == null: return
 			if section.is_empty(): return
 			if not config.has_section_key(section, "ignore_collisions") or not only_if_missing:
-				config.set_value(section, "ignore_collisions", true)
-			if not config.has_section_key(section, "ignore_transitions") or not only_if_missing:
-				config.set_value(section, "ignore_transitions", false))
+				config.set_value(section, "ignore_collisions", true))
 	],
 }
 
@@ -284,10 +286,13 @@ func Get_Angle_From_Surface_To_Surface(from : SURFACE, to : SURFACE) -> float:
 # ------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------
 
+signal editor_mode_changed(enabled)
+
 var _editor_mode: bool = false
 
 func Set_Editor_Mode(enable : bool) -> void:
 	_editor_mode = enable
+	editor_mode_changed.emit(_editor_mode)
 
 func In_Editor_Mode() -> bool:
 	return _editor_mode

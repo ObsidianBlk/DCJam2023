@@ -78,7 +78,7 @@ func _SetMap(map : CrawlMap) -> void:
 func _DirectionNameToFacing(dir : StringName) -> CrawlGlobals.SURFACE:
 	var d_facing : CrawlGlobals.SURFACE = CrawlGlobals.SURFACE.Ground
 	match dir:
-		&"foreward":
+		&"foreward", &"forward":
 			d_facing = facing
 		&"backward":
 			d_facing = CrawlGlobals.Get_Adjacent_Surface(facing)
@@ -103,14 +103,15 @@ func _EntitiesBlockingAt(pos : Vector3i, surface : CrawlGlobals.SURFACE) -> bool
 				return true
 	return false
 
-func _CanMove(dir : CrawlGlobals.SURFACE) -> bool:
+func _CanMove(dir : CrawlGlobals.SURFACE, ignore_entities : bool = false) -> bool:
 	var neighbor_position : Vector3i = position + CrawlGlobals.Get_Direction_From_Surface(dir)
 	if _mapref.get_ref() == null: return false
 	var map : CrawlMap = _mapref.get_ref()
 	if map.is_cell_surface_blocking(position, dir): return false
-	if _EntitiesBlockingAt(position, dir): return false
-	var adj_dir : CrawlGlobals.SURFACE = CrawlGlobals.Get_Adjacent_Surface(dir)
-	if _EntitiesBlockingAt(neighbor_position, adj_dir): return false
+	if not ignore_entities:
+		if _EntitiesBlockingAt(position, dir): return false
+		var adj_dir : CrawlGlobals.SURFACE = CrawlGlobals.Get_Adjacent_Surface(dir)
+		if _EntitiesBlockingAt(neighbor_position, adj_dir): return false
 	return true
 
 func _Move(dir : CrawlGlobals.SURFACE, ignore_map : bool) -> int:
@@ -244,9 +245,9 @@ func get_subtype() -> String:
 func is_subtype(sub_type : StringName) -> bool:
 	return type.ends_with(":%s"%[sub_type])
 
-func can_move(dir : StringName) -> bool:
+func can_move(dir : StringName, ignore_entities : bool = false) -> bool:
 	var d_facing : CrawlGlobals.SURFACE = _DirectionNameToFacing(dir)
-	return _CanMove(d_facing)
+	return _CanMove(d_facing, ignore_entities)
 
 func move(dir : StringName, ignore_map : bool = false) -> int:
 	var d_facing : CrawlGlobals.SURFACE = _DirectionNameToFacing(dir)

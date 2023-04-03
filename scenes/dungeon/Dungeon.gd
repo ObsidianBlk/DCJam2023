@@ -2,6 +2,11 @@ extends Node3D
 
 
 # ------------------------------------------------------------------------------
+# Export Variables
+# ------------------------------------------------------------------------------
+@export var viewer_mode : bool = false
+
+# ------------------------------------------------------------------------------
 # Variables
 # ------------------------------------------------------------------------------
 var _active_map : CrawlMap = null
@@ -177,8 +182,22 @@ func _on_entity_added(entity : CrawlEntity) -> void:
 		remove_editor.call_deferred()
 		return
 	
-	if entity.type == &"Player":
-		_active_map.set_entity_as_focus(entity)
+	if viewer_mode:
+		match entity.type:
+			&"Player":
+				var remove_player : Callable = func(): _active_map.remove_entity(entity)
+				remove_player.call_deferred()
+				return
+			&"Viewer":
+				_active_map.set_entity_as_focus(entity)
+	else:
+		match entity.type:
+			&"Viewer":
+				var remove_player : Callable = func(): _active_map.remove_entity(entity)
+				remove_player.call_deferred()
+				return
+			&"Player":
+				_active_map.set_entity_as_focus(entity)
 	
 	var node = RLT.instantiate_resource(&"entity", entity.type)
 	if node == null: return

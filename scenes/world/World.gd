@@ -1,5 +1,16 @@
 extends Node3D
 
+# ------------------------------------------------------------------------------
+# Constants
+# ------------------------------------------------------------------------------
+const DEFAULT_MENU_DUNGEON : String = "res://dungeons/Menu_Map_001.tres"
+
+const DUNGEON : PackedScene = preload("res://scenes/dungeon/Dungeon.tscn")
+
+# ------------------------------------------------------------------------------
+# Variables
+# ------------------------------------------------------------------------------
+var _dungeon_object : Node3D = null
 
 # ------------------------------------------------------------------------------
 # Onready Variables
@@ -14,6 +25,12 @@ extends Node3D
 func _ready() -> void:
 	MusicBox.assign_player(_asp_music)
 	MusicBox.add_music_track("rise", "res://assets/audio/music/rise_of_the_early_dawn.ogg", true)
+	
+	_dungeon_object = DUNGEON.instantiate()
+	_dungeon_object.viewer_mode = true
+	add_child(_dungeon_object)
+	_dungeon_object.load_dungeon(DEFAULT_MENU_DUNGEON)
+	
 	_ui.request.connect(_on_ui_request)
 	_ui.show_menu("MainMenu")
 
