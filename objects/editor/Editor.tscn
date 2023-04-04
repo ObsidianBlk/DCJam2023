@@ -6,7 +6,11 @@
 
 [node name="Editor" type="Node3D"]
 script = ExtResource("1_fxlu0")
+movement_queue_size = 4
 body_node_path = NodePath("Facing")
+quarter_turn_time = 0.4
+climb_time = 0.4
+fall_time = 0.4
 
 [node name="Reference" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

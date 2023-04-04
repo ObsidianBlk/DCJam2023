@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://e20a0pauiira"]
+
+[ext_resource type="PackedScene" uid="uid://b00s1yxcpk1c3" path="res://assets/models/Planet_Exterior/Cliff_B.glb" id="1_8vnlv"]
+
+[node name="Cliff_B" type="Node3D"]
+
+[node name="Cliff_B" parent="." instance=ExtResource("1_8vnlv")]

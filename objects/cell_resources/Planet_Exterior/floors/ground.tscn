@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3jonng02k54f"]
+
+[ext_resource type="PackedScene" uid="uid://dx4xynfghvcd8" path="res://assets/models/Planet_Exterior/Ground.glb" id="1_kohcx"]
+
+[node name="Ground" type="Node3D"]
+
+[node name="Ground" parent="." instance=ExtResource("1_kohcx")]

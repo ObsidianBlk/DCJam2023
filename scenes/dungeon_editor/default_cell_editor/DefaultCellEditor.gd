@@ -110,7 +110,7 @@ func _ready() -> void:
 # ------------------------------------------------------------------------------
 func _UpdateResourceViews() -> void:
 	var set_res : Callable = func(view : Control, type : StringName, res : StringName):
-		if not RLT.has_resource(type, res): return
+		if type != &"" and res != &"" and not RLT.has_resource(type, res): return
 		if view == null: return
 		if not view.is_resource(type, res):
 			view.set_resource(type, res)
@@ -155,6 +155,13 @@ func _UpdateSetSelectionList() -> void:
 func _on_surface_pressed(section_name : StringName, surface : CrawlGlobals.SURFACE) -> void:
 	if not RLT.has_section(section_name): return
 	_resource_options.clear()
+
+	_resource_options.add_item("Empty")
+	_resource_options.set_item_metadata(0, {
+		&"section":section_name,
+		&"resource_name":&"",
+		&"surface":surface
+	})
 
 	for item in RLT.get_resource_list(section_name):
 		var idx : int = _resource_options.item_count

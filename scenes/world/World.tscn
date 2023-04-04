@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://4nffi6fxju2j"]
+[gd_scene load_steps=7 format=3 uid="uid://4nffi6fxju2j"]
 
 [ext_resource type="Script" path="res://scenes/world/World.gd" id="1_f50yl"]
 [ext_resource type="PackedScene" uid="uid://ch62t1oie4k6c" path="res://scenes/world/effect_layer/EffectLayer.tscn" id="1_kk3bi"]
 [ext_resource type="Texture2D" uid="uid://dlvo333udoiwd" path="res://assets/textures/transition_masks/MaskA.png" id="2_2etpx"]
 [ext_resource type="Script" path="res://scenes/world/ui/UI.gd" id="3_22vqo"]
 [ext_resource type="PackedScene" uid="uid://dlqx0w5e6q15t" path="res://scenes/world/ui/main_menu/MainMenu.tscn" id="4_p0hmk"]
+[ext_resource type="PackedScene" uid="uid://csrpxhtxb71gb" path="res://scenes/world/ui/options_menu/OptionsMenu.tscn" id="6_yl4a0"]
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_f50yl")
@@ -17,5 +18,7 @@ layer = 10
 script = ExtResource("3_22vqo")
 
 [node name="MainMenu" parent="UI" instance=ExtResource("4_p0hmk")]
+
+[node name="OptionsMenu" parent="UI" instance=ExtResource("6_yl4a0")]
 
 [node name="ASP_Music" type="AudioStreamPlayer" parent="."]

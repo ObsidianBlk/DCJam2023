@@ -82,6 +82,10 @@ const LOOKUP : Dictionary = {
 			&"src":"res://objects/cell_resources/POD/floors/Floor_POD.tscn",
 			&"description":"Escape Pod Floor"
 		},
+		&"planet_ground":{
+			&"src":"res://objects/cell_resources/Planet_Exterior/floors/ground.tscn",
+			&"description":"Planet Exterior Sandy Ground"
+		},
 	},
 	&"ceiling":{
 		&"tileA":{
@@ -125,6 +129,14 @@ const LOOKUP : Dictionary = {
 		&"wall_pod_c":{
 			&"src":"res://objects/cell_resources/POD/walls/Wall_PodC.tscn",
 			&"description":"Escape Pod Wall with Screen"
+		},
+		&"wall_planet_cliff_a":{
+			&"src":"res://objects/cell_resources/Planet_Exterior/walls/Cliff_A.tscn",
+			&"description":"Planet Exterior Cliff A"
+		},
+		&"wall_planet_cliff_b":{
+			&"src":"res://objects/cell_resources/Planet_Exterior/walls/Cliff_B.tscn",
+			&"description":"Planet Exterior Cliff B"
 		},
 	},
 	&"stair":{

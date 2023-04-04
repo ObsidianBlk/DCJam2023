@@ -20,7 +20,7 @@ func _ready() -> void:
 # Public Methods
 # ------------------------------------------------------------------------------
 func show_menu(menu_name : String) -> void:
-	if not get_children().any(func(c : Control): return c.name == menu_name): return
+	#if not get_children().any(func(c : Control): return c.name == menu_name): return
 	for child in get_children():
 		if child.has_method(&"show_menu"):
 			child.show_menu(menu_name)

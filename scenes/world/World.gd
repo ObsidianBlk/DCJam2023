@@ -5,6 +5,8 @@ extends Node3D
 # ------------------------------------------------------------------------------
 const DEFAULT_MENU_DUNGEON : String = "res://dungeons/Menu_Map_001.tres"
 
+const FIRST_DUNGEON : String = "res://dungeons/CrashedPod.tres"
+
 const DUNGEON : PackedScene = preload("res://scenes/dungeon/Dungeon.tscn")
 
 # ------------------------------------------------------------------------------
@@ -24,7 +26,7 @@ var _dungeon_object : Node3D = null
 # ------------------------------------------------------------------------------
 func _ready() -> void:
 	MusicBox.assign_player(_asp_music)
-	MusicBox.add_music_track("rise", "res://assets/audio/music/rise_of_the_early_dawn.ogg", true)
+	MusicBox.add_music_track("rise", "res://assets/audio/music/rise_of_the_early_dawn.ogg", false)
 	
 	_dungeon_object = DUNGEON.instantiate()
 	_dungeon_object.viewer_mode = true
@@ -42,3 +44,7 @@ func _on_ui_request(req : Dictionary) -> void:
 	match req["request"]:
 		&"quit_application":
 			get_tree().quit()
+		&"start_game":
+			_dungeon_object.viewer_mode = false
+			_dungeon_object.load_dungeon(FIRST_DUNGEON)
+			_ui.show_menu("")

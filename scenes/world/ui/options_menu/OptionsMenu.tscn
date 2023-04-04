@@ -1,0 +1,165 @@
+[gd_scene load_steps=3 format=3 uid="uid://csrpxhtxb71gb"]
+
+[ext_resource type="Theme" uid="uid://caum3sr1cyurt" path="res://scenes/world/ui/themes/core.theme" id="1_r4n32"]
+[ext_resource type="Script" path="res://scenes/world/ui/options_menu/OptionsMenu.gd" id="2_vqt12"]
+
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_r4n32")
+script = ExtResource("2_vqt12")
+
+[node name="OptionGroups" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+theme_type_variation = &"TranslucentPanel_L"
+
+[node name="Options_List" type="VBoxContainer" parent="OptionGroups"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="OptionGroups/Options_List"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SectionGraphics" type="Button" parent="OptionGroups/Options_List"]
+layout_mode = 2
+text = "Graphics"
+
+[node name="SectionGameplay" type="Button" parent="OptionGroups/Options_List"]
+layout_mode = 2
+text = "Gameplay"
+
+[node name="Spacer2" type="Control" parent="OptionGroups/Options_List"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Apply" type="Button" parent="OptionGroups/Options_List"]
+layout_mode = 2
+text = "Apply"
+
+[node name="Reset" type="Button" parent="OptionGroups/Options_List"]
+layout_mode = 2
+text = "Reset"
+
+[node name="Margins" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+theme_override_constants/margin_left = 128
+
+[node name="Gameplay" type="PanelContainer" parent="Margins"]
+visible = false
+layout_mode = 2
+theme_type_variation = &"TranslucentPanel_R"
+
+[node name="Layout" type="VBoxContainer" parent="Margins/Gameplay"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Margins/Gameplay/Layout"]
+layout_mode = 2
+text = "Gameplay Options"
+
+[node name="HSeparator" type="HSeparator" parent="Margins/Gameplay/Layout"]
+layout_mode = 2
+
+[node name="IgnoreTransition" type="CheckButton" parent="Margins/Gameplay/Layout"]
+layout_mode = 2
+text = "Instant Movement:"
+flat = true
+
+[node name="LookStairs" type="CheckButton" parent="Margins/Gameplay/Layout"]
+layout_mode = 2
+text = "Look During Stair Transition:"
+flat = true
+
+[node name="FOV" type="HBoxContainer" parent="Margins/Gameplay/Layout"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Margins/Gameplay/Layout/FOV"]
+layout_mode = 2
+text = "  Field of View: "
+
+[node name="LineEdit_FOV" type="LineEdit" parent="Margins/Gameplay/Layout/FOV"]
+layout_mode = 2
+
+[node name="Audio" type="PanelContainer" parent="Margins"]
+visible = false
+layout_mode = 2
+theme_type_variation = &"TranslucentPanel_R"
+
+[node name="Layout" type="VBoxContainer" parent="Margins/Audio"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Margins/Audio/Layout"]
+layout_mode = 2
+text = "Audio Options"
+
+[node name="HSeparator" type="HSeparator" parent="Margins/Audio/Layout"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="Margins/Audio/Layout"]
+layout_mode = 2
+columns = 2
+
+[node name="Label_Master" type="Label" parent="Margins/Audio/Layout/GridContainer"]
+layout_mode = 2
+text = "Master: "
+
+[node name="HSlider_Master" type="HSlider" parent="Margins/Audio/Layout/GridContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label_SFX" type="Label" parent="Margins/Audio/Layout/GridContainer"]
+layout_mode = 2
+text = "SFX:"
+
+[node name="HSlider_SFX" type="HSlider" parent="Margins/Audio/Layout/GridContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label_Music" type="Label" parent="Margins/Audio/Layout/GridContainer"]
+layout_mode = 2
+text = "Music:"
+
+[node name="HSlider_Music" type="HSlider" parent="Margins/Audio/Layout/GridContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Graphics" type="PanelContainer" parent="Margins"]
+visible = false
+layout_mode = 2
+theme_type_variation = &"TranslucentPanel_R"
+
+[node name="Layout" type="VBoxContainer" parent="Margins/Graphics"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Margins/Graphics/Layout"]
+layout_mode = 2
+text = "Graphic Options"
+
+[node name="HSeparator" type="HSeparator" parent="Margins/Graphics/Layout"]
+layout_mode = 2
+
+[node name="SSAO" type="CheckButton" parent="Margins/Graphics/Layout"]
+layout_mode = 2
+text = "SSAO Enabled:"
+flat = true
+
+[node name="SSIL" type="CheckButton" parent="Margins/Graphics/Layout"]
+layout_mode = 2
+text = "SSIL Enabled:"
+flat = true
