@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2bjhi2d8sgmc"]
+
+[ext_resource type="PackedScene" uid="uid://dwpneqwiu1wia" path="res://assets/models/Planet_Exterior/Cliff_A.glb" id="1_l2snx"]
+[ext_resource type="PackedScene" uid="uid://dx4xynfghvcd8" path="res://assets/models/Planet_Exterior/Ground.glb" id="2_7vntu"]
+[ext_resource type="Environment" uid="uid://bf47phqbwo5hs" path="res://objects/world_environments/default.tres" id="3_256nb"]
+
+[node name="ExperimentScene" type="Node3D"]
+
+[node name="Cliff_A" parent="." instance=ExtResource("1_l2snx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.5)
+
+[node name="Cliff_A2" parent="." instance=ExtResource("1_l2snx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -2.5)
+
+[node name="Cliff_A3" parent="." instance=ExtResource("1_l2snx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -2.5)
+
+[node name="Ground" parent="." instance=ExtResource("2_7vntu")]
+
+[node name="Ground4" parent="." instance=ExtResource("2_7vntu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="Ground2" parent="." instance=ExtResource("2_7vntu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+
+[node name="Ground5" parent="." instance=ExtResource("2_7vntu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 5)
+
+[node name="Ground3" parent="." instance=ExtResource("2_7vntu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+
+[node name="Ground6" parent="." instance=ExtResource("2_7vntu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 5)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("3_256nb")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 4, 2)

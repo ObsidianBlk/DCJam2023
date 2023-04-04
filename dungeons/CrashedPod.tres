@@ -38,8 +38,8 @@ script = ExtResource("1_eyt8x")
 uuid = &"a34c2b64-a0df-7428-24e5-ee4f3496ad55"
 entity_name = ""
 type = &"Editor"
-position = Vector3i(1, 0, 0)
-facing = 4
+position = Vector3i(3, 0, -1)
+facing = 1
 blocking = 0
 meta = {}
 
@@ -205,7 +205,7 @@ Vector3i(-1, 0, -1): {
 "visited": false
 },
 Vector3i(-1, 0, 0): {
-"blocking": 48,
+"blocking": 56,
 "rid": [-1, -1, -1, 2, 6, 50],
 "visited": false
 },
@@ -270,7 +270,7 @@ Vector3i(0, 0, -2): {
 "visited": false
 },
 Vector3i(0, 0, -1): {
-"blocking": 48,
+"blocking": 49,
 "rid": [2, -1, -1, -1, 6, 53],
 "visited": false
 },
@@ -351,7 +351,7 @@ Vector3i(1, 0, -1): {
 "visited": false
 },
 Vector3i(1, 0, 0): {
-"blocking": 48,
+"blocking": 50,
 "rid": [-1, 2, -1, -1, 6, 51],
 "visited": false
 },

@@ -42,3 +42,6 @@ focus_icon = ExtResource("3_37sat")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 unique_name_in_owner = true
 environment = SubResource("Environment_ygt5i")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 0, 0)

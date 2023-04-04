@@ -215,6 +215,9 @@ filters = PackedStringArray("*.tres ; Dungeon Map Resource")
 unique_name_in_owner = true
 environment = SubResource("Environment_xk0rt")
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 0, 0)
+
 [connection signal="pressed" from="UI/Editor/OptionsBar/HBoxContainer/NewMap" to="." method="_on_new_map_pressed"]
 [connection signal="pressed" from="UI/Editor/OptionsBar/HBoxContainer/Load" to="." method="_on_load_pressed"]
 [connection signal="pressed" from="UI/Editor/OptionsBar/HBoxContainer/Save" to="." method="_on_save_pressed"]
