@@ -18,6 +18,24 @@ var _max_track_delay : float = 6.0
 var _play_continuous : bool = false
 
 # ------------------------------------------------------------------------------
+# Override Methods
+# ------------------------------------------------------------------------------
+func _ready() -> void:
+	CrawlGlobals.crawl_config_loaded.connect(_on_config_reset)
+	CrawlGlobals.crawl_config_reset.connect(_on_config_reset)
+	CrawlGlobals.crawl_config_value_changed.connect(_on_config_value_changed)
+	CrawlGlobals.Register_Config_Section_Handler("Audio", (func(config : ConfigFile, section : String, only_if_missing : bool = false):
+		if config == null: return
+		if section.is_empty(): return
+		if not config.has_section_key(section, "master_volume") or not only_if_missing:
+			config.set_value(section, "master_volume", 1.0)
+		if not config.has_section_key(section, "music_volume") or not only_if_missing:
+			config.set_value(section, "music_volume", 1.0)
+		if not config.has_section_key(section, "sfx_volume") or not only_if_missing:
+			config.set_value(section, "sfx_volume", 1.0)), true)
+	_on_config_reset()
+
+# ------------------------------------------------------------------------------
 # Private Methods
 # ------------------------------------------------------------------------------
 func _FadeTo(player : AudioStreamPlayer, from_volume : float, to_volume : float) -> int:
@@ -118,6 +136,28 @@ func get_playing_title(include_not_playing : bool = false) -> String:
 # ------------------------------------------------------------------------------
 # Handler Methods
 # ------------------------------------------------------------------------------
+func _on_config_reset(section : String = "") -> void:
+	var value : float = CrawlGlobals.Get_Config_Value("Audio", "master_volume", 1.0)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(value))
+	value = CrawlGlobals.Get_Config_Value("Audio", "music_volume", 1.0)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(value))
+	value = CrawlGlobals.Get_Config_Value("Audio", "sfx_volume", 1.0)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(value))
+
+func _on_config_value_changed(section : String, key : String, value : Variant) -> void:
+	if section != "Audio": return
+	match key:
+		"master_volume":
+			if typeof(value) == TYPE_FLOAT:
+				AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(value))
+		"music_volume":
+			if typeof(value) == TYPE_FLOAT:
+				AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(value))
+		"sfx_volume":
+			if typeof(value) == TYPE_FLOAT:
+				AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(value))
+
+
 func _on_player_finished() -> void:
 	music_finished.emit(get_playing_title(true))
 	if _play_continuous:

@@ -3,6 +3,8 @@ extends Node3D
 # ------------------------------------------------------------------------------
 # Constants
 # ------------------------------------------------------------------------------
+const CONFIG_PATH : String = "user://crawl.ini"
+
 const DEFAULT_MENU_DUNGEON : String = "res://dungeons/Menu_Map_001.tres"
 
 const FIRST_DUNGEON : String = "res://dungeons/CrashedPod.tres"
@@ -26,7 +28,11 @@ var _dungeon_object : Node3D = null
 # ------------------------------------------------------------------------------
 func _ready() -> void:
 	MusicBox.assign_player(_asp_music)
-	MusicBox.add_music_track("rise", "res://assets/audio/music/rise_of_the_early_dawn.ogg", false)
+	MusicBox.add_music_track("rise", "res://assets/audio/music/rise_of_the_early_dawn.ogg", true)
+	
+	if CrawlGlobals.Load_Config(CONFIG_PATH) != OK:
+		CrawlGlobals.Reset_Config()
+		CrawlGlobals.Save_Config(CONFIG_PATH)
 	
 	_dungeon_object = DUNGEON.instantiate()
 	_dungeon_object.viewer_mode = true

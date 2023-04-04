@@ -27,11 +27,18 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="SectionAudio" type="Button" parent="OptionGroups/Options_List"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Audio"
+
 [node name="SectionGraphics" type="Button" parent="OptionGroups/Options_List"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Graphics"
 
 [node name="SectionGameplay" type="Button" parent="OptionGroups/Options_List"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Gameplay"
 
@@ -46,6 +53,10 @@ text = "Apply"
 [node name="Reset" type="Button" parent="OptionGroups/Options_List"]
 layout_mode = 2
 text = "Reset"
+
+[node name="Back" type="Button" parent="OptionGroups/Options_List"]
+layout_mode = 2
+text = "Back"
 
 [node name="Margins" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -74,12 +85,26 @@ text = "Gameplay Options"
 layout_mode = 2
 
 [node name="IgnoreTransition" type="CheckButton" parent="Margins/Gameplay/Layout"]
+unique_name_in_owner = true
 layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../FOV/HSlider_FOV")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../LookStairs")
+focus_next = NodePath("../LookStairs")
+focus_previous = NodePath("../FOV/HSlider_FOV")
 text = "Instant Movement:"
 flat = true
 
 [node name="LookStairs" type="CheckButton" parent="Margins/Gameplay/Layout"]
+unique_name_in_owner = true
 layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../IgnoreTransition")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../FOV/HSlider_FOV")
+focus_next = NodePath("../FOV/HSlider_FOV")
+focus_previous = NodePath("../IgnoreTransition")
 text = "Look During Stair Transition:"
 flat = true
 
@@ -90,8 +115,30 @@ layout_mode = 2
 layout_mode = 2
 text = "  Field of View: "
 
-[node name="LineEdit_FOV" type="LineEdit" parent="Margins/Gameplay/Layout/FOV"]
+[node name="HSlider_FOV" type="HSlider" parent="Margins/Gameplay/Layout/FOV"]
+unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../../LookStairs")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../../IgnoreTransition")
+focus_next = NodePath("../../IgnoreTransition")
+focus_previous = NodePath("../../LookStairs")
+min_value = 60.0
+max_value = 120.0
+value = 60.0
+
+[node name="Label_FOV_Value" type="Label" parent="Margins/Gameplay/Layout/FOV/HSlider_FOV"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 26.0
+grow_horizontal = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Audio" type="PanelContainer" parent="Margins"]
 visible = false
@@ -117,27 +164,48 @@ layout_mode = 2
 text = "Master: "
 
 [node name="HSlider_Master" type="HSlider" parent="Margins/Audio/Layout/GridContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
 size_flags_vertical = 4
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../HSlider_Music")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../HSlider_SFX")
+focus_next = NodePath("../HSlider_SFX")
+focus_previous = NodePath("../HSlider_Music")
 
 [node name="Label_SFX" type="Label" parent="Margins/Audio/Layout/GridContainer"]
 layout_mode = 2
 text = "SFX:"
 
 [node name="HSlider_SFX" type="HSlider" parent="Margins/Audio/Layout/GridContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
 size_flags_vertical = 4
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../HSlider_Master")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../HSlider_Music")
+focus_next = NodePath("../HSlider_Music")
+focus_previous = NodePath("../HSlider_Master")
 
 [node name="Label_Music" type="Label" parent="Margins/Audio/Layout/GridContainer"]
 layout_mode = 2
 text = "Music:"
 
 [node name="HSlider_Music" type="HSlider" parent="Margins/Audio/Layout/GridContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
 size_flags_vertical = 4
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../HSlider_SFX")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../HSlider_Master")
+focus_next = NodePath("../HSlider_Master")
+focus_previous = NodePath("../HSlider_SFX")
 
 [node name="Graphics" type="PanelContainer" parent="Margins"]
 visible = false
@@ -156,10 +224,29 @@ layout_mode = 2
 
 [node name="SSAO" type="CheckButton" parent="Margins/Graphics/Layout"]
 layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../SSIL")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../SSIL")
+focus_next = NodePath("../SSIL")
+focus_previous = NodePath("../SSIL")
 text = "SSAO Enabled:"
 flat = true
 
 [node name="SSIL" type="CheckButton" parent="Margins/Graphics/Layout"]
 layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../SSAO")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../SSAO")
+focus_next = NodePath("../SSAO")
+focus_previous = NodePath("../SSAO")
 text = "SSIL Enabled:"
 flat = true
+
+[connection signal="pressed" from="OptionGroups/Options_List/SectionAudio" to="." method="_on_section_audio_pressed"]
+[connection signal="pressed" from="OptionGroups/Options_List/SectionGraphics" to="." method="_on_section_graphics_pressed"]
+[connection signal="pressed" from="OptionGroups/Options_List/SectionGameplay" to="." method="_on_section_gameplay_pressed"]
+[connection signal="pressed" from="OptionGroups/Options_List/Apply" to="." method="_on_apply_pressed"]
+[connection signal="pressed" from="OptionGroups/Options_List/Reset" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="OptionGroups/Options_List/Back" to="." method="_on_back_pressed"]

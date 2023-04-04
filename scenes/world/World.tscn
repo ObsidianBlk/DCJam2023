@@ -22,3 +22,4 @@ script = ExtResource("3_22vqo")
 [node name="OptionsMenu" parent="UI" instance=ExtResource("6_yl4a0")]
 
 [node name="ASP_Music" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
