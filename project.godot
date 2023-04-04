@@ -23,6 +23,7 @@ RLT="*res://scripts/autos/RLT.gd"
 CrawlGlobals="*res://scripts/autos/CrawlGlobals.gd"
 CrawlTriggerRelay="*res://scripts/autos/CrawlTriggerRelay.gd"
 MusicBox="*res://scripts/autos/MusicBox.gd"
+Scheduler="*res://scripts/autos/Scheduler.gd"
 
 [input]
 

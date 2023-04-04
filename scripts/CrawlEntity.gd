@@ -14,6 +14,9 @@ signal meta_value_removed(key)
 signal interaction(entity)
 signal attacked(dmg, type)
 
+signal schedule_started(data)
+signal schedule_ended(data)
+
 
 # ------------------------------------------------------------------------------
 # Export Variables
@@ -275,6 +278,16 @@ func get_adjacent_entities(options : Dictionary = {}) -> Array:
 	var neighbor_position : Vector3i = position + CrawlGlobals.Get_Direction_From_Surface(facing)
 	options[&"position"] = neighbor_position
 	return get_entities(options)
+
+func schedule_start(data : Dictionary = {}) -> void:
+	# This is mostly a helper method to communicate to the owning
+	# CrawlEntityNode3D node.
+	schedule_started.emit(data)
+
+func schedule_end(data : Dictionary = {}) -> void:
+	# This is mostly a helper method to communicate to a 'Scheduler' script that
+	# facilitates entity schedules.
+	schedule_ended.emit(data)
 
 func interact(entity : CrawlEntity) -> void:
 	interaction.emit(entity)

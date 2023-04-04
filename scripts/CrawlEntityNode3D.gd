@@ -44,6 +44,9 @@ var _movement_queue : Array = []
 var _editor_mode : bool = false
 var _entity_direct_update : bool = false
 
+var _schedule_movement_locking : bool = false
+var _movement_locked : bool = false
+
 # ------------------------------------------------------------------------------
 # Setters
 # ------------------------------------------------------------------------------
@@ -55,6 +58,10 @@ func set_entity(ent : CrawlEntity) -> void:
 				entity.position_changed.disconnect(_on_position_changed)
 			if entity.facing_changed.is_connected(_on_facing_changed):
 				entity.facing_changed.disconnect(_on_facing_changed)
+			if entity.schedule_started.is_connected(_on_ce_schedule_started):
+				entity.schedule_started.disconnect(_on_ce_schedule_started)
+			if entity.schedule_ended.is_connected(_on_ce_schedule_ended):
+				entity.schedule_ended.disconnect(_on_ce_schedule_ended)
 		
 		entity = ent
 		if entity != null:
@@ -63,6 +70,11 @@ func set_entity(ent : CrawlEntity) -> void:
 					entity.position_changed.connect(_on_position_changed)
 				if not entity.facing_changed.is_connected(_on_facing_changed):
 					entity.facing_changed.connect(_on_facing_changed)
+				if _schedule_movement_locking:
+					if not entity.schedule_started.is_connected(_on_ce_schedule_started):
+						entity.schedule_started.connect(_on_ce_schedule_started)
+					if not entity.schedule_ended.is_connected(_on_ce_schedule_ended):
+						entity.schedule_ended.connect(_on_ce_schedule_ended)
 			position = Vector3(entity.position) * CELL_SIZE
 			face(entity.facing, true)
 		
@@ -103,6 +115,14 @@ func _AddToQueue(next : Callable) -> void:
 	if _movement_queue.size() < movement_queue_size:
 		_movement_queue.push_back(next)
 
+func _ProcessQueue() -> void:
+	if movement_queue_size <= 0 or _movement_queue.size() <= 0: return
+	movement_queue_update.emit(_movement_queue.size() - 1)
+	# Because it's possible, after the emitted signal, that the movement queue is flushed...
+	if _movement_queue.size() <= 0: return
+	var next : Callable = _movement_queue.pop_front()
+	next.call()
+
 # ------------------------------------------------------------------------------
 # Public Methods
 # ------------------------------------------------------------------------------
@@ -136,7 +156,7 @@ func face(surface : CrawlGlobals.SURFACE, ignore_transition : bool = false) -> v
 		return
 	var body : Node3D = _GetBodyNode()
 	if body == null: return
-	if _tween != null:
+	if _movement_locked or _tween != null:
 		_AddToQueue(face.bind(surface, ignore_transition))
 		return
 	
@@ -154,7 +174,7 @@ func face(surface : CrawlGlobals.SURFACE, ignore_transition : bool = false) -> v
 func turn(dir : int, ignore_transition : bool = false) -> void:
 	if _entity_direct_update: return
 	if entity == null: return
-	if _tween != null:
+	if _movement_locked or _tween != null:
 		_AddToQueue(turn.bind(dir, ignore_transition))
 		return
 	match dir:
@@ -168,7 +188,7 @@ func turn(dir : int, ignore_transition : bool = false) -> void:
 func move(direction : StringName, ignore_collision : bool = false, ignore_transition : bool = false) -> void:
 	if _entity_direct_update: return
 	if entity == null: return
-	if _tween != null:
+	if _movement_locked or _tween != null:
 		_AddToQueue(move.bind(direction, ignore_collision, ignore_transition))
 		return
 	
@@ -232,6 +252,23 @@ func move(direction : StringName, ignore_collision : bool = false, ignore_transi
 			_tween.tween_property(self, "position", target, climb_time * 0.5)
 		_tween.finished.connect(_on_tween_completed.bind(entity.facing, target))
 
+func enable_schedule_movement_locking(enable : bool) -> void:
+	_schedule_movement_locking = enable
+	if entity == null: return
+	if _schedule_movement_locking:
+		if not entity.schedule_started.is_connected(_on_ce_schedule_started):
+			entity.schedule_started.connect(_on_ce_schedule_started)
+		if not entity.schedule_ended.is_connected(_on_ce_schedule_ended):
+			entity.schedule_ended.connect(_on_ce_schedule_ended)
+	else:
+		if entity.schedule_started.is_connected(_on_ce_schedule_started):
+			entity.schedule_started.disconnect(_on_ce_schedule_started)
+		if entity.schedule_ended.is_connected(_on_ce_schedule_ended):
+			entity.schedule_ended.disconnect(_on_ce_schedule_ended)
+
+func is_schedule_movement_locking_enabled() -> bool:
+	return _schedule_movement_locking
+
 # ------------------------------------------------------------------------------
 # Handler Methods
 # ------------------------------------------------------------------------------
@@ -254,14 +291,13 @@ func _on_tween_completed(surface : CrawlGlobals.SURFACE, target_position : Vecto
 	position = Vector3(target_position)
 	transition_complete.emit()
 	
-	if movement_queue_size <= 0 or _movement_queue.size() <= 0: return
-	movement_queue_update.emit(_movement_queue.size() - 1)
-	# Because it's possible, after the emitted signal, that the movement queue is flushed...
-	if _movement_queue.size() <= 0: return
-	var next : Callable = _movement_queue.pop_front()
-	next.call()
+	_ProcessQueue()
 
+func _on_ce_schedule_started(data : Dictionary) -> void:
+	_movement_locked = false
+	_ProcessQueue()
 
-
+func _on_ce_schedule_ended(data : Dictionary) -> void:
+	_movement_locked = true
 
 

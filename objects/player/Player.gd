@@ -185,16 +185,35 @@ func _on_editor_mode_changed(enabled : bool) -> void:
 	use_entity_direct_update(enabled)
 	set_process_unhandled_input(not enabled)
 	set_process(not enabled)
+	enable_schedule_movement_locking(not enabled)
 	if enabled:
 		if transition_started.is_connected(_on_transition_started):
 			transition_started.disconnect(_on_transition_started)
 		if transition_complete.is_connected(_on_transition_completed):
 			transition_complete.disconnect(_on_transition_completed)
+		if entity_changing.is_connected(_on_player_entity_changing):
+			entity_changing.disconnect(_on_player_entity_changing)
+		if entity_changed.is_connected(_on_player_entity_changed):
+			entity_changed.disconnect(_on_player_entity_changed)
 	else:
 		if not transition_started.is_connected(_on_transition_started):
 			transition_started.connect(_on_transition_started)
 		if not transition_complete.is_connected(_on_transition_completed):
 			transition_complete.connect(_on_transition_completed)
+		if not entity_changing.is_connected(_on_player_entity_changing):
+			entity_changing.connect(_on_player_entity_changing)
+		if not entity_changed.is_connected(_on_player_entity_changed):
+			entity_changed.connect(_on_player_entity_changed)
+		if entity != null:
+			_on_player_entity_changed()
+
+func _on_player_entity_changing() -> void:
+	if entity == null: return
+	Scheduler.remove_registered_primary()
+
+func _on_player_entity_changed() -> void:
+	if entity == null: return
+	Scheduler.register_primary_entity(entity)
 
 func _on_transition_started(direction : StringName) -> void:
 	match direction:
@@ -216,3 +235,7 @@ func _on_transition_completed() -> void:
 		#   So we'll just fall!
 		clear_movement_queue()
 		move(&"down")
+	else:
+		entity.schedule_end()
+
+
