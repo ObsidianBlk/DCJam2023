@@ -1,6 +1,6 @@
 # (D)ictionary (S)chema (V)erifier
 # Author: Bryan Miller
-# Version: 0.0.5
+# Version: 0.0.6
 #
 # The intent of this script is to allow users to validate the data contained in
 # a dictionary against a specially formatted schema dictionary.
@@ -159,6 +159,29 @@ static func _VerifyArrayValue(val : Array, def : Dictionary, state : Dictionary)
 			printerr("VALIDATION WARNING [", base_path, "]: Referencing undefined sub-schema \"", def[&"item_ref"], "\". Validation may be effected.")
 	elif &"item" in def:
 		idef = def[&"item"]
+	
+	if &"size" in def:
+		if typeof(def[&"size"]) != TYPE_INT:
+			printerr("VALIDATION ERROR [", base_path, "]: Schema property 'size' invalid type.")
+			return ERR_INVALID_DECLARATION
+		if val.size() != def[&"size"]:
+			printerr("VALIDATION ERROR [", base_path, "]: Array size does not match expected size.")
+			return ERR_PARAMETER_RANGE_ERROR
+	else:
+		if &"size_min" in def:
+			if typeof(def[&"size_min"]) != TYPE_INT:
+				printerr("VALIDATION ERROR [", base_path, "]: Schema property 'size_min' invalid type.")
+				return ERR_INVALID_DECLARATION
+			if val.size() < def[&"size_min"]:
+				printerr("VALIDATION ERROR [", base_path, "]: Array size below minimum.")
+				return ERR_PARAMETER_RANGE_ERROR
+		if &"size_max" in def:
+			if typeof(def[&"size_max"]) != TYPE_INT:
+				printerr("VALIDATION ERROR [", base_path, "]: Schema property 'size_max' invalid type.")
+				return ERR_INVALID_DECLARATION
+			if val.size() > def[&"size_max"]:
+				printerr("VALIDATION ERROR [", base_path, "]: Array size above maximum.")
+				return ERR_PARAMETER_RANGE_ERROR
 	
 	if not idef.is_empty():
 		for i in range(val.size()):

@@ -5,6 +5,7 @@ class_name PlayerData
 # ------------------------------------------------------------------------------
 # Signals
 # ------------------------------------------------------------------------------
+signal data_loaded()
 signal fruits_changed(amount)
 signal oxy_changed(oxy, maxoxy)
 signal blob_added(idx)
@@ -28,6 +29,12 @@ const SUFFICATION_DAMAGE : float = 24.0
 
 const BLOB_DEFENSE_MULTIPLIER : float = 0.5
 
+const DATA_SCHEMA = {
+	"hp":{&"req":true, &"type":TYPE_ARRAY, &"size":4, &"items":{&"type": TYPE_FLOAT}},
+	"oxy":{&"req":true, &"type":TYPE_FLOAT, &"min":0.0},
+	"fruits":{&"req":true, &"type":TYPE_INT, &"min":0},
+	"scrap":{&"req":true, &"type":TYPE_INT, &"min":0}
+}
 
 # ------------------------------------------------------------------------------
 # "Export" Variables
@@ -39,6 +46,41 @@ var _data : Dictionary = {
 	"scrap":0,
 }
 
+# ------------------------------------------------------------------------------
+# Override Methods
+# ------------------------------------------------------------------------------
+func _get(property : StringName) -> Variant:
+	match property:
+		&"data":
+			return _data
+	return null
+
+func _set(property : StringName, value : Variant) -> bool:
+	var success : bool = false
+	match property:
+		&"data":
+			if typeof(value) == TYPE_DICTIONARY:
+				if DSV.verify(value, DATA_SCHEMA) == OK:
+					_data = value
+					var e : Callable = func(): data_loaded.emit()
+					e.call_deferred()
+					success = true
+			
+	return success
+
+func _get_property_list() -> Array:
+	return [
+		{
+			name = "Player Data",
+			type = TYPE_NIL,
+			usage = PROPERTY_USAGE_CATEGORY
+		},
+		{
+			name = "data",
+			type = TYPE_DICTIONARY,
+			usage = PROPERTY_USAGE_STORAGE
+		}
+	]
 
 # ------------------------------------------------------------------------------
 # Private Methods
@@ -55,6 +97,11 @@ func _RandomActiveBlobIndex() -> int:
 # ------------------------------------------------------------------------------
 # Public Methods
 # ------------------------------------------------------------------------------
+func is_alive() -> bool:
+	for i in range(_data["hp"].size()):
+		if _data["hp"][i] > 0: return true
+	return false
+
 func blob_count() -> int:
 	var count = 0
 	for i in range(_data["hp"].size()):
