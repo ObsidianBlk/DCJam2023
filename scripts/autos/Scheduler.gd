@@ -5,6 +5,7 @@ extends Node
 # Signals
 # ------------------------------------------------------------------------------
 signal primary_entity_active()
+signal primary_entity_deactive() # NOTE: I already use _active() in a few places. Easier to add a new signals than update the old one
 
 # ------------------------------------------------------------------------------
 # Variables
@@ -109,6 +110,7 @@ func _on_prime_schedule_started(data : Dictionary) -> void:
 
 func _on_primary_schedule_ended(data : Dictionary) -> void:
 	_primary_active = false
+	primary_entity_deactive.emit()
 	_CleanEntityList()
 	var eh : Dictionary = _GetPriorityHashedEntityDict()
 	if eh.is_empty():

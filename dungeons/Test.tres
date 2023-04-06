@@ -1,0 +1,69 @@
+[gd_resource type="Resource" script_class="CrawlMap" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/CrawlEntity.gd" id="1_644kb"]
+[ext_resource type="Script" path="res://scripts/CrawlMap.gd" id="2_hw563"]
+
+[sub_resource type="Resource" id="Resource_faf26"]
+script = ExtResource("1_644kb")
+uuid = &"5a382e64-5020-723f-ac22-3753fbe5bd31"
+entity_name = ""
+type = &"Editor"
+position = Vector3i(0, 0, 2)
+facing = 1
+blocking = 0
+meta = {}
+
+[sub_resource type="Resource" id="Resource_43sp1"]
+script = ExtResource("1_644kb")
+uuid = &"7e382e64-7002-762d-f06e-d4a468752b5e"
+entity_name = ""
+type = &"Player"
+position = Vector3i(0, 0, 0)
+facing = 1
+blocking = 63
+meta = {}
+
+[sub_resource type="Resource" id="Resource_a1e30"]
+script = ExtResource("1_644kb")
+uuid = &"7f3a2e64-a0ac-7964-74e1-82e0fa687507"
+entity_name = "Exit-1"
+type = &"Trigger:Exit"
+position = Vector3i(0, 0, 2)
+facing = 1
+blocking = 0
+meta = {
+"dungeon_name": "CrashedPod"
+}
+
+[resource]
+script = ExtResource("2_hw563")
+name = ""
+author = ""
+world_env = &""
+grid = {
+Vector3i(0, 0, 0): {
+"blocking": 30,
+"rid": [-1, 2, 2, 2, 0, 1],
+"visited": false
+},
+Vector3i(0, 0, 1): {
+"blocking": 26,
+"rid": [-1, 2, -1, 2, 0, 1],
+"visited": false
+},
+Vector3i(0, 0, 2): {
+"blocking": 27,
+"rid": [2, 2, -1, 2, 0, 1],
+"visited": false
+}
+}
+entities = {
+"5a382e64-5020-723f-ac22-3753fbe5bd31": SubResource("Resource_faf26"),
+"7e382e64-7002-762d-f06e-d4a468752b5e": SubResource("Resource_43sp1"),
+"7f3a2e64-a0ac-7964-74e1-82e0fa687507": SubResource("Resource_a1e30")
+}
+resources = {
+"": 1,
+"planet_ground": 0,
+"wall_planet_cliff_a": 2
+}

@@ -65,6 +65,7 @@ func _on_request(req : Dictionary) -> void:
 		&"quit_application":
 			get_tree().quit()
 		&"quit_game":
+			if CrawlGlobals.Get_Player_Data() == null: return
 			if get_tree().paused:
 				get_tree().paused = false
 			CrawlGlobals.Destroy_Player_Data()
@@ -77,7 +78,16 @@ func _on_request(req : Dictionary) -> void:
 			_dungeon_object.viewer_mode = false
 			_dungeon_object.load_dungeon(FIRST_DUNGEON)
 			_ui.show_menu("HUD")
+		&"level_transition":
+			if CrawlGlobals.Get_Player_Data() == null: return
+			if not "src" in req: return
+			if typeof(req["src"]) != TYPE_STRING: return
+			Scheduler.primary_entity_deactive.connect(
+				(func() : _dungeon_object.load_dungeon(req["src"])),
+				CONNECT_ONE_SHOT
+			)
 		&"pause_game":
+			if CrawlGlobals.Get_Player_Data() == null: return
 			if get_tree().paused:
 				_ui.show_menu("HUD")
 				get_tree().paused = false

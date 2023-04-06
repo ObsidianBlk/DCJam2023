@@ -7,11 +7,11 @@ extends CrawlEntityNode3D
 func _ready() -> void:
 	entity_changed.connect(_on_entity_changed)
 	if entity != null:
-		_on_entity_changed(entity)
+		_on_entity_changed()
 
 # ------------------------------------------------------------------------------
 # Handler Methods
 # ------------------------------------------------------------------------------
-func _on_entity_changed(entity : CrawlEntity) -> void:
+func _on_entity_changed() -> void:
 	if entity == null: return
 	entity.set_block_all(false)

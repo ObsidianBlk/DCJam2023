@@ -36,6 +36,7 @@ func _ready() -> void:
 func _ClearEntities() -> void:
 	if _entity_container == null: return
 	for child in _entity_container.get_children():
+		child.entity = null
 		_entity_container.remove_child(child)
 		child.queue_free()
 	_entity_nodes.clear()

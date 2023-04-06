@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1024"
+   height="1024"
+   viewBox="0 0 270.93333 270.93333"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14, custom)"
+   sodipodi:docname="exit.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     showgrid="false"
+     inkscape:zoom="0.28252279"
+     inkscape:cx="175.2071"
+     inkscape:cy="106.18612"
+     inkscape:window-width="1916"
+     inkscape:window-height="1033"
+     inkscape:window-x="0"
+     inkscape:window-y="18"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="rect1031"
+       style="fill:#ffffff;stroke-width:5.29167;stroke-linecap:round;stroke-linejoin:bevel;stroke:#000000"
+       d="M 13.939201 12.910323 L 13.939201 266.98525 L 32.824353 266.98525 L 32.824353 32.662605 L 242.40122 32.662605 L 242.40122 266.98525 L 260.76134 266.98525 L 260.76134 12.910323 L 13.939201 12.910323 z " />
+    <path
+       id="rect1056"
+       style="stroke:#ffffff;stroke-width:5.29167;stroke-linecap:round;stroke-linejoin:bevel"
+       d="M 38.715031,38.645539 145.44318,59.770505 143.79813,240.09192 37.714162,266.84158 Z"
+       sodipodi:nodetypes="ccccc" />
+    <g
+       aria-label="EXIT"
+       id="text319"
+       style="font-size:133.065px;line-height:1.25;font-family:'TerminessTTF Nerd Font';-inkscape-font-specification:'TerminessTTF Nerd Font';letter-spacing:0px;word-spacing:0px;fill:#000000;stroke:#ffffff;stroke-width:0.693045"
+       transform="translate(-1.1634262,48.534145)">
+      <path
+         d="M 12.771877,164.93892 V 81.640228 h 50.032441 v 8.383095 H 21.154972 v 29.141237 h 29.141236 v 8.25003 H 21.154972 v 29.14123 h 41.649346 v 8.3831 z"
+         id="path1259"
+         style="fill:#000000;stroke:#ffffff" />
+      <path
+         d="m 79.304378,85.499113 v -3.858885 h 7.18551 l 14.903282,33.266252 h 5.85486 l 14.90328,-33.266252 h 7.18551 v 3.858885 l -18.36297,37.790457 18.36297,37.79046 v 3.85889 h -7.18551 l -14.90328,-33.26625 h -5.85486 l -14.903282,33.26625 h -7.18551 v -3.85889 l 18.36297,-37.79046 z"
+         id="path1261"
+         style="fill:#000000;stroke:#ffffff" />
+      <path
+         d="m 158.34499,90.023323 v -8.383095 h 25.01622 v 8.383095 h -8.3831 v 66.532497 h 8.3831 v 8.3831 h -25.01622 v -8.3831 h 8.38309 V 90.023323 Z"
+         id="path1263"
+         style="fill:#000000;stroke:#ffffff" />
+      <path
+         d="m 212.36938,90.023323 v -8.383095 h 50.03244 v 8.383095 h -20.8912 v 74.915597 h -8.25003 V 90.023323 Z"
+         id="path1265"
+         style="fill:#000000;stroke:#ffffff" />
+    </g>
+  </g>
+</svg>

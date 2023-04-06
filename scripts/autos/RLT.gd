@@ -70,6 +70,10 @@ const ENTITIES_LOOKUP : Dictionary = {
 			&"name":&"Logical Timer",
 			&"ui":"res://objects/entity_objects/crawl_timer_logic_3d/DE_timer_logic_editor/DE_TimerLogicEditor.tscn"
 		},
+		&"Exit":{
+			&"name":&"Dungeon Exit",
+			&"ui":"res://objects/entity_objects/trigger_exit/DE_trigger_exit_editor/DE_TriggerExitEditor.tscn"
+		},
 	},
 }
 
@@ -217,6 +221,10 @@ const LOOKUP : Dictionary = {
 		&"Trigger:Light":{
 			&"src":"res://objects/entity_objects/trigger_light/TriggerLight.tscn",
 			&"description":"Triggerable Light"
+		},
+		&"Trigger:Exit":{
+			&"src":"res://objects/entity_objects/trigger_exit/TriggerExit.tscn",
+			&"description":"Dungeon Exit"
 		},
 	}
 }

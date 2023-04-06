@@ -49,6 +49,7 @@ func _on_editor_mode_changed(enabled : bool) -> void:
 	if not _editor_mode and entity != null:
 		enabled = entity.get_meta_value("visible_in_play", false)
 	visible = enabled
+	hide_within_range(-1 if not enabled else 4)
 
 func _on_entity_changing() -> void:
 	if entity != null:

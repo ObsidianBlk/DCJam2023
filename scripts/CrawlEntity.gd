@@ -9,6 +9,7 @@ signal position_changed(from, to)
 signal facing_changed(from, to)
 
 signal removed_from_map()
+signal map_focus_position_changed(focus_position)
 
 signal meta_value_changed(key)
 signal meta_value_removed(key)
@@ -76,11 +77,21 @@ func set_facing(f : CrawlGlobals.SURFACE) -> void:
 # ------------------------------------------------------------------------------
 # Private Methods
 # ------------------------------------------------------------------------------
+func _on_map_focus_position_changed(focus_position : Vector3i)-> void:
+	map_focus_position_changed.emit(focus_position)
+
 func _SetMap(map : CrawlMap) -> void:
 	if _mapref.get_ref() == map: return
+	if _mapref.get_ref() != null:
+		var old_map : CrawlMap = _mapref.get_ref()
+		if old_map.focus_position_changed.is_connected(_on_map_focus_position_changed):
+			old_map.focus_position_changed.disconnect(_on_map_focus_position_changed)
 	_mapref = weakref(map)
 	if _mapref.get_ref() == null:
 		removed_from_map.emit()
+	else:
+		if not map.focus_position_changed.is_connected(_on_map_focus_position_changed):
+			map.focus_position_changed.connect(_on_map_focus_position_changed)
 
 func _DirectionNameToFacing(dir : StringName) -> CrawlGlobals.SURFACE:
 	var d_facing : CrawlGlobals.SURFACE = CrawlGlobals.SURFACE.Ground
@@ -282,6 +293,10 @@ func get_adjacent_entities(options : Dictionary = {}) -> Array:
 	var neighbor_position : Vector3i = position + CrawlGlobals.Get_Direction_From_Surface(facing)
 	options[&"position"] = neighbor_position
 	return get_entities(options)
+
+func get_map_focus_position() -> Vector3i:
+	if _mapref.get_ref() == null: return position
+	return _mapref.get_ref().get_focus_position()
 
 func schedule_start(data : Dictionary = {}) -> void:
 	# This is mostly a helper method to communicate to the owning

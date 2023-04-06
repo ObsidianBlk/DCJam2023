@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://clvng5eokraiy"]
+
+[ext_resource type="Script" path="res://objects/entity_objects/trigger_exit/DE_trigger_exit_editor/DE_TriggerExitEditor.gd" id="1_c28tv"]
+
+[node name="DE_TriggerExitEditor" type="VBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+script = ExtResource("1_c28tv")
+
+[node name="DungeonName" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="DungeonName"]
+layout_mode = 2
+text = "Dungeon Name:"
+
+[node name="LineEdit_DN" type="LineEdit" parent="DungeonName"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="text_submitted" from="DungeonName/LineEdit_DN" to="." method="_on_line_edit_dn_text_submitted"]

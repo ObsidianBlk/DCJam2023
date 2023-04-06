@@ -1,11 +1,11 @@
 extends CrawlEntityNode3D
 
-
 # ------------------------------------------------------------------------------
 # Constants
 # ------------------------------------------------------------------------------
-const META_KEY_BLOB_INDEX : String = "blob_index"
-const META_KEY_DIALOG_ID : String = "dialog_id"
+const META_KEY_DUNGEON_NAME : String = "dungeon_name"
+
+const DUNGEON_BASE_PATH : String = "res://dungeons/"
 
 # ------------------------------------------------------------------------------
 # Override Methods
@@ -27,6 +27,7 @@ func _on_editor_mode_changed(enabled : bool) -> void:
 		_on_entity_changing()
 	else:
 		_on_entity_changed()
+	visible = enabled
 
 func _on_entity_changing() -> void:
 	if entity == null: return
@@ -39,8 +40,6 @@ func _on_entity_changing() -> void:
 func _on_entity_changed() -> void:
 	if entity == null: return
 	entity.set_block_all(false)
-	if not entity.has_meta_key(META_KEY_BLOB_INDEX):
-		entity.set_meta_value(META_KEY_BLOB_INDEX, 1)
 	
 	var map : CrawlMap = entity.get_map()
 	if map == null: return
@@ -50,19 +49,12 @@ func _on_entity_changed() -> void:
 
 func _on_focus_position_changed(focus_position : Vector3i) -> void:
 	if entity == null: return
-	if not entity.has_meta_key(META_KEY_BLOB_INDEX): return
+	if not entity.has_meta_key(META_KEY_DUNGEON_NAME): return
 	if focus_position == entity.position:
-		var pd : PlayerData = CrawlGlobals.Get_Player_Data()
-		if pd == null: return
-		pd.add_blob(entity.get_meta_value(META_KEY_BLOB_INDEX))
-		if entity.has_meta_key(META_KEY_DIALOG_ID):
-			CrawlTriggerRelay.relay_request({
-				"request":&"dialog",
-				"id":entity.get_meta_value(META_KEY_DIALOG_ID)
-			})
-		
-		var map : CrawlMap = entity.get_map()
-		if map == null:
-			queue_free.call_deferred()
-			return
-		map.remove_entity.call_deferred(entity)
+		var dname = entity.get_meta_value(META_KEY_DUNGEON_NAME)
+		if typeof(dname) != TYPE_STRING: return
+		if dname.is_empty(): return
+		CrawlTriggerRelay.relay_request.call_deferred({
+			"request":&"level_transition",
+			"src":"%s%s.tres"%[DUNGEON_BASE_PATH, dname]
+		})

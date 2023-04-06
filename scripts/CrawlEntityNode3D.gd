@@ -44,6 +44,8 @@ var _movement_queue : Array = []
 var _editor_mode : bool = false
 var _entity_direct_update : bool = false
 
+var _hide_distance : int = 4
+
 var _schedule_movement_locking : bool = false
 var _movement_locked : bool = false
 
@@ -64,6 +66,11 @@ func set_entity(ent : CrawlEntity) -> void:
 				entity.schedule_started.disconnect(_on_ce_schedule_started)
 			if entity.schedule_ended.is_connected(_on_ce_schedule_ended):
 				entity.schedule_ended.disconnect(_on_ce_schedule_ended)
+			
+			# This will force a disconnect
+			var hd : int = _hide_distance
+			hide_within_range(-1)
+			_hide_distance = hd
 		
 		entity = ent
 		if entity != null:
@@ -79,6 +86,7 @@ func set_entity(ent : CrawlEntity) -> void:
 						entity.schedule_started.connect(_on_ce_schedule_started)
 					if not entity.schedule_ended.is_connected(_on_ce_schedule_ended):
 						entity.schedule_ended.connect(_on_ce_schedule_ended)
+			hide_within_range(_hide_distance) # This will connect (or not) based on _hide_distance
 			position = Vector3(entity.position) * CELL_SIZE
 			face(entity.facing, true)
 		
@@ -126,6 +134,21 @@ func _ProcessQueue() -> void:
 	if _movement_queue.size() <= 0: return
 	var next : Callable = _movement_queue.pop_front()
 	next.call()
+
+func _CheckEntityVisible(focus_position : Vector3i) -> void:
+	if _hide_distance < 0: return
+	var vstate : bool = false
+	if _hide_distance == 0:
+		if focus_position == entity.position:
+			vstate = true
+	else:
+		var aabb : AABB = AABB(
+			Vector3(focus_position.x - _hide_distance, focus_position.y - _hide_distance, focus_position.z - _hide_distance),
+			Vector3((_hide_distance * 2)+1, (_hide_distance * 2)+1, (_hide_distance * 2)+1))
+		if aabb.has_point(Vector3(entity.position)):
+			vstate = true
+	if visible != vstate:
+		visible = vstate
 
 # ------------------------------------------------------------------------------
 # Public Methods
@@ -273,6 +296,16 @@ func enable_schedule_movement_locking(enable : bool) -> void:
 func is_schedule_movement_locking_enabled() -> bool:
 	return _schedule_movement_locking
 
+func hide_within_range(dist : int) -> void:
+	_hide_distance = max(-1, dist)
+	if entity == null: return
+	if _hide_distance < 0:
+		if entity.map_focus_position_changed.is_connected(_on_ce_focus_position_changed):
+			entity.map_focus_position_changed.disconnect(_on_ce_focus_position_changed)
+	else:
+		if not entity.map_focus_position_changed.is_connected(_on_ce_focus_position_changed):
+			entity.map_focus_position_changed.connect(_on_ce_focus_position_changed)
+
 # ------------------------------------------------------------------------------
 # Handler Methods
 # ------------------------------------------------------------------------------
@@ -293,12 +326,17 @@ func _on_tween_completed(surface : CrawlGlobals.SURFACE, target_position : Vecto
 	if body != null:
 		body.rotation.y = _SurfaceToAngle(surface)
 	position = Vector3(target_position)
+	if entity != null:
+		_CheckEntityVisible(entity.get_map_focus_position())
 	transition_complete.emit()
 	
 	_ProcessQueue()
 
 func _on_ce_removed_from_map() -> void:
 	queue_free()
+
+func _on_ce_focus_position_changed(focus_position : Vector3i) -> void:
+	_CheckEntityVisible(focus_position)
 
 func _on_ce_schedule_started(data : Dictionary) -> void:
 	_movement_locked = false
