@@ -268,6 +268,7 @@ func _on_entity_removed(entity : CrawlEntity) -> void:
 	
 	if _entity_container == null: return
 	
+	node.entity = null
 	_entity_container.remove_child(node)
 	node.queue_free()
 

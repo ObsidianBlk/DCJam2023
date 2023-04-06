@@ -6,7 +6,7 @@
 [node name="Sprout" type="Node3D"]
 script = ExtResource("1_wemaf")
 
-[node name="Sprout_1" type="Sprite3D" parent="."]
+[node name="Sprout" type="Sprite3D" parent="."]
 offset = Vector2(0, 32)
 pixel_size = 0.0625
 billboard = 2

@@ -1,0 +1,137 @@
+[gd_scene load_steps=6 format=3 uid="uid://dw6m2rpk3e2ea"]
+
+[ext_resource type="Script" path="res://objects/entity_objects/pod_attack/POD_Attack.gd" id="1_4vryp"]
+[ext_resource type="Texture2D" uid="uid://nek0f7ag4j6m" path="res://assets/textures/FruitPlants.png" id="1_cq85o"]
+
+[sub_resource type="Animation" id="Animation_bn2v5"]
+resource_name = "attack"
+length = 1.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Roots_Mid:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 1.1, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -0.25, 0), Vector3(0, -0.25, 0), Vector3(0, 0.2, 0), Vector3(0, 0.2, 0), Vector3(0, -0.25, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/Roots_Back:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.9, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -0.25, -1.5), Vector3(0, 0.2, -1.5), Vector3(0, 0.2, -1.5), Vector3(0, -0.25, -1.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/Roots_Fore:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.7, 1.3, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -0.25, 1.5), Vector3(0, -0.25, 1.5), Vector3(0, 0.2, 1.5), Vector3(0, 0.2, 1.5), Vector3(0, -0.25, 1.5)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"check_player_attack"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_ygj7o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Roots_Mid:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.25, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/Roots_Back:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.25, -1.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/Roots_Fore:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.25, 1.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_exjmw"]
+_data = {
+"RESET": SubResource("Animation_ygj7o"),
+"attack": SubResource("Animation_bn2v5")
+}
+
+[node name="POD_Attack" type="Node3D"]
+script = ExtResource("1_4vryp")
+
+[node name="Body" type="Node3D" parent="."]
+
+[node name="Roots_Mid" type="Sprite3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+offset = Vector2(0, 32)
+billboard = 2
+texture = ExtResource("1_cq85o")
+region_enabled = true
+region_rect = Rect2(64, 64, 64, 64)
+
+[node name="Roots_Back" type="Sprite3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, -1.5)
+offset = Vector2(0, 32)
+billboard = 2
+texture = ExtResource("1_cq85o")
+region_enabled = true
+region_rect = Rect2(64, 64, 64, 64)
+
+[node name="Roots_Fore" type="Sprite3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 1.5)
+offset = Vector2(0, 32)
+billboard = 2
+texture = ExtResource("1_cq85o")
+region_enabled = true
+region_rect = Rect2(64, 64, 64, 64)
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_exjmw")
+}

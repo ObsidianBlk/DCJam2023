@@ -146,8 +146,7 @@ func _SettleLookAngle(delta : float) -> void:
 		_gimble_pitch_node.rotation_degrees.x, rest_pitch
 	)
 
-func _Interact() -> void:
-	if entity == null: return
+func _Interact_Door() -> bool:
 	var options : Dictionary = {&"primary_type":&"Door"}
 	var doors : Array = entity.get_local_entities(options)
 	doors.append_array(entity.get_adjacent_entities(options))
@@ -155,9 +154,25 @@ func _Interact() -> void:
 	for door in doors:
 		if door.position == entity.position and door.facing == entity.facing:
 			door.interact(entity)
-			return
+			return true
 		if door.position != entity.position and door.facing == adj_facing:
 			door.interact(entity)
+			return true
+	return false
+
+func _Interact_Mob() -> bool:
+	var options : Dictionary = {&"primary_type":&"Mob"}
+	var mobs : Array = entity.get_adjacent_entities(options)
+	if mobs.size() <= 0: return false
+	
+	for mob in mobs:
+		mob.attack(1.0, CrawlGlobals.ATTACK_TYPE.Physical)
+	return true
+
+func _Interact() -> void:
+	if entity == null: return
+	if _Interact_Door(): return
+	if _Interact_Mob(): return
 
 # ------------------------------------------------------------------------------
 # Handler Methods
@@ -215,10 +230,18 @@ func _on_editor_mode_changed(enabled : bool) -> void:
 
 func _on_player_entity_changing() -> void:
 	if entity == null: return
+	if entity.attacked.is_connected(_on_player_attacked):
+		entity.attacked.disconnect(_on_player_attacked)
+	if entity.schedule_started.is_connected(_on_player_schedule_started):
+		entity.schedule_started.disconnect(_on_player_schedule_started)
 	Scheduler.remove_registered_primary()
 
 func _on_player_entity_changed() -> void:
 	if entity == null: return
+	if not entity.attacked.is_connected(_on_player_attacked):
+		entity.attacked.connect(_on_player_attacked)
+	if not entity.schedule_started.is_connected(_on_player_schedule_started):
+		entity.schedule_started.connect(_on_player_schedule_started)
 	Scheduler.register_primary_entity(entity)
 
 func _on_transition_started(direction : StringName) -> void:
@@ -244,4 +267,13 @@ func _on_transition_completed() -> void:
 	else:
 		entity.schedule_end()
 
+func _on_player_schedule_started(data : Dictionary) -> void:
+	var pd : PlayerData = CrawlGlobals.Get_Player_Data()
+	if pd == null: return
+	pd.breath()
+
+func _on_player_attacked(dmg : float, type : CrawlGlobals.ATTACK_TYPE) -> void:
+	var pd : PlayerData = CrawlGlobals.Get_Player_Data()
+	if pd == null: return
+	pd.hurt(dmg)
 

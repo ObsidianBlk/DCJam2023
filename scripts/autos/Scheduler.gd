@@ -122,6 +122,7 @@ func _on_primary_schedule_ended(data : Dictionary) -> void:
 		priorities.sort_custom(func(a : int, b : int): return a > b)
 		for priority in priorities:
 			for uuid in eh[priority]:
+				if not uuid in _mobs: continue
 				if _mobs[uuid][&"entity"].get_ref() == null: continue
 				_mobs[uuid][&"entity"].get_ref().schedule_start()
 

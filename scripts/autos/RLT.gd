@@ -186,6 +186,10 @@ const LOOKUP : Dictionary = {
 			&"src":"res://objects/entity_objects/pod_plant/POD_Plant.tscn",
 			&"description":"POD Plant"
 		},
+		&"Mob:PODAttack":{
+			&"src":"res://objects/entity_objects/pod_attack/POD_Attack.tscn",
+			&"description":"POD Plant Attack Root"
+		},
 		&"Trigger:Gate_AND":{
 			&"src":"res://objects/entity_objects/crawl_AND_gate_3d/CrawlANDGate3D.tscn",
 			&"description":"AND Gate"

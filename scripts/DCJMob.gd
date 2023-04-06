@@ -25,6 +25,16 @@ func initialize_mob(priority : int = -1) -> void:
 func is_mob_inialized() -> bool:
 	return CrawlGlobals.editor_mode_changed.is_connected(_on_DCJMob_editor_mode_changed)
 
+func free_mob() -> void:
+	if entity == null:
+		queue_free()
+	else:
+		var map : CrawlMap = entity.get_map()
+		if map == null:
+			queue_free()
+		else:
+			map.remove_entity(entity)
+
 # ------------------------------------------------------------------------------
 # Handler Methods
 # ------------------------------------------------------------------------------

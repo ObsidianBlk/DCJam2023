@@ -294,6 +294,11 @@ func get_adjacent_entities(options : Dictionary = {}) -> Array:
 	options[&"position"] = neighbor_position
 	return get_entities(options)
 
+func get_entities_in_direction(surface : CrawlGlobals.SURFACE, options : Dictionary = {}) -> Array:
+	var dposition : Vector3i = position + CrawlGlobals.Get_Direction_From_Surface(surface)
+	options[&"position"] = dposition
+	return get_entities(options)
+
 func get_map_focus_position() -> Vector3i:
 	if _mapref.get_ref() == null: return position
 	return _mapref.get_ref().get_focus_position()
