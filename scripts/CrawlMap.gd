@@ -282,11 +282,11 @@ func _GetCellSurface(position : Vector3i, surface : CrawlGlobals.SURFACE) -> Dic
 # ------------------------------------------------------------------------------
 func clone(clone_entities : bool = false) -> CrawlMap:
 	var cm : CrawlMap = CrawlMap.new()
-	cm.grid = _CloneGrid()
-	cm.world_env = _world_env
-	cm.resources = _CloneResources()
+	cm._grid = _CloneGrid()
+	cm._world_env = _world_env
+	cm._resources = _CloneResources()
 	if clone_entities:
-		cm.entities = _CloneEntities()
+		cm._entities = _CloneEntities()
 	return cm
 
 func add_resource(resource : StringName) -> int:

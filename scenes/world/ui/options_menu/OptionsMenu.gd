@@ -49,6 +49,7 @@ func _ready() -> void:
 	_on_config_reset()
 
 func _input(event : InputEvent) -> void:
+	if not visible: return
 	if event.is_action_pressed("ui_cancel"):
 		if _audio.visible:
 			_audio.visible = false
@@ -157,4 +158,7 @@ func _on_reset_pressed():
 	CrawlGlobals.Reset_Config()
 
 func _on_back_pressed():
-	request.emit({"request":&"show_menu", "menu":&"MainMenu"})
+	if has_return_menu():
+		return_to()
+	else:
+		request.emit({"request":&"show_menu", "menu":&"MainMenu"})

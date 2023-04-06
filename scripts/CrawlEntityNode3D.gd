@@ -58,6 +58,8 @@ func set_entity(ent : CrawlEntity) -> void:
 				entity.position_changed.disconnect(_on_position_changed)
 			if entity.facing_changed.is_connected(_on_facing_changed):
 				entity.facing_changed.disconnect(_on_facing_changed)
+			if entity.removed_from_map.is_connected(_on_ce_removed_from_map):
+				entity.removed_from_map.disconnect(_on_ce_removed_from_map)
 			if entity.schedule_started.is_connected(_on_ce_schedule_started):
 				entity.schedule_started.disconnect(_on_ce_schedule_started)
 			if entity.schedule_ended.is_connected(_on_ce_schedule_ended):
@@ -70,6 +72,8 @@ func set_entity(ent : CrawlEntity) -> void:
 					entity.position_changed.connect(_on_position_changed)
 				if not entity.facing_changed.is_connected(_on_facing_changed):
 					entity.facing_changed.connect(_on_facing_changed)
+				if not entity.removed_from_map.is_connected(_on_ce_removed_from_map):
+					entity.removed_from_map.connect(_on_ce_removed_from_map)
 				if _schedule_movement_locking:
 					if not entity.schedule_started.is_connected(_on_ce_schedule_started):
 						entity.schedule_started.connect(_on_ce_schedule_started)
@@ -292,6 +296,9 @@ func _on_tween_completed(surface : CrawlGlobals.SURFACE, target_position : Vecto
 	transition_complete.emit()
 	
 	_ProcessQueue()
+
+func _on_ce_removed_from_map() -> void:
+	queue_free()
 
 func _on_ce_schedule_started(data : Dictionary) -> void:
 	_movement_locked = false

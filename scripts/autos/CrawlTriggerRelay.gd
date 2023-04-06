@@ -4,6 +4,7 @@ extends Node
 # Signals
 # ------------------------------------------------------------------------------
 signal trigger_state_changed(uuid, active)
+signal request(req)
 
 # ------------------------------------------------------------------------------
 # Constants
@@ -50,6 +51,9 @@ func is_trigger_active(uuid : StringName) -> bool:
 	if not uuid in _trigger_entities: return false
 	if _trigger_entities[uuid].get_ref() == null: return false
 	return _trigger_entities[uuid].get_ref().get_meta_value(TRIGGER_ACTIVE_KEY)
+
+func relay_request(req : Dictionary) -> void:
+	request.emit(req)
 
 # ------------------------------------------------------------------------------
 # Handler Methods

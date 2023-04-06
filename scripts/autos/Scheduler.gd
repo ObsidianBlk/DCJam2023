@@ -2,10 +2,17 @@ extends Node
 
 
 # ------------------------------------------------------------------------------
+# Signals
+# ------------------------------------------------------------------------------
+signal primary_entity_active()
+
+# ------------------------------------------------------------------------------
 # Variables
 # ------------------------------------------------------------------------------
 var _primary : WeakRef = weakref(null)
 var _mobs : Dictionary = {}
+
+var _primary_active : bool = true
 
 # ------------------------------------------------------------------------------
 # Private Methods
@@ -47,6 +54,8 @@ func register_primary_entity(prime : CrawlEntity) -> void:
 	if prime != null:
 		if not prime.schedule_ended.is_connected(_on_primary_schedule_ended):
 			prime.schedule_ended.connect(_on_primary_schedule_ended)
+		if not prime.schedule_started.is_connected(_on_prime_schedule_started):
+			prime.schedule_started.connect(_on_prime_schedule_started)
 		prime.schedule_start() # Make sure the primary begins in the start state.
 
 func is_entity_registered_as_primary(entity : CrawlEntity) -> bool:
@@ -88,15 +97,21 @@ func remove_registered_entity(entity : CrawlEntity) -> void:
 		entity.schedule_ended.disconnect(_on_entity_schedule_ended.bind(entity))
 	_mobs.erase(entity.uuid)
 
+func is_prime_active() -> bool:
+	return _primary_active
+
 # ------------------------------------------------------------------------------
 # Handler Methods
 # ------------------------------------------------------------------------------
+func _on_prime_schedule_started(data : Dictionary) -> void:
+	_primary_active = true
+	primary_entity_active.emit()
+
 func _on_primary_schedule_ended(data : Dictionary) -> void:
-	print("Primary Ended")
+	_primary_active = false
 	_CleanEntityList()
 	var eh : Dictionary = _GetPriorityHashedEntityDict()
 	if eh.is_empty():
-		print("No MOBS :)")
 		if _primary.get_ref() != null:
 			# Allow the primary entity to finish up any of it's emits.
 			_primary.get_ref().schedule_start.call_deferred()
@@ -109,7 +124,7 @@ func _on_primary_schedule_ended(data : Dictionary) -> void:
 				_mobs[uuid][&"entity"].get_ref().schedule_start()
 
 func _on_entity_schedule_ended(data : Dictionary, entity : CrawlEntity) -> void:
-	print("Mobs Ended")
+	if _primary_active: return
 	if entity.uuid in _mobs:
 		_mobs[entity.uuid][&"processed"] = true
 	if _AllProcessed() and _primary.get_ref() != null:

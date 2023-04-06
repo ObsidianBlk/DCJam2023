@@ -19,11 +19,11 @@ func _ready() -> void:
 # ------------------------------------------------------------------------------
 # Public Methods
 # ------------------------------------------------------------------------------
-func show_menu(menu_name : String) -> void:
+func show_menu(menu_name : String, return_menu : String = "") -> void:
 	#if not get_children().any(func(c : Control): return c.name == menu_name): return
 	for child in get_children():
 		if child.has_method(&"show_menu"):
-			child.show_menu(menu_name)
+			child.show_menu(menu_name, return_menu)
 
 # ------------------------------------------------------------------------------
 # Handler Methods
@@ -33,7 +33,8 @@ func _on_request(req : Dictionary) -> void:
 	match req["request"]:
 		&"show_menu":
 			if not "menu" in req: return
-			show_menu(req["menu"])
+			var _return_menu : String = "" if not "return" in req else req["return"]
+			show_menu(req["menu"], _return_menu)
 		_:
 			request.emit(req)
 

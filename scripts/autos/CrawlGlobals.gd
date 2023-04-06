@@ -3,7 +3,7 @@ extends Node
 
 # ------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------
-# DUNGEON MAP CELL SURFACE CONSTANTS & HELPER METHODS
+# CRAWL SYSTEM CONFIG SIGNALS, VARIABLES, AND METHODS
 # ------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------
 
@@ -155,6 +155,39 @@ func Get_Config_Section_Keys(section : String) -> PackedStringArray:
 
 func Is_Config_Dirty() -> bool:
 	return _config_dirty
+
+# ------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
+# PLAYER DATA RESOURCE STUFF
+# ------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
+signal player_data_loaded()
+signal player_data_destroyed()
+
+var _playerdat : PlayerData = null
+
+func Load_Player_Data(src : String) -> int:
+	var pd : PlayerData = ResourceLoader.load(src)
+	if pd == null: return ERR_FILE_CANT_READ
+	_playerdat = pd
+	player_data_loaded.emit()
+	return OK
+
+func Save_Player_Data(src : String) -> int:
+	if _playerdat == null: return ERR_CANT_ACQUIRE_RESOURCE
+	var err : int = ResourceSaver.save(_playerdat, src)
+	return err
+
+func Create_New_Player_Data() -> void:
+	_playerdat = PlayerData.new()
+	player_data_loaded.emit()
+
+func Destroy_Player_Data() -> void:
+	_playerdat = null
+	player_data_destroyed.emit()
+
+func Get_Player_Data() -> PlayerData:
+	return _playerdat
 
 # ------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------

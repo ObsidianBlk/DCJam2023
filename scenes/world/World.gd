@@ -21,12 +21,14 @@ var _dungeon_object : Node3D = null
 # ------------------------------------------------------------------------------
 @onready var _ui : CanvasLayer = $UI
 @onready var _asp_music : AudioStreamPlayer = $ASP_Music
+@onready var _game : Node3D = $Game
 
 
 # ------------------------------------------------------------------------------
 # Override Methods
 # ------------------------------------------------------------------------------
 func _ready() -> void:
+	CrawlTriggerRelay.request.connect(_on_request)
 	MusicBox.assign_player(_asp_music)
 	MusicBox.add_music_track("rise", "res://assets/audio/music/rise_of_the_early_dawn.ogg", true)
 	
@@ -36,21 +38,48 @@ func _ready() -> void:
 	
 	_dungeon_object = DUNGEON.instantiate()
 	_dungeon_object.viewer_mode = true
-	add_child(_dungeon_object)
+	_game.add_child(_dungeon_object)
 	_dungeon_object.load_dungeon(DEFAULT_MENU_DUNGEON)
 	
-	_ui.request.connect(_on_ui_request)
+	_ui.request.connect(_on_request)
 	_ui.show_menu("MainMenu")
+
+
+# ------------------------------------------------------------------------------
+# Private Methods
+# ------------------------------------------------------------------------------
+func _PauseGame() -> void:
+	if not Scheduler.is_prime_active():
+		if not Scheduler.primary_entity_active.is_connected(_PauseGame):
+			Scheduler.primary_entity_active.connect(_PauseGame, CONNECT_ONE_SHOT)
+		return
+	get_tree().paused = true
+	_ui.show_menu("PauseMenu")
 
 # ------------------------------------------------------------------------------
 # Handler Methods
 # ------------------------------------------------------------------------------
-func _on_ui_request(req : Dictionary) -> void:
+func _on_request(req : Dictionary) -> void:
 	if not "request" in req: return
 	match req["request"]:
 		&"quit_application":
 			get_tree().quit()
+		&"quit_game":
+			if get_tree().paused:
+				get_tree().paused = false
+			CrawlGlobals.Destroy_Player_Data()
+			_dungeon_object.viewer_mode = true
+			_dungeon_object.load_dungeon(DEFAULT_MENU_DUNGEON)
+			_ui.show_menu("MainMenu")
 		&"start_game":
+			if CrawlGlobals.Get_Player_Data() != null: return
+			CrawlGlobals.Create_New_Player_Data()
 			_dungeon_object.viewer_mode = false
 			_dungeon_object.load_dungeon(FIRST_DUNGEON)
-			_ui.show_menu("")
+			_ui.show_menu("HUD")
+		&"pause_game":
+			if get_tree().paused:
+				_ui.show_menu("HUD")
+				get_tree().paused = false
+			else:
+				_PauseGame()

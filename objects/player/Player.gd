@@ -92,6 +92,12 @@ func _unhandled_input(event : InputEvent) -> void:
 		_freelook_enabled = event.is_pressed()
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED if _freelook_enabled else Input.MOUSE_MODE_VISIBLE
 	if entity != null:
+		if event.is_action_pressed("ui_cancel"):
+			CrawlTriggerRelay.relay_request({"request":&"pause_game"})
+		if event.is_action_pressed("ui_accept"):
+			var pd : PlayerData = CrawlGlobals.Get_Player_Data()
+			if pd == null: return
+			pd.hurt(25)
 		if event.is_action_pressed("move_foreward"):
 			move(&"foreward", false, _ignore_transitions)
 		if event.is_action_pressed("move_backward"):

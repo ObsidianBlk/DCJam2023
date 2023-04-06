@@ -1,17 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://dlqx0w5e6q15t"]
+[gd_scene load_steps=3 format=3 uid="uid://dbubmhiyah67w"]
 
-[ext_resource type="Theme" uid="uid://caum3sr1cyurt" path="res://scenes/world/ui/themes/core.theme" id="1_mnstw"]
-[ext_resource type="Script" path="res://scenes/world/ui/main_menu/MainMenu.gd" id="1_o7dr1"]
+[ext_resource type="Theme" uid="uid://caum3sr1cyurt" path="res://scenes/world/ui/themes/core.theme" id="1_1kh2v"]
+[ext_resource type="Script" path="res://scenes/world/ui/pause_menu/PauseMenu.gd" id="1_qn3bo"]
 
-[node name="MainMenu" type="Control"]
+[node name="PauseMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_mnstw")
-script = ExtResource("1_o7dr1")
+theme = ExtResource("1_1kh2v")
+script = ExtResource("1_qn3bo")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -40,19 +40,24 @@ theme_type_variation = &"GreenBarPanel"
 [node name="Layout" type="VBoxContainer" parent="Panel"]
 layout_mode = 2
 
-[node name="Start" type="Button" parent="Panel/Layout"]
+[node name="Resume" type="Button" parent="Panel/Layout"]
 layout_mode = 2
-text = "Start"
+text = "Resume Game"
 
 [node name="Options" type="Button" parent="Panel/Layout"]
 layout_mode = 2
 text = "Options"
 
+[node name="QuitMain" type="Button" parent="Panel/Layout"]
+layout_mode = 2
+text = "Quit to Main Menu"
+
 [node name="Quit" type="Button" parent="Panel/Layout"]
 layout_mode = 2
-text = "Quit"
+text = "Quit to Desktop"
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
-[connection signal="pressed" from="Panel/Layout/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Panel/Layout/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Panel/Layout/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Panel/Layout/QuitMain" to="." method="_on_quit_main_pressed"]
 [connection signal="pressed" from="Panel/Layout/Quit" to="." method="_on_quit_pressed"]

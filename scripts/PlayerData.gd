@@ -91,7 +91,7 @@ func _RandomActiveBlobIndex() -> int:
 		if _data["hp"][i] > 0:
 			available.append(i)
 	if available.size() <= 0: return -1
-	var idx : int = randi_range(0, available.size())
+	var idx : int = randi_range(0, available.size() - 1)
 	return available[idx]
 
 # ------------------------------------------------------------------------------
@@ -112,7 +112,7 @@ func blob_count() -> int:
 func add_blob(idx : int) -> void:
 	if not (idx >= 0 and idx < _data["hp"].size()): return
 	if _data["hp"][idx] >= 0: return
-	_data["hp"][idx] = 100.0
+	_data["hp"][idx] = INIT_HP
 	blob_added.emit(idx)
 
 func is_blob_active(idx : int) -> bool:
@@ -122,6 +122,10 @@ func is_blob_active(idx : int) -> bool:
 func get_blob_health(idx : int) -> float:
 	if not (idx >= 0 and idx < _data["hp"].size()): return -1.0
 	return _data["hp"][idx]
+
+func get_blob_health_percent(idx : int) -> float:
+	if not (idx >= 0 and idx < _data["hp"].size()): return 0.0
+	return _data["hp"][idx] / INIT_HP
 
 func get_oxygen_percentage() -> float:
 	return _data["oxy"] / INIT_OXYGEN
@@ -140,7 +144,7 @@ func hurt(amount : float) -> void:
 	if idx < 0: return # Nothing to hurt anymore!
 	if _data["hp"][BLOB_DEFENSE_INDEX] > 0:
 		amount *= BLOB_DEFENSE_MULTIPLIER
-	_data["hp"] = max(0.0, _data["hp"][idx] - amount)
+	_data["hp"][idx] = max(0.0, _data["hp"][idx] - amount)
 	if _data["hp"][idx] < 0.001:
 		_data["hp"][idx] = 0.0
 		blob_dead.emit(idx)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://4nffi6fxju2j"]
+[gd_scene load_steps=9 format=3 uid="uid://4nffi6fxju2j"]
 
 [ext_resource type="Script" path="res://scenes/world/World.gd" id="1_f50yl"]
 [ext_resource type="PackedScene" uid="uid://ch62t1oie4k6c" path="res://scenes/world/effect_layer/EffectLayer.tscn" id="1_kk3bi"]
@@ -6,20 +6,31 @@
 [ext_resource type="Script" path="res://scenes/world/ui/UI.gd" id="3_22vqo"]
 [ext_resource type="PackedScene" uid="uid://dlqx0w5e6q15t" path="res://scenes/world/ui/main_menu/MainMenu.tscn" id="4_p0hmk"]
 [ext_resource type="PackedScene" uid="uid://csrpxhtxb71gb" path="res://scenes/world/ui/options_menu/OptionsMenu.tscn" id="6_yl4a0"]
+[ext_resource type="PackedScene" uid="uid://dbubmhiyah67w" path="res://scenes/world/ui/pause_menu/PauseMenu.tscn" id="7_g5pmh"]
+[ext_resource type="PackedScene" uid="uid://s0mnoaopvlj3" path="res://scenes/world/ui/hud/hud.tscn" id="8_vbyrj"]
 
 [node name="World" type="Node3D"]
+process_mode = 3
 script = ExtResource("1_f50yl")
+
+[node name="Game" type="Node3D" parent="."]
+process_mode = 1
 
 [node name="EffectLayer" parent="." instance=ExtResource("1_kk3bi")]
 mask = ExtResource("2_2etpx")
 
 [node name="UI" type="CanvasLayer" parent="."]
+process_mode = 3
 layer = 10
 script = ExtResource("3_22vqo")
 
 [node name="MainMenu" parent="UI" instance=ExtResource("4_p0hmk")]
 
 [node name="OptionsMenu" parent="UI" instance=ExtResource("6_yl4a0")]
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("7_g5pmh")]
+
+[node name="HUD" parent="UI" instance=ExtResource("8_vbyrj")]
 
 [node name="ASP_Music" type="AudioStreamPlayer" parent="."]
 bus = &"Music"

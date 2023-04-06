@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqkiwqesjnyuv"]
+
+[ext_resource type="Script" path="res://objects/entity_objects/survivor/DE_survivor_editor/DE_SurvivorEditor.gd" id="1_stqch"]
+
+[node name="DE_SurvivorEditor" type="VBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+script = ExtResource("1_stqch")
+
+[node name="Layout" type="GridContainer" parent="."]
+layout_mode = 2
+columns = 2
+
+[node name="Label_BI" type="Label" parent="Layout"]
+layout_mode = 2
+text = "Blober Index: "
+
+[node name="HSlider_BI" type="HSlider" parent="Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 3.0
+value = 1.0
+
+[node name="Label_BI" type="Label" parent="Layout/HSlider_BI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+horizontal_alignment = 1
+
+[node name="Label_DialogID" type="Label" parent="Layout"]
+layout_mode = 2
+text = "Dialog ID:"
+
+[node name="LineEdit_DialogID" type="LineEdit" parent="Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[connection signal="value_changed" from="Layout/HSlider_BI" to="." method="_on_h_slider_bi_value_changed"]
+[connection signal="text_submitted" from="Layout/LineEdit_DialogID" to="." method="_on_line_edit_dialog_id_text_submitted"]

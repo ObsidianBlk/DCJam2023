@@ -38,6 +38,7 @@ func _ClearEntities() -> void:
 	for child in _entity_container.get_children():
 		_entity_container.remove_child(child)
 		child.queue_free()
+	_entity_nodes.clear()
 
 func _RemoveMap() -> void:
 	if _active_map == null: return
@@ -93,7 +94,7 @@ func clear_dungeon() -> void:
 	_mini_map.map = null
 
 func load_dungeon(path : String) -> int:
-	var map = ResourceLoader.load(path)
+	var map = ResourceLoader.load(path, "")
 	if not is_instance_of(map, CrawlMap):
 		printerr("DUNGEON ERROR: Failed to obtain map from path ", path)
 		return ERR_CANT_ACQUIRE_RESOURCE

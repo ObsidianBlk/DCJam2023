@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://1hxinw7r3y4a"]
+
+[ext_resource type="PackedScene" uid="uid://b25rldc6n436r" path="res://assets/models/Planet_Exterior/Ramp.glb" id="1_c7dxp"]
+[ext_resource type="Script" path="res://objects/entity_objects/exterior_ramp_a/ExteriorRampA.gd" id="1_vtbkr"]
+
+[node name="ExteriorRampA" type="Node3D"]
+script = ExtResource("1_vtbkr")
+
+[node name="Ramp" parent="." instance=ExtResource("1_c7dxp")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)

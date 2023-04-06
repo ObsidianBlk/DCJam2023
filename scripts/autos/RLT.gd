@@ -21,8 +21,17 @@ const ENTITIES_LOOKUP : Dictionary = {
 		&"Sprout":{&"name":&"Sprout Plant"},
 		&"PODPlant":{&"name":&"POD Plant"}
 	},
+	&"Item":{
+		&"Survivor":{
+			&"name":&"Survivor",
+			&"ui":"res://objects/entity_objects/survivor/DE_survivor_editor/DE_SurvivorEditor.tscn"
+		}
+	},
 	&"Door":{
 		&"Basic_Interactable":{&"name":&"Basic Door"}
+	},
+	&"Ramp":{
+		&"Exterior_A":{&"name":&"Planet Exterior Ramp A"}
 	},
 	&"Trigger":{
 		&"Light":{
@@ -139,10 +148,6 @@ const LOOKUP : Dictionary = {
 			&"description":"Planet Exterior Cliff B"
 		},
 	},
-	&"stair":{
-		
-	},
-
 	
 	&"entity":{
 		&"Editor":{
@@ -160,6 +165,14 @@ const LOOKUP : Dictionary = {
 		&"Door:Basic_Interactable":{
 			&"src":"res://objects/entity_objects/door_basic_interactable/DoorBasicInteractable.tscn",
 			&"description":"Basic Interactable Door"
+		},
+		&"Ramp:Exterior_A":{
+			&"src":"res://objects/entity_objects/exterior_ramp_a/ExteriorRampA.tscn",
+			&"description":"Planet Exterior Ramp A"
+		},
+		&"Item:Survivor":{
+			&"src":"res://objects/entity_objects/survivor/Survivor.tscn",
+			&"description":"Survivor"
 		},
 		&"Mob:Sprout":{
 			&"src":"res://objects/entity_objects/sprout/Sprout.tscn",
