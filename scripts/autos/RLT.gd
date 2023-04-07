@@ -178,6 +178,10 @@ const LOOKUP : Dictionary = {
 			&"src":"res://objects/entity_objects/survivor/Survivor.tscn",
 			&"description":"Survivor"
 		},
+		&"Item:Fruit":{
+			&"src":"res://objects/entity_objects/fruit/Fruit.tscn",
+			&"description":"POD Plant Fruit"
+		},
 		&"Mob:Sprout":{
 			&"src":"res://objects/entity_objects/sprout/Sprout.tscn",
 			&"description":"Sprout Plant"

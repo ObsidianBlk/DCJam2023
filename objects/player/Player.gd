@@ -39,6 +39,8 @@ var _view_lerp_rate : float = VIEW_LERP_RATE_DEFAULT
 var _look_toward_stairs : bool = true
 var _ignore_transitions : bool = false
 
+var _can_interact : bool = true
+
 # ------------------------------------------------------------------------------
 # Override Variables
 # ------------------------------------------------------------------------------
@@ -170,7 +172,7 @@ func _Interact_Mob() -> bool:
 	return true
 
 func _Interact() -> void:
-	if entity == null: return
+	if entity == null or not _can_interact: return
 	if _Interact_Door(): return
 	if _Interact_Mob(): return
 
@@ -234,6 +236,8 @@ func _on_player_entity_changing() -> void:
 		entity.attacked.disconnect(_on_player_attacked)
 	if entity.schedule_started.is_connected(_on_player_schedule_started):
 		entity.schedule_started.disconnect(_on_player_schedule_started)
+	if entity.schedule_ended.is_connected(_on_player_schedule_ended):
+		entity.schedule_ended.disconnect(_on_player_schedule_ended)
 	Scheduler.remove_registered_primary()
 
 func _on_player_entity_changed() -> void:
@@ -242,6 +246,8 @@ func _on_player_entity_changed() -> void:
 		entity.attacked.connect(_on_player_attacked)
 	if not entity.schedule_started.is_connected(_on_player_schedule_started):
 		entity.schedule_started.connect(_on_player_schedule_started)
+	if not entity.schedule_ended.is_connected(_on_player_schedule_ended):
+		entity.schedule_ended.connect(_on_player_schedule_ended)
 	Scheduler.register_primary_entity(entity)
 
 func _on_transition_started(direction : StringName) -> void:
@@ -268,9 +274,15 @@ func _on_transition_completed() -> void:
 		entity.schedule_end()
 
 func _on_player_schedule_started(data : Dictionary) -> void:
+	_can_interact = true
+	print("Schedule Started")
 	var pd : PlayerData = CrawlGlobals.Get_Player_Data()
 	if pd == null: return
 	pd.breath()
+
+func _on_player_schedule_ended(data : Dictionary) -> void:
+	print("Schedule Ended")
+	_can_interact = false
 
 func _on_player_attacked(dmg : float, type : CrawlGlobals.ATTACK_TYPE) -> void:
 	var pd : PlayerData = CrawlGlobals.Get_Player_Data()

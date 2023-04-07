@@ -13,6 +13,18 @@ facing = 1
 blocking = 63
 meta = {}
 
+[sub_resource type="Resource" id="Resource_dcniu"]
+script = ExtResource("1_eyt8x")
+uuid = &"5e3a2e64-d08b-7d46-2076-e98ab3590d26"
+entity_name = "Exit-1"
+type = &"Trigger:Exit"
+position = Vector3i(1, 1, -5)
+facing = 4
+blocking = 0
+meta = {
+"dungeon_name": "Test"
+}
+
 [sub_resource type="Resource" id="Resource_4ettf"]
 script = ExtResource("1_eyt8x")
 uuid = &"69562b64-807a-70e4-3407-4b5456ec338b"
@@ -64,7 +76,8 @@ position = Vector3i(0, 0, -1)
 facing = 2
 blocking = 0
 meta = {
-"blob_index": 1
+"blob_index": 1,
+"dialog_id": &"survivor_oxy"
 }
 
 [sub_resource type="Resource" id="Resource_gr82c"]
@@ -72,22 +85,10 @@ script = ExtResource("1_eyt8x")
 uuid = &"a34c2b64-a0df-7428-24e5-ee4f3496ad55"
 entity_name = ""
 type = &"Editor"
-position = Vector3i(1, 1, -5)
-facing = 4
+position = Vector3i(0, 0, -1)
+facing = 2
 blocking = 0
 meta = {}
-
-[sub_resource type="Resource" id="Resource_dcniu"]
-script = ExtResource("1_eyt8x")
-uuid = &"5e3a2e64-d08b-7d46-2076-e98ab3590d26"
-entity_name = "Exit-1"
-type = &"Trigger:Exit"
-position = Vector3i(1, 1, -5)
-facing = 4
-blocking = 0
-meta = {
-"dungeon_name": "Test"
-}
 
 [resource]
 script = ExtResource("2_nd4g6")

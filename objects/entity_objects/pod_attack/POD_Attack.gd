@@ -15,6 +15,7 @@ var _steps : int = 1
 # Onready Variables
 # ------------------------------------------------------------------------------
 @onready var _anim : AnimationPlayer = $Anim
+@onready var _body : Node3D = $Body
 
 # ------------------------------------------------------------------------------
 # Override Methods
@@ -22,7 +23,27 @@ var _steps : int = 1
 func _ready() -> void:
 	entity_changed.connect(_on_entity_changed)
 	_anim.animation_finished.connect(_on_anim_finished)
+	if entity != null:
+		_on_entity_changed()
 
+# ------------------------------------------------------------------------------
+# Private Methods
+# ------------------------------------------------------------------------------
+func _UpdateBodyFacing() -> void:
+	if entity == null or _body == null: return
+	match entity.facing:
+		CrawlGlobals.SURFACE.North:
+			_body.rotation_degrees.y = 180.0
+		CrawlGlobals.SURFACE.East:
+			_body.rotation_degrees.y = 270.0
+		CrawlGlobals.SURFACE.South:
+			_body.rotation_degrees.y = 0.0
+		CrawlGlobals.SURFACE.West:
+			_body.rotation_degrees.y = 90.0
+
+# ------------------------------------------------------------------------------
+# Public Methods
+# ------------------------------------------------------------------------------
 func free_me() -> void:
 	if entity == null:
 		queue_free()
@@ -52,4 +73,9 @@ func _on_anim_finished(anim_name : StringName) -> void:
 
 func _on_entity_changed() -> void:
 	if entity == null: return
-	_anim.play("attack")
+	entity.set_block_all(false)
+	use_entity_direct_update(true)
+	_UpdateBodyFacing()
+	if not CrawlGlobals.In_Editor_Mode():
+		print("Starting attack run!")
+		_anim.play("attack")

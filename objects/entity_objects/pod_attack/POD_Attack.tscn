@@ -1,7 +1,52 @@
-[gd_scene load_steps=6 format=3 uid="uid://dw6m2rpk3e2ea"]
+[gd_scene load_steps=15 format=3 uid="uid://dw6m2rpk3e2ea"]
 
 [ext_resource type="Script" path="res://objects/entity_objects/pod_attack/POD_Attack.gd" id="1_4vryp"]
 [ext_resource type="Texture2D" uid="uid://nek0f7ag4j6m" path="res://assets/textures/FruitPlants.png" id="1_cq85o"]
+[ext_resource type="Texture2D" uid="uid://cwt86iemqn07a" path="res://assets/textures/smoke/smoke_04.png" id="3_vntlf"]
+[ext_resource type="PackedScene" uid="uid://dx4xynfghvcd8" path="res://assets/models/Planet_Exterior/Ground.glb" id="3_w8w0s"]
+
+[sub_resource type="Gradient" id="Gradient_gine0"]
+colors = PackedColorArray(0.929412, 0.764706, 0.505882, 1, 0.980392, 0.941176, 0.807843, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nh6vh"]
+gradient = SubResource("Gradient_gine0")
+
+[sub_resource type="Curve" id="Curve_bb1oi"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.448598, 1), 0.0546477, 0.0546477, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_k7rhf"]
+curve = SubResource("Curve_bb1oi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ijpuo"]
+emission_shape = 3
+emission_box_extents = Vector3(0.5, 0.1, 0.5)
+direction = Vector3(0, 1, 0)
+spread = 180.0
+flatness = 1.0
+gravity = Vector3(0, -1, 0)
+initial_velocity_min = 0.1
+initial_velocity_max = 1.0
+damping_max = 4.0
+scale_min = 0.5
+scale_max = 4.0
+scale_curve = SubResource("CurveTexture_k7rhf")
+color_ramp = SubResource("GradientTexture1D_nh6vh")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lqhig"]
+shading_mode = 0
+disable_ambient_light = true
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("3_vntlf")
+billboard_mode = 2
+billboard_keep_scale = true
+proximity_fade_enabled = true
+distance_fade_mode = 1
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_57dtu"]
+material = SubResource("StandardMaterial3D_lqhig")
+size = Vector2(0.5, 0.5)
+orientation = 2
 
 [sub_resource type="Animation" id="Animation_bn2v5"]
 resource_name = "attack"
@@ -16,7 +61,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.5, 1.1, 1.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, -0.25, 0), Vector3(0, -0.25, 0), Vector3(0, 0.2, 0), Vector3(0, 0.2, 0), Vector3(0, -0.25, 0)]
+"values": [Vector3(0, -0.25, 0), Vector3(0, -0.25, 0), Vector3(0, 0.35, 0), Vector3(0, 0.35, 0), Vector3(0, -0.25, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -28,7 +73,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.9, 1.2),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, -0.25, -1.5), Vector3(0, 0.2, -1.5), Vector3(0, 0.2, -1.5), Vector3(0, -0.25, -1.5)]
+"values": [Vector3(0, -0.25, -1.5), Vector3(0, 0.35, -1.5), Vector3(0, 0.35, -1.5), Vector3(0, -0.25, -1.5)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -40,7 +85,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.4, 0.7, 1.3, 1.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, -0.25, 1.5), Vector3(0, -0.25, 1.5), Vector3(0, 0.2, 1.5), Vector3(0, 0.2, 1.5), Vector3(0, -0.25, 1.5)]
+"values": [Vector3(0, -0.25, 1.5), Vector3(0, -0.25, 1.5), Vector3(0, 0.35, 1.5), Vector3(0, 0.35, 1.5), Vector3(0, -0.25, 1.5)]
 }
 tracks/3/type = "method"
 tracks/3/imported = false
@@ -55,6 +100,42 @@ tracks/3/keys = {
 "args": [],
 "method": &"check_player_attack"
 }]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Body/Puff_Mid:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Body/Puff_Back:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Body/Puff_Fore:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
 }
 
 [sub_resource type="Animation" id="Animation_ygj7o"]
@@ -95,6 +176,42 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector3(0, -0.25, 1.5)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body/Puff_Mid:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Body/Puff_Back:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Body/Puff_Fore:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_exjmw"]
 _data = {
@@ -106,11 +223,13 @@ _data = {
 script = ExtResource("1_4vryp")
 
 [node name="Body" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="Roots_Mid" type="Sprite3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 offset = Vector2(0, 32)
 billboard = 2
+texture_filter = 0
 texture = ExtResource("1_cq85o")
 region_enabled = true
 region_rect = Rect2(64, 64, 64, 64)
@@ -119,6 +238,7 @@ region_rect = Rect2(64, 64, 64, 64)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, -1.5)
 offset = Vector2(0, 32)
 billboard = 2
+texture_filter = 0
 texture = ExtResource("1_cq85o")
 region_enabled = true
 region_rect = Rect2(64, 64, 64, 64)
@@ -127,11 +247,40 @@ region_rect = Rect2(64, 64, 64, 64)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 1.5)
 offset = Vector2(0, 32)
 billboard = 2
+texture_filter = 0
 texture = ExtResource("1_cq85o")
 region_enabled = true
 region_rect = Rect2(64, 64, 64, 64)
+
+[node name="Puff_Mid" type="GPUParticles3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.409055, 0)
+emitting = false
+amount = 100
+lifetime = 0.5
+explosiveness = 0.5
+process_material = SubResource("ParticleProcessMaterial_ijpuo")
+draw_pass_1 = SubResource("PlaneMesh_57dtu")
+
+[node name="Puff_Back" type="GPUParticles3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.409, -1.5)
+amount = 100
+lifetime = 0.5
+explosiveness = 0.5
+process_material = SubResource("ParticleProcessMaterial_ijpuo")
+draw_pass_1 = SubResource("PlaneMesh_57dtu")
+
+[node name="Puff_Fore" type="GPUParticles3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.409, 1.5)
+amount = 100
+lifetime = 0.5
+explosiveness = 0.5
+process_material = SubResource("ParticleProcessMaterial_ijpuo")
+draw_pass_1 = SubResource("PlaneMesh_57dtu")
 
 [node name="Anim" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_exjmw")
 }
+
+[node name="Ground" parent="." instance=ExtResource("3_w8w0s")]
+visible = false
