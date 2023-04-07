@@ -1,7 +1,109 @@
-[gd_resource type="Resource" script_class="CrawlMap" load_steps=5 format=3]
+[gd_resource type="Resource" script_class="CrawlMap" load_steps=36 format=3]
 
 [ext_resource type="Script" path="res://scripts/CrawlEntity.gd" id="1_exebb"]
 [ext_resource type="Script" path="res://scripts/CrawlMap.gd" id="2_74btm"]
+
+[sub_resource type="Resource" id="Resource_w74nu"]
+script = ExtResource("1_exebb")
+uuid = &"03663064-100d-7501-74f5-24e733ea8131"
+entity_name = ""
+type = &"Mob:Sprout"
+position = Vector3i(-2, 1, -2)
+facing = 1
+blocking = 63
+meta = {}
+
+[sub_resource type="Resource" id="Resource_jusb0"]
+script = ExtResource("1_exebb")
+uuid = &"0c663064-80c3-7abf-fc74-d43cc326243c"
+entity_name = ""
+type = &"Mob:PODPlant"
+position = Vector3i(-5, 1, -1)
+facing = 8
+blocking = 63
+meta = {}
+
+[sub_resource type="Resource" id="Resource_tjeiq"]
+script = ExtResource("1_exebb")
+uuid = &"0f293064-e0ce-7006-b012-220e92be2acb"
+entity_name = ""
+type = &"Mob:PODPlant"
+position = Vector3i(-15, 0, 10)
+facing = 4
+blocking = 63
+meta = {}
+
+[sub_resource type="Resource" id="Resource_eovbl"]
+script = ExtResource("1_exebb")
+uuid = &"1b663064-60ab-7722-bc32-c47d0983ee91"
+entity_name = ""
+type = &"Mob:PODPlant"
+position = Vector3i(-2, 1, 2)
+facing = 4
+blocking = 63
+meta = {}
+
+[sub_resource type="Resource" id="Resource_jp8gu"]
+script = ExtResource("1_exebb")
+uuid = &"1d293064-1056-76ce-3c37-99d5d6f00403"
+entity_name = ""
+type = &"Mob:PODPlant"
+position = Vector3i(-14, 0, 10)
+facing = 4
+blocking = 63
+meta = {}
+
+[sub_resource type="Resource" id="Resource_51ehh"]
+script = ExtResource("1_exebb")
+uuid = &"37663064-5003-752f-3453-3f7e4ebf2597"
+entity_name = ""
+type = &"Mob:PODPlant"
+position = Vector3i(1, 1, 4)
+facing = 4
+blocking = 63
+meta = {}
+
+[sub_resource type="Resource" id="Resource_vujef"]
+script = ExtResource("1_exebb")
+uuid = &"47663064-d058-7800-b47e-a1646f05bc9d"
+entity_name = ""
+type = &"Mob:Sprout"
+position = Vector3i(2, 1, 4)
+facing = 4
+blocking = 63
+meta = {}
+
+[sub_resource type="Resource" id="Resource_4bgpv"]
+script = ExtResource("1_exebb")
+uuid = &"4b283064-e026-7215-f478-f8f94fe76eba"
+entity_name = "Exit-2"
+type = &"Trigger:Exit"
+position = Vector3i(-3, 1, 13)
+facing = 8
+blocking = 0
+meta = {
+"dungeon_name": "003_Escape"
+}
+
+[sub_resource type="Resource" id="Resource_f1ytd"]
+script = ExtResource("1_exebb")
+uuid = &"57653064-b012-75b0-a4b9-7441c54c186e"
+entity_name = ""
+type = &"Mob:Sprout"
+position = Vector3i(-15, 0, 5)
+facing = 4
+blocking = 63
+meta = {}
+
+[sub_resource type="Resource" id="Resource_7x14p"]
+script = ExtResource("1_exebb")
+uuid = &"58263064-80d6-799e-ece0-63de1f99554a"
+entity_name = ""
+type = &"Ramp:Exterior_A"
+position = Vector3i(-10, 0, 9)
+facing = 4
+blocking = 0
+meta = {}
 
 [sub_resource type="Resource" id="Resource_ian5l"]
 script = ExtResource("1_exebb")
@@ -13,14 +115,230 @@ facing = 2
 blocking = 63
 meta = {}
 
+[sub_resource type="Resource" id="Resource_bljus"]
+script = ExtResource("1_exebb")
+uuid = &"5e2a3064-e0a9-7dbb-ac63-1a0a2d42ca9c"
+entity_name = ""
+type = &"Mob:Sprout"
+position = Vector3i(-18, 0, 2)
+facing = 2
+blocking = 63
+meta = {}
+
+[sub_resource type="Resource" id="Resource_2hgo5"]
+script = ExtResource("1_exebb")
+uuid = &"60663064-40e1-7212-7432-042e7b63d6f8"
+entity_name = ""
+type = &"Mob:Sprout"
+position = Vector3i(3, 1, 1)
+facing = 2
+blocking = 63
+meta = {}
+
+[sub_resource type="Resource" id="Resource_1xila"]
+script = ExtResource("1_exebb")
+uuid = &"61653064-803e-7b9c-64c0-84e909ab13d8"
+entity_name = ""
+type = &"Item:Fruit"
+position = Vector3i(-14, 0, 5)
+facing = 2
+blocking = 0
+meta = {}
+
+[sub_resource type="Resource" id="Resource_u4mlm"]
+script = ExtResource("1_exebb")
+uuid = &"6c2a3064-d098-7533-34d8-3bce8e426ff3"
+entity_name = ""
+type = &"Mob:PODPlant"
+position = Vector3i(-20, 0, 1)
+facing = 4
+blocking = 63
+meta = {}
+
+[sub_resource type="Resource" id="Resource_wuwm1"]
+script = ExtResource("1_exebb")
+uuid = &"78283064-a0b1-78c3-346b-06adf3bb2b86"
+entity_name = ""
+type = &"Mob:PODPlant"
+position = Vector3i(-7, 1, 11)
+facing = 4
+blocking = 63
+meta = {}
+
+[sub_resource type="Resource" id="Resource_0326y"]
+script = ExtResource("1_exebb")
+uuid = &"7a253064-b099-7777-b87e-c4aac95d4b4b"
+entity_name = "Survivor_DEF"
+type = &"Item:Survivor"
+position = Vector3i(4, 1, 3)
+facing = 2
+blocking = 0
+meta = {
+"blob_index": 2,
+"dialog_id": &"survivor_def"
+}
+
+[sub_resource type="Resource" id="Resource_qfkry"]
+script = ExtResource("1_exebb")
+uuid = &"7c2a3064-30a8-7ecd-a459-522b9afd5f2c"
+entity_name = ""
+type = &"Item:Fruit"
+position = Vector3i(-19, 0, 3)
+facing = 1
+blocking = 0
+meta = {}
+
+[sub_resource type="Resource" id="Resource_vtlp6"]
+script = ExtResource("1_exebb")
+uuid = &"83283064-a06d-7836-a891-5b7475f975fd"
+entity_name = ""
+type = &"Mob:PODPlant"
+position = Vector3i(-6, 1, 8)
+facing = 1
+blocking = 63
+meta = {}
+
+[sub_resource type="Resource" id="Resource_3ut2r"]
+script = ExtResource("1_exebb")
+uuid = &"96653064-4028-709f-a4a8-28d1ed4e271b"
+entity_name = ""
+type = &"Mob:PODPlant"
+position = Vector3i(-12, 0, 11)
+facing = 4
+blocking = 63
+meta = {}
+
+[sub_resource type="Resource" id="Resource_v6wc1"]
+script = ExtResource("1_exebb")
+uuid = &"a1283064-1056-779d-742b-74ceca5060cb"
+entity_name = ""
+type = &"Mob:Sprout"
+position = Vector3i(-8, 1, 9)
+facing = 2
+blocking = 63
+meta = {}
+
+[sub_resource type="Resource" id="Resource_e65su"]
+script = ExtResource("1_exebb")
+uuid = &"a8283064-908f-7a16-ecbe-5caa9c4f8cd9"
+entity_name = ""
+type = &"Item:Fruit"
+position = Vector3i(-8, 1, 10)
+facing = 2
+blocking = 0
+meta = {}
+
+[sub_resource type="Resource" id="Resource_il15c"]
+script = ExtResource("1_exebb")
+uuid = &"aa643064-80e9-7800-fcd1-7c97c342d587"
+entity_name = ""
+type = &"Mob:Sprout"
+position = Vector3i(-13, 0, 4)
+facing = 8
+blocking = 63
+meta = {}
+
+[sub_resource type="Resource" id="Resource_16yks"]
+script = ExtResource("1_exebb")
+uuid = &"bc653064-6023-765e-ac87-f882c05cd44f"
+entity_name = ""
+type = &"Mob:PODPlant"
+position = Vector3i(-6, 1, 12)
+facing = 4
+blocking = 63
+meta = {}
+
+[sub_resource type="Resource" id="Resource_pi5fj"]
+script = ExtResource("1_exebb")
+uuid = &"bd643064-d0b9-70c8-f82f-6cedabe994bc"
+entity_name = ""
+type = &"Mob:PODPlant"
+position = Vector3i(-16, 0, 3)
+facing = 8
+blocking = 63
+meta = {}
+
+[sub_resource type="Resource" id="Resource_jfgmd"]
+script = ExtResource("1_exebb")
+uuid = &"c2283064-4072-72b8-f8e5-d02dd1f89f81"
+entity_name = ""
+type = &"Mob:Sprout"
+position = Vector3i(-10, 0, 11)
+facing = 4
+blocking = 63
+meta = {}
+
+[sub_resource type="Resource" id="Resource_ypayf"]
+script = ExtResource("1_exebb")
+uuid = &"da283064-d048-7839-ac50-33ee8f9b4e92"
+entity_name = ""
+type = &"Mob:Sprout"
+position = Vector3i(-10, 0, 7)
+facing = 2
+blocking = 63
+meta = {}
+
+[sub_resource type="Resource" id="Resource_axn8o"]
+script = ExtResource("1_exebb")
+uuid = &"e3653064-b01d-722c-6814-6825834cfe21"
+entity_name = ""
+type = &"Mob:PODPlant"
+position = Vector3i(-7, 1, 2)
+facing = 8
+blocking = 63
+meta = {}
+
 [sub_resource type="Resource" id="Resource_pxiqk"]
 script = ExtResource("1_exebb")
 uuid = &"e5832f64-f003-7c46-e4e8-96d6947940f8"
 entity_name = ""
 type = &"Editor"
-position = Vector3i(0, 1, 2)
-facing = 2
+position = Vector3i(-3, 1, 13)
+facing = 8
 blocking = 0
+meta = {}
+
+[sub_resource type="Resource" id="Resource_xm8ui"]
+script = ExtResource("1_exebb")
+uuid = &"ec653064-00c9-7bef-30e1-259ce0fe44b8"
+entity_name = ""
+type = &"Mob:PODPlant"
+position = Vector3i(-6, 1, -2)
+facing = 1
+blocking = 63
+meta = {}
+
+[sub_resource type="Resource" id="Resource_y7niv"]
+script = ExtResource("1_exebb")
+uuid = &"ef273064-a00a-7422-b821-35009901e919"
+entity_name = "Survivor_ENG"
+type = &"Item:Survivor"
+position = Vector3i(-11, 0, 11)
+facing = 1
+blocking = 0
+meta = {
+"blob_index": 3,
+"dialog_id": &"survivor_eng"
+}
+
+[sub_resource type="Resource" id="Resource_4np8s"]
+script = ExtResource("1_exebb")
+uuid = &"f22a3064-a0bf-758e-b488-0382e8aa8545"
+entity_name = ""
+type = &"Mob:PODPlant"
+position = Vector3i(-16, 0, -3)
+facing = 2
+blocking = 63
+meta = {}
+
+[sub_resource type="Resource" id="Resource_d5e63"]
+script = ExtResource("1_exebb")
+uuid = &"f9653064-50ad-70a1-ace0-369e390c0a80"
+entity_name = ""
+type = &"Mob:Sprout"
+position = Vector3i(-5, 1, 1)
+facing = 8
+blocking = 63
 meta = {}
 
 [resource]
@@ -40,18 +358,18 @@ Vector3i(-20, 0, 2): {
 "visited": false
 },
 Vector3i(-19, 0, -1): {
-"blocking": 54,
-"rid": [-1, 2, 2, -1, 0, 54],
+"blocking": 22,
+"rid": [-1, 2, 2, -1, 0, -1],
 "visited": false
 },
 Vector3i(-19, 0, 0): {
-"blocking": 58,
-"rid": [-1, 2, -1, 2, 0, 54],
+"blocking": 26,
+"rid": [-1, 2, -1, 2, 0, -1],
 "visited": false
 },
 Vector3i(-19, 0, 1): {
-"blocking": 48,
-"rid": [-1, -1, -1, -1, 0, 54],
+"blocking": 16,
+"rid": [-1, -1, -1, -1, 0, -1],
 "visited": false
 },
 Vector3i(-19, 0, 2): {
@@ -64,29 +382,59 @@ Vector3i(-19, 0, 3): {
 "rid": [2, 2, -1, 2, 0, 54],
 "visited": false
 },
+Vector3i(-19, 1, -1): {
+"blocking": 38,
+"rid": [-1, 161, 160, -1, -1, 148],
+"visited": false
+},
+Vector3i(-19, 1, 0): {
+"blocking": 34,
+"rid": [-1, 154, -1, 2, -1, 148],
+"visited": false
+},
+Vector3i(-19, 1, 1): {
+"blocking": 43,
+"rid": [153, 152, -1, 6, -1, 148],
+"visited": false
+},
 Vector3i(-18, 0, -3): {
 "blocking": 55,
 "rid": [2, 2, 2, -1, 0, 54],
 "visited": false
 },
 Vector3i(-18, 0, -1): {
-"blocking": 53,
-"rid": [2, -1, 2, -1, 0, 54],
+"blocking": 21,
+"rid": [2, -1, 2, -1, 0, -1],
 "visited": false
 },
 Vector3i(-18, 0, 0): {
-"blocking": 55,
-"rid": [2, 2, 2, -1, 0, 54],
+"blocking": 23,
+"rid": [2, 2, 2, -1, 0, -1],
 "visited": false
 },
 Vector3i(-18, 0, 1): {
 "blocking": 53,
-"rid": [6, -1, 6, -1, 3, 5],
+"rid": [6, -1, 6, -1, 0, 5],
 "visited": false
 },
 Vector3i(-18, 0, 2): {
-"blocking": 61,
-"rid": [2, -1, 2, 2, 0, 54],
+"blocking": 29,
+"rid": [2, -1, 2, 2, 0, -1],
+"visited": false
+},
+Vector3i(-18, 1, -1): {
+"blocking": 36,
+"rid": [-1, -1, 159, -1, -1, 148],
+"visited": false
+},
+Vector3i(-18, 1, 0): {
+"blocking": 33,
+"rid": [2, 2, -1, -1, -1, 148],
+"visited": false
+},
+Vector3i(-18, 1, 2): {
+"blocking": 47,
+"rid": [150, 149, 2, 2, -1, 148],
 "visited": false
 },
 Vector3i(-18, 1, 6): {
@@ -95,8 +443,8 @@ Vector3i(-18, 1, 6): {
 "visited": false
 },
 Vector3i(-17, 0, -3): {
-"blocking": 60,
-"rid": [-1, -1, 2, 2, 0, 54],
+"blocking": 52,
+"rid": [-1, -1, 2, -1, 0, 54],
 "visited": false
 },
 Vector3i(-17, 0, -2): {
@@ -105,13 +453,13 @@ Vector3i(-17, 0, -2): {
 "visited": false
 },
 Vector3i(-17, 0, -1): {
-"blocking": 56,
-"rid": [-1, -1, -1, 2, 0, 54],
+"blocking": 24,
+"rid": [-1, -1, -1, 2, 0, -1],
 "visited": false
 },
 Vector3i(-17, 0, 0): {
-"blocking": 57,
-"rid": [2, -1, -1, 2, 0, 54],
+"blocking": 25,
+"rid": [2, -1, -1, 2, 0, -1],
 "visited": false
 },
 Vector3i(-17, 0, 1): {
@@ -154,9 +502,24 @@ Vector3i(-17, 0, 8): {
 "rid": [2, 2, -1, -1, 0, 85],
 "visited": false
 },
+Vector3i(-17, 1, -1): {
+"blocking": 44,
+"rid": [-1, -1, 156, 157, -1, 148],
+"visited": false
+},
+Vector3i(-17, 1, 0): {
+"blocking": 41,
+"rid": [2, -1, -1, 158, -1, 148],
+"visited": false
+},
 Vector3i(-17, 1, 6): {
 "blocking": 37,
 "rid": [86, -1, 6, -1, -1, 85],
+"visited": false
+},
+Vector3i(-16, 0, -3): {
+"blocking": 29,
+"rid": [2, -1, 2, 6, 0, -1],
 "visited": false
 },
 Vector3i(-16, 0, -2): {
@@ -190,8 +553,8 @@ Vector3i(-16, 1, -4): {
 "visited": false
 },
 Vector3i(-16, 1, -3): {
-"blocking": 58,
-"rid": [-1, 70, -1, 6, 0, 54],
+"blocking": 42,
+"rid": [-1, 70, -1, 6, -1, 54],
 "visited": false
 },
 Vector3i(-16, 1, -2): {
@@ -206,7 +569,7 @@ Vector3i(-16, 1, -1): {
 },
 Vector3i(-16, 1, 0): {
 "blocking": 59,
-"rid": [73, 67, -1, 6, 0, 54],
+"rid": [2, 67, -1, 6, 0, 54],
 "visited": false
 },
 Vector3i(-16, 1, 6): {
@@ -216,12 +579,12 @@ Vector3i(-16, 1, 6): {
 },
 Vector3i(-15, 0, -3): {
 "blocking": 54,
-"rid": [-1, 6, 6, -1, 3, 5],
+"rid": [-1, 6, 6, -1, 0, 5],
 "visited": false
 },
 Vector3i(-15, 0, -2): {
 "blocking": 56,
-"rid": [-1, -1, -1, 6, 3, 5],
+"rid": [-1, -1, -1, 6, 0, 5],
 "visited": false
 },
 Vector3i(-15, 0, -1): {
@@ -231,7 +594,7 @@ Vector3i(-15, 0, -1): {
 },
 Vector3i(-15, 0, 0): {
 "blocking": 51,
-"rid": [6, 2, -1, -1, 3, 5],
+"rid": [6, 6, -1, -1, 3, 5],
 "visited": false
 },
 Vector3i(-15, 0, 2): {
@@ -255,8 +618,18 @@ Vector3i(-15, 0, 5): {
 "visited": false
 },
 Vector3i(-15, 0, 8): {
-"blocking": 21,
-"rid": [2, -1, 2, -1, 0, -1],
+"blocking": 20,
+"rid": [-1, -1, 2, -1, 0, -1],
+"visited": false
+},
+Vector3i(-15, 0, 9): {
+"blocking": 50,
+"rid": [-1, 2, -1, -1, 0, 148],
+"visited": false
+},
+Vector3i(-15, 0, 10): {
+"blocking": 51,
+"rid": [2, 2, -1, -1, 0, 148],
 "visited": false
 },
 Vector3i(-15, 1, 8): {
@@ -295,8 +668,8 @@ Vector3i(-14, 0, 2): {
 "visited": false
 },
 Vector3i(-14, 0, 3): {
-"blocking": 52,
-"rid": [-1, -1, 2, -1, 0, 42],
+"blocking": 20,
+"rid": [-1, -1, 2, -1, 0, -1],
 "visited": false
 },
 Vector3i(-14, 0, 4): {
@@ -310,8 +683,18 @@ Vector3i(-14, 0, 5): {
 "visited": false
 },
 Vector3i(-14, 0, 8): {
-"blocking": 21,
-"rid": [2, -1, 2, -1, 0, -1],
+"blocking": 20,
+"rid": [-1, -1, 2, -1, 0, -1],
+"visited": false
+},
+Vector3i(-14, 0, 9): {
+"blocking": 56,
+"rid": [-1, -1, -1, 2, 0, 148],
+"visited": false
+},
+Vector3i(-14, 0, 10): {
+"blocking": 57,
+"rid": [2, -1, -1, 2, 0, 148],
 "visited": false
 },
 Vector3i(-14, 1, -1): {
@@ -335,8 +718,8 @@ Vector3i(-14, 1, 2): {
 "visited": false
 },
 Vector3i(-14, 1, 3): {
-"blocking": 51,
-"rid": [2, 2, -1, -1, 0, 42],
+"blocking": 35,
+"rid": [164, 165, -1, -1, -1, 42],
 "visited": false
 },
 Vector3i(-14, 1, 8): {
@@ -375,8 +758,8 @@ Vector3i(-13, 0, 2): {
 "visited": false
 },
 Vector3i(-13, 0, 3): {
-"blocking": 53,
-"rid": [2, -1, 2, -1, 0, 42],
+"blocking": 21,
+"rid": [2, -1, 2, -1, 0, -1],
 "visited": false
 },
 Vector3i(-13, 0, 4): {
@@ -410,8 +793,8 @@ Vector3i(-13, 1, 2): {
 "visited": false
 },
 Vector3i(-13, 1, 3): {
-"blocking": 49,
-"rid": [2, -1, -1, -1, 0, 42],
+"blocking": 33,
+"rid": [166, -1, -1, -1, -1, 42],
 "visited": false
 },
 Vector3i(-13, 1, 6): {
@@ -455,8 +838,8 @@ Vector3i(-12, 0, 2): {
 "visited": false
 },
 Vector3i(-12, 0, 3): {
-"blocking": 52,
-"rid": [-1, -1, 2, -1, 0, 42],
+"blocking": 20,
+"rid": [-1, -1, 2, -1, 0, -1],
 "visited": false
 },
 Vector3i(-12, 0, 4): {
@@ -465,8 +848,33 @@ Vector3i(-12, 0, 4): {
 "visited": false
 },
 Vector3i(-12, 0, 7): {
-"blocking": 53,
-"rid": [2, -1, 2, -1, 0, 54],
+"blocking": 52,
+"rid": [-1, -1, 2, -1, 0, 54],
+"visited": false
+},
+Vector3i(-12, 0, 8): {
+"blocking": 58,
+"rid": [-1, 2, -1, 2, 0, 111],
+"visited": false
+},
+Vector3i(-12, 0, 9): {
+"blocking": 58,
+"rid": [-1, 2, -1, 2, 0, 111],
+"visited": false
+},
+Vector3i(-12, 0, 10): {
+"blocking": 50,
+"rid": [-1, 2, -1, -1, 0, 111],
+"visited": false
+},
+Vector3i(-12, 0, 11): {
+"blocking": 58,
+"rid": [-1, 2, -1, 6, 0, 111],
+"visited": false
+},
+Vector3i(-12, 0, 12): {
+"blocking": 51,
+"rid": [2, 2, -1, -1, 0, 111],
 "visited": false
 },
 Vector3i(-12, 1, 1): {
@@ -480,8 +888,8 @@ Vector3i(-12, 1, 2): {
 "visited": false
 },
 Vector3i(-12, 1, 3): {
-"blocking": 57,
-"rid": [2, -1, -1, 2, 0, 42],
+"blocking": 41,
+"rid": [162, -1, -1, 163, -1, 42],
 "visited": false
 },
 Vector3i(-12, 1, 6): {
@@ -544,6 +952,21 @@ Vector3i(-11, 0, 7): {
 "rid": [2, -1, -1, -1, 0, -1],
 "visited": false
 },
+Vector3i(-11, 0, 10): {
+"blocking": 53,
+"rid": [6, -1, 2, -1, 0, 111],
+"visited": false
+},
+Vector3i(-11, 0, 11): {
+"blocking": 62,
+"rid": [-1, 6, 17, 138, 3, 5],
+"visited": false
+},
+Vector3i(-11, 0, 12): {
+"blocking": 49,
+"rid": [2, -1, -1, -1, 0, 111],
+"visited": false
+},
 Vector3i(-11, 1, 6): {
 "blocking": 37,
 "rid": [57, -1, 6, -1, -1, 54],
@@ -557,6 +980,11 @@ Vector3i(-11, 1, 7): {
 Vector3i(-11, 1, 8): {
 "blocking": 59,
 "rid": [63, 62, -1, 2, 0, 54],
+"visited": false
+},
+Vector3i(-11, 1, 11): {
+"blocking": 63,
+"rid": [134, 135, 136, 133, 3, 137],
 "visited": false
 },
 Vector3i(-10, 0, -3): {
@@ -604,6 +1032,27 @@ Vector3i(-10, 0, 7): {
 "rid": [2, -1, 2, 2, 0, -1],
 "visited": false
 },
+Vector3i(-10, 0, 9): {
+"blocking": 30,
+"rid": [-1, 2, 2, 2, 0, -1],
+"stair": true,
+"visited": false
+},
+Vector3i(-10, 0, 10): {
+"blocking": 24,
+"rid": [-1, -1, -1, 2, 0, -1],
+"visited": false
+},
+Vector3i(-10, 0, 11): {
+"blocking": 26,
+"rid": [-1, 6, -1, 2, 0, -1],
+"visited": false
+},
+Vector3i(-10, 0, 12): {
+"blocking": 25,
+"rid": [2, -1, -1, 2, 0, -1],
+"visited": false
+},
 Vector3i(-10, 1, 6): {
 "blocking": 53,
 "rid": [58, -1, 6, -1, 0, 54],
@@ -612,6 +1061,31 @@ Vector3i(-10, 1, 6): {
 Vector3i(-10, 1, 7): {
 "blocking": 47,
 "rid": [2, 61, 60, 2, -1, 54],
+"visited": false
+},
+Vector3i(-10, 1, 8): {
+"blocking": 54,
+"rid": [-1, 2, 2, -1, 0, 111],
+"visited": false
+},
+Vector3i(-10, 1, 9): {
+"blocking": 42,
+"rid": [-1, 126, -1, 2, -1, 111],
+"visited": false
+},
+Vector3i(-10, 1, 10): {
+"blocking": 42,
+"rid": [-1, 128, -1, 2, -1, 111],
+"visited": false
+},
+Vector3i(-10, 1, 11): {
+"blocking": 42,
+"rid": [-1, 129, -1, 2, -1, 111],
+"visited": false
+},
+Vector3i(-10, 1, 12): {
+"blocking": 43,
+"rid": [2, 130, -1, 2, -1, 111],
 "visited": false
 },
 Vector3i(-9, 0, 0): {
@@ -632,6 +1106,16 @@ Vector3i(-9, 0, 4): {
 Vector3i(-9, 1, 6): {
 "blocking": 61,
 "rid": [59, -1, 6, 2, 0, 54],
+"visited": false
+},
+Vector3i(-9, 1, 8): {
+"blocking": 52,
+"rid": [-1, -1, 2, -1, 0, 111],
+"visited": false
+},
+Vector3i(-9, 1, 9): {
+"blocking": 51,
+"rid": [2, 2, -1, -1, 0, 148],
 "visited": false
 },
 Vector3i(-8, 0, -2): {
@@ -704,6 +1188,26 @@ Vector3i(-8, 1, 4): {
 "rid": [2, 6, -1, 2, 0, 16],
 "visited": false
 },
+Vector3i(-8, 1, 7): {
+"blocking": 54,
+"rid": [-1, 2, 2, -1, 0, 111],
+"visited": false
+},
+Vector3i(-8, 1, 8): {
+"blocking": 57,
+"rid": [2, -1, -1, 2, 0, 111],
+"visited": false
+},
+Vector3i(-8, 1, 9): {
+"blocking": 60,
+"rid": [-1, -1, 2, 2, 0, 148],
+"visited": false
+},
+Vector3i(-8, 1, 10): {
+"blocking": 59,
+"rid": [2, 2, -1, 2, 0, 148],
+"visited": false
+},
 Vector3i(-7, 0, -1): {
 "blocking": 28,
 "rid": [-1, -1, 2, 2, 0, -1],
@@ -739,6 +1243,41 @@ Vector3i(-7, 1, 2): {
 "rid": [2, -1, -1, -1, 0, 16],
 "visited": false
 },
+Vector3i(-7, 1, 7): {
+"blocking": 52,
+"rid": [-1, -1, 2, -1, 0, 111],
+"visited": false
+},
+Vector3i(-7, 1, 8): {
+"blocking": 58,
+"rid": [-1, 2, -1, 2, 0, 111],
+"visited": false
+},
+Vector3i(-7, 1, 9): {
+"blocking": 50,
+"rid": [-1, 2, -1, -1, 0, 111],
+"visited": false
+},
+Vector3i(-7, 1, 10): {
+"blocking": 58,
+"rid": [-1, 2, -1, 2, 0, 111],
+"visited": false
+},
+Vector3i(-7, 1, 11): {
+"blocking": 50,
+"rid": [-1, 2, -1, -1, 0, 111],
+"visited": false
+},
+Vector3i(-7, 1, 12): {
+"blocking": 58,
+"rid": [-1, 2, -1, 2, 0, 111],
+"visited": false
+},
+Vector3i(-7, 1, 13): {
+"blocking": 51,
+"rid": [2, 2, -1, -1, 0, 111],
+"visited": false
+},
 Vector3i(-6, 1, -2): {
 "blocking": 60,
 "rid": [-1, -1, 2, 2, 0, 16],
@@ -757,6 +1296,41 @@ Vector3i(-6, 1, 0): {
 Vector3i(-6, 1, 2): {
 "blocking": 53,
 "rid": [2, -1, 2, -1, 0, 16],
+"visited": false
+},
+Vector3i(-6, 1, 7): {
+"blocking": 60,
+"rid": [-1, -1, 2, 2, 0, 111],
+"visited": false
+},
+Vector3i(-6, 1, 8): {
+"blocking": 58,
+"rid": [-1, 2, -1, 2, 0, 111],
+"visited": false
+},
+Vector3i(-6, 1, 9): {
+"blocking": 56,
+"rid": [-1, -1, -1, 2, 0, 111],
+"visited": false
+},
+Vector3i(-6, 1, 10): {
+"blocking": 58,
+"rid": [-1, 2, -1, 2, 0, 111],
+"visited": false
+},
+Vector3i(-6, 1, 11): {
+"blocking": 56,
+"rid": [-1, -1, -1, 2, 0, 111],
+"visited": false
+},
+Vector3i(-6, 1, 12): {
+"blocking": 59,
+"rid": [2, 2, -1, 2, 0, 111],
+"visited": false
+},
+Vector3i(-6, 1, 13): {
+"blocking": 53,
+"rid": [2, -1, 2, -1, 0, 111],
 "visited": false
 },
 Vector3i(-5, 1, -1): {
@@ -779,6 +1353,11 @@ Vector3i(-5, 1, 2): {
 "rid": [2, -1, -1, 2, 0, 16],
 "visited": false
 },
+Vector3i(-5, 1, 13): {
+"blocking": 53,
+"rid": [2, -1, 2, -1, 0, 148],
+"visited": false
+},
 Vector3i(-4, 1, -2): {
 "blocking": 54,
 "rid": [-1, 2, 2, -1, 0, 16],
@@ -797,6 +1376,11 @@ Vector3i(-4, 1, 0): {
 Vector3i(-4, 1, 1): {
 "blocking": 49,
 "rid": [2, -1, -1, -1, 0, 16],
+"visited": false
+},
+Vector3i(-4, 1, 13): {
+"blocking": 53,
+"rid": [2, -1, 2, -1, 0, 148],
 "visited": false
 },
 Vector3i(-3, 1, -2): {
@@ -822,6 +1406,11 @@ Vector3i(-3, 1, 2): {
 Vector3i(-3, 1, 3): {
 "blocking": 51,
 "rid": [2, 2, -1, -1, 0, 85],
+"visited": false
+},
+Vector3i(-3, 1, 13): {
+"blocking": 53,
+"rid": [2, -1, 2, -1, 0, 148],
 "visited": false
 },
 Vector3i(-2, 1, -2): {
@@ -854,6 +1443,11 @@ Vector3i(-2, 1, 3): {
 "rid": [2, -1, 2, -1, 0, 85],
 "visited": false
 },
+Vector3i(-2, 1, 13): {
+"blocking": 53,
+"rid": [2, -1, 2, -1, 0, 148],
+"visited": false
+},
 Vector3i(-1, 1, -1): {
 "blocking": 60,
 "rid": [-1, -1, 2, 2, 0, 16],
@@ -879,6 +1473,11 @@ Vector3i(-1, 1, 3): {
 "rid": [2, -1, -1, 2, 0, 85],
 "visited": false
 },
+Vector3i(-1, 1, 13): {
+"blocking": 53,
+"rid": [2, -1, 2, -1, 0, 148],
+"visited": false
+},
 Vector3i(0, 1, 0): {
 "blocking": 53,
 "rid": [2, -1, 2, -1, 0, 1],
@@ -892,6 +1491,11 @@ Vector3i(0, 1, 1): {
 Vector3i(0, 1, 2): {
 "blocking": 57,
 "rid": [2, -1, -1, 2, 0, 85],
+"visited": false
+},
+Vector3i(0, 1, 13): {
+"blocking": 53,
+"rid": [2, -1, 2, -1, 0, 148],
 "visited": false
 },
 Vector3i(1, 1, 0): {
@@ -919,6 +1523,11 @@ Vector3i(1, 1, 4): {
 "rid": [2, 2, -1, -1, 0, 85],
 "visited": false
 },
+Vector3i(1, 1, 13): {
+"blocking": 53,
+"rid": [2, -1, 2, -1, 0, 148],
+"visited": false
+},
 Vector3i(2, 1, 0): {
 "blocking": 61,
 "rid": [2, -1, 2, -1, 0, 0],
@@ -936,12 +1545,17 @@ Vector3i(2, 1, 2): {
 },
 Vector3i(2, 1, 3): {
 "blocking": 50,
-"rid": [-1, 2, -1, -1, 0, 85],
+"rid": [-1, 2, -1, -1, 0, 0],
 "visited": false
 },
 Vector3i(2, 1, 4): {
 "blocking": 57,
 "rid": [2, -1, -1, 2, 0, 85],
+"visited": false
+},
+Vector3i(2, 1, 13): {
+"blocking": 61,
+"rid": [2, -1, 2, 2, 0, 148],
 "visited": false
 },
 Vector3i(3, 1, 0): {
@@ -950,28 +1564,53 @@ Vector3i(3, 1, 0): {
 "visited": false
 },
 Vector3i(3, 1, 1): {
-"blocking": 61,
-"rid": [2, -1, 2, 2, 0, 85],
+"blocking": 29,
+"rid": [2, -1, 2, 2, 0, -1],
 "visited": false
 },
 Vector3i(3, 1, 2): {
-"blocking": 60,
-"rid": [-1, -1, 2, 2, 0, 85],
+"blocking": 28,
+"rid": [-1, -1, 2, 2, 0, -1],
 "visited": false
 },
 Vector3i(3, 1, 3): {
-"blocking": 56,
-"rid": [-1, -1, -1, 2, 0, 85],
+"blocking": 16,
+"rid": [-1, -1, -1, -1, 0, -1],
 "visited": false
 },
 Vector3i(3, 1, 4): {
-"blocking": 59,
-"rid": [2, 2, -1, 2, 0, 85],
+"blocking": 27,
+"rid": [2, 2, -1, 2, 0, -1],
+"visited": false
+},
+Vector3i(3, 2, 1): {
+"blocking": 47,
+"rid": [2, 113, 112, 115, -1, 114],
+"visited": false
+},
+Vector3i(3, 2, 2): {
+"blocking": 47,
+"rid": [100, 99, 2, 2, -1, 101],
+"visited": false
+},
+Vector3i(3, 2, 3): {
+"blocking": 47,
+"rid": [118, 122, 116, 2, -1, 111],
+"visited": false
+},
+Vector3i(3, 2, 4): {
+"blocking": 47,
+"rid": [119, 121, 120, 2, -1, 111],
 "visited": false
 },
 Vector3i(4, 1, 0): {
 "blocking": 53,
 "rid": [2, -1, 2, -1, 0, 16],
+"visited": false
+},
+Vector3i(4, 1, 3): {
+"blocking": 61,
+"rid": [6, -1, 6, 6, 3, 5],
 "visited": false
 },
 Vector3i(5, 1, 0): {
@@ -991,16 +1630,48 @@ Vector3i(7, 1, 0): {
 }
 }
 entities = {
+"03663064-100d-7501-74f5-24e733ea8131": SubResource("Resource_w74nu"),
+"0c663064-80c3-7abf-fc74-d43cc326243c": SubResource("Resource_jusb0"),
+"0f293064-e0ce-7006-b012-220e92be2acb": SubResource("Resource_tjeiq"),
+"1b663064-60ab-7722-bc32-c47d0983ee91": SubResource("Resource_eovbl"),
+"1d293064-1056-76ce-3c37-99d5d6f00403": SubResource("Resource_jp8gu"),
+"37663064-5003-752f-3453-3f7e4ebf2597": SubResource("Resource_51ehh"),
+"47663064-d058-7800-b47e-a1646f05bc9d": SubResource("Resource_vujef"),
+"4b283064-e026-7215-f478-f8f94fe76eba": SubResource("Resource_4bgpv"),
+"57653064-b012-75b0-a4b9-7441c54c186e": SubResource("Resource_f1ytd"),
+"58263064-80d6-799e-ece0-63de1f99554a": SubResource("Resource_7x14p"),
 "5c872f64-106a-77aa-7c91-3bdd805a1c11": SubResource("Resource_ian5l"),
-"e5832f64-f003-7c46-e4e8-96d6947940f8": SubResource("Resource_pxiqk")
+"5e2a3064-e0a9-7dbb-ac63-1a0a2d42ca9c": SubResource("Resource_bljus"),
+"60663064-40e1-7212-7432-042e7b63d6f8": SubResource("Resource_2hgo5"),
+"61653064-803e-7b9c-64c0-84e909ab13d8": SubResource("Resource_1xila"),
+"6c2a3064-d098-7533-34d8-3bce8e426ff3": SubResource("Resource_u4mlm"),
+"78283064-a0b1-78c3-346b-06adf3bb2b86": SubResource("Resource_wuwm1"),
+"7a253064-b099-7777-b87e-c4aac95d4b4b": SubResource("Resource_0326y"),
+"7c2a3064-30a8-7ecd-a459-522b9afd5f2c": SubResource("Resource_qfkry"),
+"83283064-a06d-7836-a891-5b7475f975fd": SubResource("Resource_vtlp6"),
+"96653064-4028-709f-a4a8-28d1ed4e271b": SubResource("Resource_3ut2r"),
+"a1283064-1056-779d-742b-74ceca5060cb": SubResource("Resource_v6wc1"),
+"a8283064-908f-7a16-ecbe-5caa9c4f8cd9": SubResource("Resource_e65su"),
+"aa643064-80e9-7800-fcd1-7c97c342d587": SubResource("Resource_il15c"),
+"bc653064-6023-765e-ac87-f882c05cd44f": SubResource("Resource_16yks"),
+"bd643064-d0b9-70c8-f82f-6cedabe994bc": SubResource("Resource_pi5fj"),
+"c2283064-4072-72b8-f8e5-d02dd1f89f81": SubResource("Resource_jfgmd"),
+"da283064-d048-7839-ac50-33ee8f9b4e92": SubResource("Resource_ypayf"),
+"e3653064-b01d-722c-6814-6825834cfe21": SubResource("Resource_axn8o"),
+"e5832f64-f003-7c46-e4e8-96d6947940f8": SubResource("Resource_pxiqk"),
+"ec653064-00c9-7bef-30e1-259ce0fe44b8": SubResource("Resource_xm8ui"),
+"ef273064-a00a-7422-b821-35009901e919": SubResource("Resource_y7niv"),
+"f22a3064-a0bf-758e-b488-0382e8aa8545": SubResource("Resource_4np8s"),
+"f9653064-50ad-70a1-ace0-369e390c0a80": SubResource("Resource_d5e63")
 }
 resources = {
-"": 98,
+"": 166,
 "basic": 20,
 "ceiling_pod": 5,
 "floor_pod": 3,
 "planet_ground": 0,
 "wall_planet_cliff_a": 2,
 "wall_pod_a": 6,
-"wall_pod_b": 17
+"wall_pod_b": 17,
+"wall_pod_c": 138
 }

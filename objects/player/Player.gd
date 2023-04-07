@@ -17,6 +17,9 @@ const CONFIG_KEY_LOOK_TOWARDS_STAIRS : String = "look_toward_stairs"
 const CONFIG_KEY_IGNORE_TRANSITIONS : String = "ignore_transitions"
 const CONFIG_KEY_FOV : String = "fov"
 
+const WEAPON_REST_ROTATIONS : Vector3 = Vector3(0.0, 0.0, 45.0)
+const WEAPON_STRIKE_ROTATIONS : Vector3 = Vector3(30.0, 0.0, 10.0)
+
 # ------------------------------------------------------------------------------
 # Export Variables
 # ------------------------------------------------------------------------------
@@ -47,6 +50,10 @@ var _can_interact : bool = true
 @onready var _gimble_yaw_node : Node3D = $Facing/Gimble_Yaw
 @onready var _gimble_pitch_node : Node3D = $Facing/Gimble_Yaw/Gimble_Pitch
 @onready var _camera : Camera3D = $Facing/Gimble_Yaw/Gimble_Pitch/Camera3D
+@onready var _weapon : Sprite3D = $Facing/Gimble_Yaw/Gimble_Pitch/Weapon
+
+@onready var _sfx : Node3D = $SFX
+
 
 # ------------------------------------------------------------------------------
 # Setters
@@ -172,14 +179,21 @@ func _Interact_Mob() -> bool:
 	if mobs.size() <= 0: return false
 	
 	for mob in mobs:
+		var _tween : Tween = create_tween()
+		_tween.tween_property(_weapon, "rotation_degrees", WEAPON_STRIKE_ROTATIONS, 0.2)
+		await _tween.finished
 		mob.attack(1.0, CrawlGlobals.ATTACK_TYPE.Physical)
+		_tween = create_tween()
+		_tween.tween_property(_weapon, "rotation_degrees", WEAPON_REST_ROTATIONS, 0.3)
+		await _tween.finished
 		entity.schedule_end()
 	return true
 
 func _Interact() -> void:
 	if entity == null or not _can_interact: return
+	_can_interact = false # Attacking has an animation. Don't want player to try and trigger again.
 	if _Interact_Door(): return
-	if _Interact_Mob(): return
+	if await _Interact_Mob(): return
 
 func _Consume() -> void:
 	if entity == null or not _can_interact: return
@@ -289,6 +303,8 @@ func _on_player_schedule_started(data : Dictionary) -> void:
 	_can_interact = true
 	var pd : PlayerData = CrawlGlobals.Get_Player_Data()
 	if pd == null: return
+	if randf() >= 0.85:
+		_sfx.play_group("breath")
 	pd.breath()
 
 func _on_player_schedule_ended(data : Dictionary) -> void:
@@ -297,5 +313,9 @@ func _on_player_schedule_ended(data : Dictionary) -> void:
 func _on_player_attacked(dmg : float, type : CrawlGlobals.ATTACK_TYPE) -> void:
 	var pd : PlayerData = CrawlGlobals.Get_Player_Data()
 	if pd == null: return
+	if pd.get_oxygen_percentage() < 0.01:
+		_sfx.play_group("sufficate")
+	else:
+		_sfx.play_group("hurt")
 	pd.hurt(dmg)
 

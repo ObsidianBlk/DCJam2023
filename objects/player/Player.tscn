@@ -1,6 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://teo1susxy05g"]
+[gd_scene load_steps=13 format=3 uid="uid://teo1susxy05g"]
 
 [ext_resource type="Script" path="res://objects/player/Player.gd" id="1_0duse"]
+[ext_resource type="Texture2D" uid="uid://dgce76fri1inu" path="res://assets/textures/Weapon_blade.png" id="2_pdvvk"]
+[ext_resource type="PackedScene" uid="uid://c4o2o417t2wrq" path="res://objects/SFX/SFX.tscn" id="3_f3ui6"]
+[ext_resource type="AudioStream" uid="uid://dldeiliw1mb1q" path="res://assets/audio/sfx/hurt/hurt_a.wav" id="4_d6ltl"]
+[ext_resource type="AudioStream" uid="uid://cq5q0gg3l6tj1" path="res://assets/audio/sfx/hurt/hurt_b.wav" id="5_pnb3d"]
+[ext_resource type="AudioStream" uid="uid://cjr656andw5rw" path="res://assets/audio/sfx/hurt/hurt_c.wav" id="6_ah2ir"]
+[ext_resource type="AudioStream" uid="uid://bxxdrh6vjhg0y" path="res://assets/audio/sfx/breathing/breath_a.wav" id="7_qg4mb"]
+[ext_resource type="AudioStream" uid="uid://5w8ouwtw6sfy" path="res://assets/audio/sfx/breathing/breath_b.wav" id="8_xwymf"]
+[ext_resource type="AudioStream" uid="uid://10cgpcsvgom7" path="res://assets/audio/sfx/breathing/breath_c.wav" id="9_xayb1"]
+[ext_resource type="AudioStream" uid="uid://bwrbwhv8pf4ss" path="res://assets/audio/sfx/breathing/sufficating.wav" id="10_bou8a"]
+[ext_resource type="AudioStream" uid="uid://dbwillfq7rvmo" path="res://assets/audio/sfx/breathing/sufficating_b.wav" id="11_qmi5c"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_idpsr"]
 
@@ -30,3 +40,17 @@ transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 
 light_color = Color(0.72549, 0.639216, 0.6, 1)
 light_volumetric_fog_energy = 0.0
 spot_range = 9.0
+
+[node name="Weapon" type="Sprite3D" parent="Facing/Gimble_Yaw/Gimble_Pitch"]
+transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, -0.121, -0.151, 0.142)
+centered = false
+offset = Vector2(-4, 0)
+flip_h = true
+pixel_size = 0.003
+texture_filter = 0
+texture = ExtResource("2_pdvvk")
+
+[node name="SFX" parent="." instance=ExtResource("3_f3ui6")]
+sample_names = Array[StringName]([&"hurt_a", &"hurt_b", &"hurt_c", &"breath_a", &"breath_b", &"breath_c", &"suff_a", &"suff_b"])
+sample_streams = Array[AudioStream]([ExtResource("4_d6ltl"), ExtResource("5_pnb3d"), ExtResource("6_ah2ir"), ExtResource("7_qg4mb"), ExtResource("8_xwymf"), ExtResource("9_xayb1"), ExtResource("10_bou8a"), ExtResource("11_qmi5c")])
+sample_groups = Array[String](["hurt,hurt_a,hurt_b,hurt_c", "breath,breath_a,breath_b,breath_c", "sufficate,suff_a,suff_b"])

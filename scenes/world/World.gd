@@ -7,8 +7,9 @@ const CONFIG_PATH : String = "user://crawl.ini"
 
 const DEFAULT_MENU_DUNGEON : String = "res://dungeons/Menu_Map_001.tres"
 
-#const FIRST_DUNGEON : String = "res://dungeons/001_crashland_cliffs.tres"
-const FIRST_DUNGEON : String = "res://dungeons/002_ShipMaze.tres"
+#const FIRST_DUNGEON : String = "res://dungeons/CrashedPod.tres"
+const FIRST_DUNGEON : String = "res://dungeons/001_crashland_cliffs.tres"
+#const FIRST_DUNGEON : String = "res://dungeons/002_ShipMaze.tres"
 
 const DUNGEON : PackedScene = preload("res://scenes/dungeon/Dungeon.tscn")
 
