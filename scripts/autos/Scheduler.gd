@@ -97,6 +97,9 @@ func remove_registered_entity(entity : CrawlEntity) -> void:
 	if entity.schedule_ended.is_connected(_on_entity_schedule_ended.bind(entity)):
 		entity.schedule_ended.disconnect(_on_entity_schedule_ended.bind(entity))
 	_mobs.erase(entity.uuid)
+	if not _primary_active:
+		if _AllProcessed() and _primary.get_ref() != null:
+			_primary.get_ref().schedule_start.call_deferred()
 
 func is_prime_active() -> bool:
 	return _primary_active

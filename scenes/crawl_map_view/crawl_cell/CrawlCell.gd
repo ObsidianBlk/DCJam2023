@@ -89,7 +89,9 @@ func _UpdateSurfaceNode(node_name : StringName, section : StringName, resource_n
 		_node[node_name][&"node"] = null
 	if resource_name == &"": return
 	var node : Node3D = RLT.instantiate_resource(section, resource_name)
-	if node == null: return
+	if node == null:
+		print("Resource Not Found: ", section, ", ", resource_name)
+		return
 	_node[node_name][&"node"] = node
 	add_child(node)
 	node.position = offset

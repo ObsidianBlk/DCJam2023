@@ -1,0 +1,985 @@
+[gd_resource type="Resource" script_class="CrawlMap" load_steps=24 format=3]
+
+[ext_resource type="Script" path="res://scripts/CrawlEntity.gd" id="1_3erpb"]
+[ext_resource type="Script" path="res://scripts/CrawlMap.gd" id="2_wue8u"]
+
+[sub_resource type="Resource" id="Resource_u71hk"]
+script = ExtResource("1_3erpb")
+uuid = &"057b2f64-80e2-778f-a09c-07f9f7debc33"
+entity_name = "Exit"
+type = &"Trigger:Exit"
+position = Vector3i(-9, 0, -6)
+facing = 2
+blocking = 0
+meta = {
+"dungeon_name": "002_ShipMaze"
+}
+
+[sub_resource type="Resource" id="Resource_1jwrl"]
+script = ExtResource("1_3erpb")
+uuid = &"077e2f64-9028-7359-7449-347837500a2b"
+entity_name = ""
+type = &"Mob:Sprout"
+position = Vector3i(7, 2, -4)
+facing = 2
+blocking = 63
+meta = {}
+
+[sub_resource type="Resource" id="Resource_emymk"]
+script = ExtResource("1_3erpb")
+uuid = &"117e2f64-a012-77da-60c9-ddc135150fd8"
+entity_name = ""
+type = &"Mob:Sprout"
+position = Vector3i(8, 2, -3)
+facing = 1
+blocking = 63
+meta = {}
+
+[sub_resource type="Resource" id="Resource_qxi4e"]
+script = ExtResource("1_3erpb")
+uuid = &"28772f64-405b-7907-680b-574212de29a0"
+entity_name = ""
+type = &"Ramp:Exterior_A"
+position = Vector3i(4, 0, -4)
+facing = 1
+blocking = 0
+meta = {}
+
+[sub_resource type="Resource" id="Resource_nh5ud"]
+script = ExtResource("1_3erpb")
+uuid = &"357a2f64-10e4-7a70-ec38-3ff94cc448fb"
+entity_name = "Survivor_Oxy"
+type = &"Item:Survivor"
+position = Vector3i(7, 2, -3)
+facing = 2
+blocking = 0
+meta = {
+"blob_index": 1,
+"dialog_id": &"survivor_oxy"
+}
+
+[sub_resource type="Resource" id="Resource_tcy1q"]
+script = ExtResource("1_3erpb")
+uuid = &"40772f64-d02f-76e4-e0cd-7f5f25705240"
+entity_name = ""
+type = &"Ramp:Exterior_A"
+position = Vector3i(4, 1, -3)
+facing = 1
+blocking = 0
+meta = {}
+
+[sub_resource type="Resource" id="Resource_vp5js"]
+script = ExtResource("1_3erpb")
+uuid = &"467e2f64-f0bf-7d1c-3c64-8fdb4e50943c"
+entity_name = ""
+type = &"Item:Fruit"
+position = Vector3i(4, 2, 0)
+facing = 8
+blocking = 0
+meta = {}
+
+[sub_resource type="Resource" id="Resource_6u3je"]
+script = ExtResource("1_3erpb")
+uuid = &"597d2f64-0057-7617-7033-f8fa4a93b1a0"
+entity_name = ""
+type = &"Item:Fruit"
+position = Vector3i(0, 1, 3)
+facing = 4
+blocking = 0
+meta = {}
+
+[sub_resource type="Resource" id="Resource_jdymk"]
+script = ExtResource("1_3erpb")
+uuid = &"837d2f64-f033-7d98-6ce6-71f575e90dcf"
+entity_name = ""
+type = &"Item:Fruit"
+position = Vector3i(-3, 0, -3)
+facing = 4
+blocking = 0
+meta = {}
+
+[sub_resource type="Resource" id="Resource_5n5xo"]
+script = ExtResource("1_3erpb")
+uuid = &"8a832f64-e04f-784e-fc40-2fbb2838ff56"
+entity_name = ""
+type = &"Mob:Sprout"
+position = Vector3i(3, 2, -1)
+facing = 4
+blocking = 63
+meta = {}
+
+[sub_resource type="Resource" id="Resource_ey10y"]
+script = ExtResource("1_3erpb")
+uuid = &"927d2f64-30aa-716b-2cd4-6db1860b2717"
+entity_name = ""
+type = &"Item:Fruit"
+position = Vector3i(-1, 0, -7)
+facing = 4
+blocking = 0
+meta = {}
+
+[sub_resource type="Resource" id="Resource_6jnk0"]
+script = ExtResource("1_3erpb")
+uuid = &"9e7d2f64-d058-7767-a070-dfd410d95b96"
+entity_name = ""
+type = &"Mob:Sprout"
+position = Vector3i(-2, 0, -8)
+facing = 2
+blocking = 63
+meta = {}
+
+[sub_resource type="Resource" id="Resource_ueind"]
+script = ExtResource("1_3erpb")
+uuid = &"a47d2f64-804f-7108-209e-54e995780584"
+entity_name = ""
+type = &"Mob:Sprout"
+position = Vector3i(-3, 0, -8)
+facing = 1
+blocking = 63
+meta = {}
+
+[sub_resource type="Resource" id="Resource_rnbk3"]
+script = ExtResource("1_3erpb")
+uuid = &"b17d2f64-504b-7b3e-3897-dafbee82be80"
+entity_name = ""
+type = &"Mob:Sprout"
+position = Vector3i(-5, 0, -7)
+facing = 8
+blocking = 63
+meta = {}
+
+[sub_resource type="Resource" id="Resource_44qcp"]
+script = ExtResource("1_3erpb")
+uuid = &"b3722f64-40f1-7558-2874-6e946e43a2e0"
+entity_name = ""
+type = &"Ramp:Exterior_A"
+position = Vector3i(-1, 0, 2)
+facing = 2
+blocking = 0
+meta = {}
+
+[sub_resource type="Resource" id="Resource_gxkvu"]
+script = ExtResource("1_3erpb")
+uuid = &"b9712f64-a032-7015-b4ab-658d442049ee"
+entity_name = ""
+type = &"Editor"
+position = Vector3i(-9, 0, -6)
+facing = 2
+blocking = 0
+meta = {}
+
+[sub_resource type="Resource" id="Resource_n01tk"]
+script = ExtResource("1_3erpb")
+uuid = &"bd742f64-60b3-7921-38db-5967ecb68757"
+entity_name = ""
+type = &"Ramp:Exterior_A"
+position = Vector3i(-3, 0, 1)
+facing = 1
+blocking = 0
+meta = {}
+
+[sub_resource type="Resource" id="Resource_l2ioy"]
+script = ExtResource("1_3erpb")
+uuid = &"cc7d2f64-8011-7b3c-f4ec-bd72d4d6d4c1"
+entity_name = ""
+type = &"Mob:Sprout"
+position = Vector3i(-2, 0, -7)
+facing = 1
+blocking = 63
+meta = {}
+
+[sub_resource type="Resource" id="Resource_dl2u7"]
+script = ExtResource("1_3erpb")
+uuid = &"d17d2f64-401f-732d-f41d-0a7238459602"
+entity_name = ""
+type = &"Mob:Sprout"
+position = Vector3i(-1, 0, -6)
+facing = 2
+blocking = 63
+meta = {}
+
+[sub_resource type="Resource" id="Resource_ih6hm"]
+script = ExtResource("1_3erpb")
+uuid = &"d8762f64-10a5-7a64-ac83-f1634c8ad1e9"
+entity_name = ""
+type = &"Player"
+position = Vector3i(0, 0, 0)
+facing = 1
+blocking = 63
+meta = {}
+
+[sub_resource type="Resource" id="Resource_idhud"]
+script = ExtResource("1_3erpb")
+uuid = &"fa7d2f64-60fa-758c-f0b9-5a94e0b1d701"
+entity_name = ""
+type = &"Item:Fruit"
+position = Vector3i(8, 2, -5)
+facing = 4
+blocking = 0
+meta = {}
+
+[resource]
+script = ExtResource("2_wue8u")
+name = ""
+author = ""
+world_env = &""
+grid = {
+Vector3i(-15, 0, -8): {
+"blocking": 54,
+"rid": [-1, 6, 6, -1, 3, 25],
+"visited": false
+},
+Vector3i(-15, 0, -7): {
+"blocking": 50,
+"rid": [-1, 6, -1, -1, 3, 25],
+"visited": false
+},
+Vector3i(-15, 0, -6): {
+"blocking": 50,
+"rid": [-1, 6, -1, -1, 3, 25],
+"visited": false
+},
+Vector3i(-15, 0, -5): {
+"blocking": 50,
+"rid": [-1, 6, -1, -1, 3, 25],
+"visited": false
+},
+Vector3i(-15, 0, -4): {
+"blocking": 51,
+"rid": [6, 6, -1, -1, 3, 25],
+"visited": false
+},
+Vector3i(-14, 0, -8): {
+"blocking": 52,
+"rid": [-1, -1, 6, -1, 3, 25],
+"visited": false
+},
+Vector3i(-14, 0, -7): {
+"blocking": 48,
+"rid": [-1, -1, -1, -1, 3, 25],
+"visited": false
+},
+Vector3i(-14, 0, -6): {
+"blocking": 48,
+"rid": [-1, -1, -1, -1, 3, 25],
+"visited": false
+},
+Vector3i(-14, 0, -5): {
+"blocking": 48,
+"rid": [-1, -1, -1, -1, 3, 25],
+"visited": false
+},
+Vector3i(-14, 0, -4): {
+"blocking": 49,
+"rid": [6, -1, -1, -1, 3, 25],
+"visited": false
+},
+Vector3i(-13, 0, -8): {
+"blocking": 52,
+"rid": [-1, -1, 6, -1, 3, 25],
+"visited": false
+},
+Vector3i(-13, 0, -7): {
+"blocking": 48,
+"rid": [-1, -1, -1, -1, 3, 25],
+"visited": false
+},
+Vector3i(-13, 0, -6): {
+"blocking": 48,
+"rid": [-1, -1, -1, -1, 3, 25],
+"visited": false
+},
+Vector3i(-13, 0, -5): {
+"blocking": 48,
+"rid": [-1, -1, -1, -1, 3, 25],
+"visited": false
+},
+Vector3i(-13, 0, -4): {
+"blocking": 49,
+"rid": [6, -1, -1, -1, 3, 25],
+"visited": false
+},
+Vector3i(-12, 0, -8): {
+"blocking": 52,
+"rid": [-1, -1, 6, -1, 3, 25],
+"visited": false
+},
+Vector3i(-12, 0, -7): {
+"blocking": 48,
+"rid": [-1, -1, -1, -1, 3, 25],
+"visited": false
+},
+Vector3i(-12, 0, -6): {
+"blocking": 48,
+"rid": [-1, -1, -1, -1, 3, 25],
+"visited": false
+},
+Vector3i(-12, 0, -5): {
+"blocking": 48,
+"rid": [-1, -1, -1, -1, 3, 25],
+"visited": false
+},
+Vector3i(-12, 0, -4): {
+"blocking": 49,
+"rid": [6, -1, -1, -1, 3, 25],
+"visited": false
+},
+Vector3i(-11, 0, -8): {
+"blocking": 60,
+"rid": [-1, -1, 6, 6, 3, 25],
+"visited": false
+},
+Vector3i(-11, 0, -7): {
+"blocking": 48,
+"rid": [-1, -1, -1, -1, 3, 25],
+"visited": false
+},
+Vector3i(-11, 0, -6): {
+"blocking": 48,
+"rid": [-1, -1, -1, -1, 3, 25],
+"visited": false
+},
+Vector3i(-11, 0, -5): {
+"blocking": 48,
+"rid": [-1, -1, -1, -1, 3, 25],
+"visited": false
+},
+Vector3i(-11, 0, -4): {
+"blocking": 57,
+"rid": [6, -1, -1, 6, 3, 25],
+"visited": false
+},
+Vector3i(-10, 0, -7): {
+"blocking": 60,
+"rid": [-1, -1, 6, 6, 3, 25],
+"visited": false
+},
+Vector3i(-10, 0, -6): {
+"blocking": 48,
+"rid": [-1, -1, -1, -1, 3, 25],
+"visited": false
+},
+Vector3i(-10, 0, -5): {
+"blocking": 57,
+"rid": [6, -1, -1, 6, 3, 25],
+"visited": false
+},
+Vector3i(-9, 0, -6): {
+"blocking": 53,
+"rid": [6, -1, 6, -1, 3, 25],
+"visited": false
+},
+Vector3i(-8, 0, -6): {
+"blocking": 53,
+"rid": [6, -1, 6, -1, 3, 25],
+"visited": false
+},
+Vector3i(-7, 0, -6): {
+"blocking": 53,
+"rid": [6, -1, 6, -1, 3, 25],
+"visited": false
+},
+Vector3i(-6, 0, -6): {
+"blocking": 53,
+"rid": [6, -1, 6, -1, 3, 25],
+"visited": false
+},
+Vector3i(-5, 0, -7): {
+"blocking": 54,
+"rid": [-1, 6, 6, -1, 3, 25],
+"visited": false
+},
+Vector3i(-5, 0, -6): {
+"blocking": 57,
+"rid": [6, -1, -1, 6, 3, 25],
+"visited": false
+},
+Vector3i(-4, 0, -7): {
+"blocking": 53,
+"rid": [6, -1, 6, -1, 3, 25],
+"visited": false
+},
+Vector3i(-4, 0, -6): {
+"blocking": 55,
+"rid": [6, 6, 6, -1, 3, 25],
+"visited": false
+},
+Vector3i(-3, 0, -8): {
+"blocking": 54,
+"rid": [-1, 6, 6, -1, 3, 25],
+"visited": false
+},
+Vector3i(-3, 0, -7): {
+"blocking": 56,
+"rid": [-1, -1, -1, 6, 3, 25],
+"visited": false
+},
+Vector3i(-3, 0, -6): {
+"blocking": 48,
+"rid": [-1, -1, -1, -1, 3, 25],
+"visited": false
+},
+Vector3i(-3, 0, -5): {
+"blocking": 50,
+"rid": [-1, 6, -1, -1, 3, 25],
+"visited": false
+},
+Vector3i(-3, 0, -4): {
+"blocking": 50,
+"rid": [-1, 6, -1, -1, 3, 25],
+"visited": false
+},
+Vector3i(-3, 0, -3): {
+"blocking": 27,
+"rid": [6, 6, -1, 6, 3, -1],
+"visited": false
+},
+Vector3i(-3, 0, 0): {
+"blocking": 22,
+"rid": [-1, 6, 6, -1, 3, -1],
+"visited": false
+},
+Vector3i(-3, 0, 1): {
+"blocking": 27,
+"rid": [6, 6, -1, 6, 3, -1],
+"stair": true,
+"visited": false
+},
+Vector3i(-3, 1, -3): {
+"blocking": 47,
+"rid": [6, 6, 49, 48, -1, 25],
+"visited": false
+},
+Vector3i(-3, 1, 0): {
+"blocking": 46,
+"rid": [-1, 6, 6, 6, -1, 25],
+"visited": false
+},
+Vector3i(-3, 1, 1): {
+"blocking": 42,
+"rid": [-1, 6, -1, 6, -1, 25],
+"visited": false
+},
+Vector3i(-3, 1, 2): {
+"blocking": 58,
+"rid": [-1, 6, -1, 6, 3, 25],
+"visited": false
+},
+Vector3i(-3, 1, 3): {
+"blocking": 51,
+"rid": [6, 6, -1, -1, 3, 25],
+"visited": false
+},
+Vector3i(-2, 0, -8): {
+"blocking": 53,
+"rid": [6, -1, 6, -1, 3, 25],
+"visited": false
+},
+Vector3i(-2, 0, -7): {
+"blocking": 62,
+"rid": [-1, 6, 6, 6, 3, 25],
+"visited": false
+},
+Vector3i(-2, 0, -6): {
+"blocking": 48,
+"rid": [-1, -1, -1, -1, 3, 25],
+"visited": false
+},
+Vector3i(-2, 0, -5): {
+"blocking": 49,
+"rid": [6, -1, -1, -1, 3, 25],
+"visited": false
+},
+Vector3i(-2, 0, -4): {
+"blocking": 53,
+"rid": [6, -1, 6, -1, 3, 25],
+"visited": false
+},
+Vector3i(-2, 0, -1): {
+"blocking": 30,
+"rid": [-1, 6, 6, 6, 3, -1],
+"visited": false
+},
+Vector3i(-2, 0, 0): {
+"blocking": 25,
+"rid": [6, -1, -1, 6, 3, -1],
+"visited": false
+},
+Vector3i(-2, 1, -1): {
+"blocking": 46,
+"rid": [-1, 6, 6, 6, -1, 3],
+"visited": false
+},
+Vector3i(-2, 1, 0): {
+"blocking": 42,
+"rid": [-1, 6, -1, 6, -1, 25],
+"visited": false
+},
+Vector3i(-2, 1, 1): {
+"blocking": 58,
+"rid": [-1, 6, -1, 6, 3, 25],
+"visited": false
+},
+Vector3i(-2, 1, 2): {
+"blocking": 51,
+"rid": [6, 6, -1, -1, 3, 14],
+"visited": false
+},
+Vector3i(-2, 1, 3): {
+"blocking": 53,
+"rid": [6, -1, 6, -1, 3, 25],
+"visited": false
+},
+Vector3i(-1, 0, -8): {
+"blocking": 60,
+"rid": [-1, -1, 6, 6, 3, 25],
+"visited": false
+},
+Vector3i(-1, 0, -7): {
+"blocking": 59,
+"rid": [6, 6, -1, 6, 3, 25],
+"visited": false
+},
+Vector3i(-1, 0, -6): {
+"blocking": 61,
+"rid": [6, -1, 6, 6, 3, 25],
+"visited": false
+},
+Vector3i(-1, 0, -5): {
+"blocking": 52,
+"rid": [-1, -1, 6, -1, 3, 25],
+"visited": false
+},
+Vector3i(-1, 0, -4): {
+"blocking": 49,
+"rid": [6, -1, -1, -1, 3, 25],
+"visited": false
+},
+Vector3i(-1, 0, -1): {
+"blocking": 22,
+"rid": [-1, 6, 6, -1, 3, -1],
+"visited": false
+},
+Vector3i(-1, 0, 0): {
+"blocking": 26,
+"rid": [-1, 6, -1, 2, 3, -1],
+"visited": false
+},
+Vector3i(-1, 0, 1): {
+"blocking": 18,
+"rid": [-1, 6, -1, -1, 3, -1],
+"visited": false
+},
+Vector3i(-1, 0, 2): {
+"blocking": 19,
+"rid": [6, 6, -1, -1, 3, -1],
+"stair": true,
+"visited": false
+},
+Vector3i(-1, 1, -1): {
+"blocking": 38,
+"rid": [-1, 6, 6, -1, -1, 14],
+"visited": false
+},
+Vector3i(-1, 1, 0): {
+"blocking": 34,
+"rid": [-1, 6, -1, -1, -1, 14],
+"visited": false
+},
+Vector3i(-1, 1, 1): {
+"blocking": 34,
+"rid": [-1, 6, -1, -1, -1, 14],
+"visited": false
+},
+Vector3i(-1, 1, 2): {
+"blocking": 33,
+"rid": [6, -1, -1, -1, -1, 14],
+"visited": false
+},
+Vector3i(-1, 1, 3): {
+"blocking": 53,
+"rid": [6, -1, 6, -1, 3, 25],
+"visited": false
+},
+Vector3i(0, 0, -5): {
+"blocking": 52,
+"rid": [-1, -1, 6, -1, 3, 25],
+"visited": false
+},
+Vector3i(0, 0, -4): {
+"blocking": 25,
+"rid": [6, -1, -1, 6, 3, -1],
+"visited": false
+},
+Vector3i(0, 0, -3): {
+"blocking": 31,
+"rid": [6, 6, -1, 6, 3, -1],
+"visited": false
+},
+Vector3i(0, 0, -1): {
+"blocking": 21,
+"rid": [2, -1, 6, -1, 3, -1],
+"visited": false
+},
+Vector3i(0, 0, 0): {
+"blocking": 62,
+"rid": [-1, 32, 2, 31, 0, 1],
+"visited": false
+},
+Vector3i(0, 0, 1): {
+"blocking": 16,
+"rid": [-1, -1, -1, -1, 3, -1],
+"visited": false
+},
+Vector3i(0, 0, 2): {
+"blocking": 17,
+"rid": [6, -1, -1, -1, 3, -1],
+"visited": false
+},
+Vector3i(0, 1, -4): {
+"blocking": 47,
+"rid": [29, 30, 28, 6, -1, 25],
+"visited": false
+},
+Vector3i(0, 1, -3): {
+"blocking": 47,
+"rid": [6, 6, 27, 6, -1, 25],
+"visited": false
+},
+Vector3i(0, 1, -1): {
+"blocking": 36,
+"rid": [-1, -1, 6, -1, -1, 14],
+"visited": false
+},
+Vector3i(0, 1, 0): {
+"blocking": 48,
+"rid": [-1, -1, -1, -1, 0, 14],
+"visited": false
+},
+Vector3i(0, 1, 1): {
+"blocking": 32,
+"rid": [-1, -1, -1, -1, -1, 14],
+"visited": false
+},
+Vector3i(0, 1, 2): {
+"blocking": 32,
+"rid": [-1, -1, -1, -1, -1, 14],
+"visited": false
+},
+Vector3i(0, 1, 3): {
+"blocking": 57,
+"rid": [6, -1, -1, 6, 3, 25],
+"visited": false
+},
+Vector3i(1, 0, -5): {
+"blocking": 53,
+"rid": [6, -1, 6, -1, 3, 25],
+"visited": false
+},
+Vector3i(1, 0, -3): {
+"blocking": 22,
+"rid": [-1, 6, 6, -1, 3, -1],
+"visited": false
+},
+Vector3i(1, 0, -2): {
+"blocking": 26,
+"rid": [-1, 6, -1, 6, 3, -1],
+"visited": false
+},
+Vector3i(1, 0, -1): {
+"blocking": 24,
+"rid": [-1, -1, -1, 6, 3, -1],
+"visited": false
+},
+Vector3i(1, 0, 0): {
+"blocking": 26,
+"rid": [-1, 2, -1, 6, 3, -1],
+"visited": false
+},
+Vector3i(1, 0, 1): {
+"blocking": 24,
+"rid": [-1, -1, -1, 6, 3, -1],
+"visited": false
+},
+Vector3i(1, 0, 2): {
+"blocking": 25,
+"rid": [6, -1, -1, 6, 3, -1],
+"visited": false
+},
+Vector3i(1, 1, -4): {
+"blocking": 62,
+"rid": [-1, 6, 45, 46, 3, 25],
+"visited": false
+},
+Vector3i(1, 1, -3): {
+"blocking": 43,
+"rid": [42, 6, -1, 43, -1, 25],
+"visited": false
+},
+Vector3i(1, 1, -2): {
+"blocking": 46,
+"rid": [-1, 6, 41, 6, -1, 25],
+"visited": false
+},
+Vector3i(1, 1, -1): {
+"blocking": 40,
+"rid": [-1, -1, -1, 6, -1, 14],
+"visited": false
+},
+Vector3i(1, 1, 0): {
+"blocking": 40,
+"rid": [-1, -1, -1, 6, -1, 14],
+"visited": false
+},
+Vector3i(1, 1, 1): {
+"blocking": 40,
+"rid": [-1, -1, -1, 6, -1, 14],
+"visited": false
+},
+Vector3i(1, 1, 2): {
+"blocking": 41,
+"rid": [6, -1, -1, 6, -1, 14],
+"visited": false
+},
+Vector3i(2, 0, -5): {
+"blocking": 52,
+"rid": [-1, -1, 6, -1, 3, 25],
+"visited": false
+},
+Vector3i(2, 0, -4): {
+"blocking": 51,
+"rid": [6, 6, -1, -1, 3, 25],
+"visited": false
+},
+Vector3i(2, 0, -3): {
+"blocking": 21,
+"rid": [6, -1, 6, -1, 3, -1],
+"visited": false
+},
+Vector3i(2, 1, -3): {
+"blocking": 39,
+"rid": [6, 38, 36, -1, -1, 25],
+"visited": false
+},
+Vector3i(3, 0, -5): {
+"blocking": 21,
+"rid": [6, -1, 6, -1, 3, -1],
+"visited": false
+},
+Vector3i(3, 0, -4): {
+"blocking": 28,
+"rid": [-1, -1, 6, 6, 3, -1],
+"visited": false
+},
+Vector3i(3, 0, -3): {
+"blocking": 25,
+"rid": [6, -1, -1, 6, 3, -1],
+"visited": false
+},
+Vector3i(3, 1, -5): {
+"blocking": 47,
+"rid": [76, 75, 6, 74, -1, 71],
+"visited": false
+},
+Vector3i(3, 1, -4): {
+"blocking": 46,
+"rid": [-1, 34, 60, 6, -1, 25],
+"visited": false
+},
+Vector3i(3, 1, -3): {
+"blocking": 9,
+"rid": [6, -1, -1, 6, -1, -1],
+"visited": false
+},
+Vector3i(3, 2, -3): {
+"blocking": 47,
+"rid": [6, 40, 39, 6, -1, 25],
+"visited": false
+},
+Vector3i(3, 2, -2): {
+"blocking": 54,
+"rid": [-1, 6, 6, -1, 3, 25],
+"visited": false
+},
+Vector3i(3, 2, -1): {
+"blocking": 51,
+"rid": [6, 6, -1, -1, 3, 25],
+"visited": false
+},
+Vector3i(4, 0, -5): {
+"blocking": 28,
+"rid": [-1, -1, 6, 6, 3, -1],
+"visited": false
+},
+Vector3i(4, 0, -4): {
+"blocking": 27,
+"rid": [6, 6, -1, 6, 3, -1],
+"stair": true,
+"visited": false
+},
+Vector3i(4, 1, -5): {
+"blocking": 15,
+"rid": [0, 61, 6, 6, -1, -1],
+"visited": false
+},
+Vector3i(4, 1, -4): {
+"blocking": 14,
+"rid": [-1, 6, 47, 6, -1, -1],
+"visited": false
+},
+Vector3i(4, 1, -3): {
+"blocking": 27,
+"rid": [6, 6, -1, 6, 3, -1],
+"stair": true,
+"visited": false
+},
+Vector3i(4, 2, -5): {
+"blocking": 47,
+"rid": [72, 73, 6, 6, -1, 71],
+"visited": false
+},
+Vector3i(4, 2, -4): {
+"blocking": 47,
+"rid": [6, 78, 77, 6, -1, 71],
+"visited": false
+},
+Vector3i(4, 2, -3): {
+"blocking": 46,
+"rid": [-1, 6, 6, 6, -1, 25],
+"visited": false
+},
+Vector3i(4, 2, -2): {
+"blocking": 48,
+"rid": [-1, -1, -1, -1, 3, 25],
+"visited": false
+},
+Vector3i(4, 2, -1): {
+"blocking": 49,
+"rid": [6, -1, -1, -1, 3, 25],
+"visited": false
+},
+Vector3i(4, 2, 0): {
+"blocking": 55,
+"rid": [6, 6, 6, -1, 3, 59],
+"visited": false
+},
+Vector3i(5, 2, -4): {
+"blocking": 55,
+"rid": [6, 6, 6, -1, 3, 25],
+"visited": false
+},
+Vector3i(5, 2, -3): {
+"blocking": 54,
+"rid": [-1, 6, 6, -1, 3, 25],
+"visited": false
+},
+Vector3i(5, 2, -2): {
+"blocking": 56,
+"rid": [-1, -1, -1, 6, 3, 25],
+"visited": false
+},
+Vector3i(5, 2, -1): {
+"blocking": 48,
+"rid": [-1, -1, -1, -1, 3, 25],
+"visited": false
+},
+Vector3i(5, 2, 0): {
+"blocking": 57,
+"rid": [6, -1, -1, 6, 3, 25],
+"visited": false
+},
+Vector3i(6, 2, -4): {
+"blocking": 52,
+"rid": [-1, -1, 6, -1, 3, 25],
+"visited": false
+},
+Vector3i(6, 2, -3): {
+"blocking": 48,
+"rid": [-1, -1, -1, -1, 3, 25],
+"visited": false
+},
+Vector3i(6, 2, -2): {
+"blocking": 51,
+"rid": [6, 6, -1, -1, 3, 25],
+"visited": false
+},
+Vector3i(6, 2, -1): {
+"blocking": 61,
+"rid": [6, -1, 6, 6, 3, 25],
+"visited": false
+},
+Vector3i(7, 2, -4): {
+"blocking": 53,
+"rid": [2, -1, 6, -1, 3, 25],
+"visited": false
+},
+Vector3i(7, 2, -3): {
+"blocking": 61,
+"rid": [32, -1, 32, 2, 0, 1],
+"visited": false
+},
+Vector3i(7, 2, -2): {
+"blocking": 52,
+"rid": [-1, -1, 2, -1, 3, 25],
+"visited": false
+},
+Vector3i(7, 2, -1): {
+"blocking": 59,
+"rid": [6, 6, -1, 6, 3, 25],
+"visited": false
+},
+Vector3i(8, 2, -5): {
+"blocking": 62,
+"rid": [-1, 6, 6, 6, 3, 25],
+"visited": false
+},
+Vector3i(8, 2, -4): {
+"blocking": 57,
+"rid": [6, -1, -1, 6, 3, 25],
+"visited": false
+},
+Vector3i(8, 2, -3): {
+"blocking": 62,
+"rid": [-1, 2, 6, 6, 3, 25],
+"visited": false
+},
+Vector3i(8, 2, -2): {
+"blocking": 57,
+"rid": [6, -1, -1, 6, 3, 25],
+"visited": false
+}
+}
+entities = {
+"057b2f64-80e2-778f-a09c-07f9f7debc33": SubResource("Resource_u71hk"),
+"077e2f64-9028-7359-7449-347837500a2b": SubResource("Resource_1jwrl"),
+"117e2f64-a012-77da-60c9-ddc135150fd8": SubResource("Resource_emymk"),
+"28772f64-405b-7907-680b-574212de29a0": SubResource("Resource_qxi4e"),
+"357a2f64-10e4-7a70-ec38-3ff94cc448fb": SubResource("Resource_nh5ud"),
+"40772f64-d02f-76e4-e0cd-7f5f25705240": SubResource("Resource_tcy1q"),
+"467e2f64-f0bf-7d1c-3c64-8fdb4e50943c": SubResource("Resource_vp5js"),
+"597d2f64-0057-7617-7033-f8fa4a93b1a0": SubResource("Resource_6u3je"),
+"837d2f64-f033-7d98-6ce6-71f575e90dcf": SubResource("Resource_jdymk"),
+"8a832f64-e04f-784e-fc40-2fbb2838ff56": SubResource("Resource_5n5xo"),
+"927d2f64-30aa-716b-2cd4-6db1860b2717": SubResource("Resource_ey10y"),
+"9e7d2f64-d058-7767-a070-dfd410d95b96": SubResource("Resource_6jnk0"),
+"a47d2f64-804f-7108-209e-54e995780584": SubResource("Resource_ueind"),
+"b17d2f64-504b-7b3e-3897-dafbee82be80": SubResource("Resource_rnbk3"),
+"b3722f64-40f1-7558-2874-6e946e43a2e0": SubResource("Resource_44qcp"),
+"b9712f64-a032-7015-b4ab-658d442049ee": SubResource("Resource_gxkvu"),
+"bd742f64-60b3-7921-38db-5967ecb68757": SubResource("Resource_n01tk"),
+"cc7d2f64-8011-7b3c-f4ec-bd72d4d6d4c1": SubResource("Resource_l2ioy"),
+"d17d2f64-401f-732d-f41d-0a7238459602": SubResource("Resource_dl2u7"),
+"d8762f64-10a5-7a64-ac83-f1634c8ad1e9": SubResource("Resource_ih6hm"),
+"fa7d2f64-60fa-758c-f0b9-5a94e0b1d701": SubResource("Resource_idhud")
+}
+resources = {
+"": 78,
+"basic": 15,
+"ceiling_pod": 1,
+"floor_pod": 0,
+"planet_ground": 3,
+"wall_planet_cliff_a": 6,
+"wall_pod_a": 2,
+"wall_pod_b": 32,
+"wall_pod_c": 31
+}

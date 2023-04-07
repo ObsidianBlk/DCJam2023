@@ -108,16 +108,18 @@ func _unhandled_input(event : InputEvent) -> void:
 			move(&"left", false, _ignore_transitions)
 		if event.is_action_pressed("move_right"):
 			move(&"right", false, _ignore_transitions)
-		if event.is_action_pressed("climb_up"):
-			move(&"up", false, _ignore_transitions)
-		if event.is_action_pressed("climb_down"):
-			move(&"down", false, _ignore_transitions)
+#		if event.is_action_pressed("climb_up"):
+#			move(&"up", false, _ignore_transitions)
+#		if event.is_action_pressed("climb_down"):
+#			move(&"down", false, _ignore_transitions)
 		if event.is_action_pressed("turn_left"):
 			turn(COUNTERCLOCKWISE, _ignore_transitions)
 		if event.is_action_pressed("turn_right"):
 			turn(CLOCKWISE, _ignore_transitions)
 		if event.is_action_pressed("interact"):
 			_Interact()
+		if event.is_action_pressed("consume"):
+			_Consume()
 
 
 # ------------------------------------------------------------------------------
@@ -156,9 +158,11 @@ func _Interact_Door() -> bool:
 	for door in doors:
 		if door.position == entity.position and door.facing == entity.facing:
 			door.interact(entity)
+			entity.schedule_end()
 			return true
 		if door.position != entity.position and door.facing == adj_facing:
 			door.interact(entity)
+			entity.schedule_end()
 			return true
 	return false
 
@@ -169,12 +173,20 @@ func _Interact_Mob() -> bool:
 	
 	for mob in mobs:
 		mob.attack(1.0, CrawlGlobals.ATTACK_TYPE.Physical)
+		entity.schedule_end()
 	return true
 
 func _Interact() -> void:
 	if entity == null or not _can_interact: return
 	if _Interact_Door(): return
 	if _Interact_Mob(): return
+
+func _Consume() -> void:
+	if entity == null or not _can_interact: return
+	var pd : PlayerData = CrawlGlobals.Get_Player_Data()
+	if pd == null: return
+	pd.use_fruit()
+	entity.schedule_end()
 
 # ------------------------------------------------------------------------------
 # Handler Methods
@@ -275,13 +287,11 @@ func _on_transition_completed() -> void:
 
 func _on_player_schedule_started(data : Dictionary) -> void:
 	_can_interact = true
-	print("Schedule Started")
 	var pd : PlayerData = CrawlGlobals.Get_Player_Data()
 	if pd == null: return
 	pd.breath()
 
 func _on_player_schedule_ended(data : Dictionary) -> void:
-	print("Schedule Ended")
 	_can_interact = false
 
 func _on_player_attacked(dmg : float, type : CrawlGlobals.ATTACK_TYPE) -> void:

@@ -15,3 +15,4 @@ func _ready() -> void:
 func _on_entity_changed() -> void:
 	if entity == null: return
 	entity.set_block_all(false)
+	use_entity_direct_update(true)

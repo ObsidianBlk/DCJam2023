@@ -25,7 +25,10 @@ const ENTITIES_LOOKUP : Dictionary = {
 		&"Survivor":{
 			&"name":&"Survivor",
 			&"ui":"res://objects/entity_objects/survivor/DE_survivor_editor/DE_SurvivorEditor.tscn"
-		}
+		},
+		&"Fruit":{
+			&"name":&"POD Plant Fruit"
+		},
 	},
 	&"Door":{
 		&"Basic_Interactable":{&"name":&"Basic Door"}

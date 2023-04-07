@@ -22,7 +22,8 @@ var _growth : float = 0.0
 # ------------------------------------------------------------------------------
 func _ready() -> void:
 	initialize_mob()
-	_growth = randf_range(0.0, MAX_GROWTH_VALUE)
+	#_growth = randf_range(0.0, MAX_GROWTH_VALUE)
+	_growth = MAX_GROWTH_VALUE
 	CrawlGlobals.editor_mode_changed.connect(_on_Sprout_editor_mode_changed)
 	_on_Sprout_editor_mode_changed(CrawlGlobals.In_Editor_Mode())
 
@@ -38,6 +39,8 @@ func _ProcessAI() -> void:
 	
 	if _growth >= ADULT_GROWTH_VALUE:
 		for surface in [CrawlGlobals.SURFACE.North, CrawlGlobals.SURFACE.East, CrawlGlobals.SURFACE.South, CrawlGlobals.SURFACE.West]:
+			entity.facing = surface
+			if not entity.can_move(&"foreward", true): continue
 			var player : Array = entity.get_entities_in_direction(surface, {"primary_type":&"Player"})
 			if player.size() > 0:
 				_growth -= ADULT_GROWTH_VALUE
