@@ -102,4 +102,5 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "..."
 
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="Announcement/Button" to="." method="_on_button_pressed"]
