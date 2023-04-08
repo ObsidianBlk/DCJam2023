@@ -11,11 +11,13 @@ const MAX_GROWTH_VALUE : float = 100.0
 # Variables
 # ------------------------------------------------------------------------------
 var _growth : float = 0.0
+var _dead : bool = false
 
 # ------------------------------------------------------------------------------
 # Onready Variables
 # ------------------------------------------------------------------------------
 @onready var _sprout : Sprite3D = $Sprout
+@onready var _sfx : Node3D = $SFX
 
 # ------------------------------------------------------------------------------
 # Override Methods
@@ -32,6 +34,10 @@ func _ready() -> void:
 # ------------------------------------------------------------------------------
 func _ProcessAI() -> void:
 	if entity == null: return
+	if _dead:
+		entity.schedule_end()
+		return
+	
 	# First... grow self...
 	if _growth < MAX_GROWTH_VALUE:
 		var mult : float = 1.0 + float(_CountNeighborPlants())
@@ -100,4 +106,8 @@ func _on_request(req : Dictionary) -> void:
 				_growth += req["amount"]
 
 func _on_sprout_attacked(dmg : float, type : CrawlGlobals.ATTACK_TYPE) -> void:
-	free_mob.call_deferred()
+	if _dead: return
+	_dead = true
+	_sfx.finished.connect(free_mob, CONNECT_ONE_SHOT)
+	_sfx.play_group("chop")
+	

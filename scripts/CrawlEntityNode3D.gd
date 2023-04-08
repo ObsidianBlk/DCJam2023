@@ -49,6 +49,8 @@ var _hide_distance : int = 4
 var _schedule_movement_locking : bool = false
 var _movement_locked : bool = false
 
+var _keep_hidden : bool = false
+
 # ------------------------------------------------------------------------------
 # Setters
 # ------------------------------------------------------------------------------
@@ -147,8 +149,10 @@ func _CheckEntityVisible(focus_position : Vector3i) -> void:
 			Vector3((_hide_distance * 2)+1, (_hide_distance * 2)+1, (_hide_distance * 2)+1))
 		if aabb.has_point(Vector3(entity.position)):
 			vstate = true
-	if visible != vstate:
-		visible = vstate
+	
+	if not _keep_hidden:
+		if visible != vstate:
+			visible = vstate
 
 # ------------------------------------------------------------------------------
 # Public Methods
@@ -295,6 +299,13 @@ func enable_schedule_movement_locking(enable : bool) -> void:
 
 func is_schedule_movement_locking_enabled() -> bool:
 	return _schedule_movement_locking
+
+func keep_hidden(enabled : bool) -> void:
+	_keep_hidden = enabled
+	if _keep_hidden:
+		visible = false
+	elif entity != null:
+		_CheckEntityVisible(entity.get_map_focus_position())
 
 func hide_within_range(dist : int) -> void:
 	_hide_distance = max(-1, dist)

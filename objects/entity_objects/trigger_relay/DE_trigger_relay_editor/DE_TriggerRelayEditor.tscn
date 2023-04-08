@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1xdcnpv7vr8n"]
+
+[ext_resource type="Script" path="res://objects/entity_objects/trigger_relay/DE_trigger_relay_editor/DE_TriggerRelayEditor.gd" id="1_3sg8a"]
+
+[node name="DE_TriggerRelayEditor" type="GridContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 2
+script = ExtResource("1_3sg8a")
+
+[node name="Label_Request" type="Label" parent="."]
+layout_mode = 2
+text = "Request: "
+
+[node name="LineEdit_Request" type="LineEdit" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label_ID" type="Label" parent="."]
+layout_mode = 2
+text = "ID: "
+
+[node name="LineEdit_ID" type="LineEdit" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "[ Optional ]"
+
+[connection signal="text_submitted" from="LineEdit_Request" to="." method="_on_line_edit_request_text_submitted"]
+[connection signal="text_submitted" from="LineEdit_ID" to="." method="_on_line_edit_id_text_submitted"]

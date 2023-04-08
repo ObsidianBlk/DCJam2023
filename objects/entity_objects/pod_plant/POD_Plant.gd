@@ -18,6 +18,14 @@ const ATTACK_COST : float = 40.1
 var _growth : float = 0.0
 var _hp : float = MAX_HP
 
+var _dead : bool = false
+
+# ------------------------------------------------------------------------------
+# Onready Variables
+# ------------------------------------------------------------------------------
+@onready var _sfx : Node3D = $SFX
+
+
 # ------------------------------------------------------------------------------
 # Override Methods
 # ------------------------------------------------------------------------------
@@ -32,6 +40,10 @@ func _ready() -> void:
 # ------------------------------------------------------------------------------
 func _ProcessAI() -> void:
 	if entity == null: return
+	if _dead:
+		entity.schedule_end()
+		return
+	
 	if _growth < MAX_GROWTH_VALUE:
 		var mult : float = 1.0 + float(_CountNeighborPlants())
 		_growth = min(MAX_GROWTH_VALUE, _growth + (BASE_GROWTH_RATE * mult))
@@ -91,7 +103,9 @@ func _on_POD_editor_mode_changed(enabled : bool) -> void:
 			entity.attacked.connect(_on_pod_attacked)
 
 func _on_pod_attacked(dmg : float, type : CrawlGlobals.ATTACK_TYPE) -> void:
+	if _dead: return
+	_sfx.play_group("chop")
 	_hp -= dmg
 	if _hp <= 0.0:
 		_SpawnFruit()
-		free_mob.call_deferred()
+		_sfx.finished.connect(free_mob, CONNECT_ONE_SHOT)

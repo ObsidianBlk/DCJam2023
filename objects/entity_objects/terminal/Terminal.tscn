@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://enofrixd8k4j"]
+
+[ext_resource type="PackedScene" uid="uid://cgefe6cwxtdmf" path="res://assets/models/POD/Terminal.glb" id="1_j0j3g"]
+[ext_resource type="Script" path="res://objects/entity_objects/terminal/Terminal.gd" id="1_rrgbt"]
+
+[node name="Terminal" type="Node3D"]
+script = ExtResource("1_rrgbt")
+body_node_path = NodePath("Body")
+
+[node name="Body" type="Node3D" parent="."]
+
+[node name="Terminal" parent="Body" instance=ExtResource("1_j0j3g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5)

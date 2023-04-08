@@ -1,97 +1,7 @@
-[gd_resource type="Resource" script_class="CrawlMap" load_steps=34 format=3]
+[gd_resource type="Resource" script_class="CrawlMap" load_steps=39 format=3]
 
 [ext_resource type="Script" path="res://scripts/CrawlEntity.gd" id="1_g2c6m"]
 [ext_resource type="Script" path="res://scripts/CrawlMap.gd" id="2_tnqeo"]
-
-[sub_resource type="Resource" id="Resource_aaiwv"]
-script = ExtResource("1_g2c6m")
-uuid = &"ed663064-9028-7336-6ce8-330703a2db49"
-entity_name = ""
-type = &"Editor"
-position = Vector3i(6, 2, 0)
-facing = 8
-blocking = 0
-meta = {}
-
-[sub_resource type="Resource" id="Resource_edjgx"]
-script = ExtResource("1_g2c6m")
-uuid = &"40673064-10dc-7367-b491-b967ea357dcd"
-entity_name = ""
-type = &"Player"
-position = Vector3i(5, 2, 0)
-facing = 8
-blocking = 63
-meta = {}
-
-[sub_resource type="Resource" id="Resource_cx3g3"]
-script = ExtResource("1_g2c6m")
-uuid = &"3b683064-1002-7e25-78aa-4524afcd680c"
-entity_name = ""
-type = &"Ramp:Exterior_A"
-position = Vector3i(3, 1, 4)
-facing = 1
-blocking = 0
-meta = {}
-
-[sub_resource type="Resource" id="Resource_4v385"]
-script = ExtResource("1_g2c6m")
-uuid = &"72683064-80fb-7a85-3cd4-989b4a4b470e"
-entity_name = ""
-type = &"Ramp:Exterior_A"
-position = Vector3i(7, 1, 3)
-facing = 1
-blocking = 0
-meta = {}
-
-[sub_resource type="Resource" id="Resource_lawc7"]
-script = ExtResource("1_g2c6m")
-uuid = &"d1683064-f0a7-7a78-2c05-f379672092fe"
-entity_name = ""
-type = &"Ramp:Exterior_A"
-position = Vector3i(8, 0, 2)
-facing = 2
-blocking = 0
-meta = {}
-
-[sub_resource type="Resource" id="Resource_xa4ej"]
-script = ExtResource("1_g2c6m")
-uuid = &"53693064-10db-745c-a415-fd221b681109"
-entity_name = ""
-type = &"Ramp:Exterior_A"
-position = Vector3i(6, 1, -1)
-facing = 8
-blocking = 0
-meta = {}
-
-[sub_resource type="Resource" id="Resource_xlknu"]
-script = ExtResource("1_g2c6m")
-uuid = &"8c693064-6058-72ed-38dd-ff91d1b5fd5b"
-entity_name = ""
-type = &"Ramp:Exterior_A"
-position = Vector3i(5, 0, -2)
-facing = 1
-blocking = 0
-meta = {}
-
-[sub_resource type="Resource" id="Resource_dtejv"]
-script = ExtResource("1_g2c6m")
-uuid = &"e36a3064-108f-76ae-3c16-b9ec6f90d717"
-entity_name = ""
-type = &"Mob:PODPlant"
-position = Vector3i(5, 0, -5)
-facing = 8
-blocking = 63
-meta = {}
-
-[sub_resource type="Resource" id="Resource_yo205"]
-script = ExtResource("1_g2c6m")
-uuid = &"fe6a3064-6076-7642-e80c-89910b7583e9"
-entity_name = ""
-type = &"Mob:Sprout"
-position = Vector3i(4, 0, -4)
-facing = 8
-blocking = 63
-meta = {}
 
 [sub_resource type="Resource" id="Resource_pubv8"]
 script = ExtResource("1_g2c6m")
@@ -153,6 +63,16 @@ facing = 2
 blocking = 63
 meta = {}
 
+[sub_resource type="Resource" id="Resource_cx3g3"]
+script = ExtResource("1_g2c6m")
+uuid = &"3b683064-1002-7e25-78aa-4524afcd680c"
+entity_name = ""
+type = &"Ramp:Exterior_A"
+position = Vector3i(3, 1, 4)
+facing = 1
+blocking = 0
+meta = {}
+
 [sub_resource type="Resource" id="Resource_htpru"]
 script = ExtResource("1_g2c6m")
 uuid = &"3d6b3064-b0c2-7d93-3cba-f6337a2052ce"
@@ -160,6 +80,16 @@ entity_name = ""
 type = &"Mob:Sprout"
 position = Vector3i(11, 0, 0)
 facing = 2
+blocking = 63
+meta = {}
+
+[sub_resource type="Resource" id="Resource_edjgx"]
+script = ExtResource("1_g2c6m")
+uuid = &"40673064-10dc-7367-b491-b967ea357dcd"
+entity_name = ""
+type = &"Player"
+position = Vector3i(5, 2, 0)
+facing = 8
 blocking = 63
 meta = {}
 
@@ -171,6 +101,29 @@ type = &"Mob:Sprout"
 position = Vector3i(11, 0, -2)
 facing = 2
 blocking = 63
+meta = {}
+
+[sub_resource type="Resource" id="Resource_x2kak"]
+script = ExtResource("1_g2c6m")
+uuid = &"4d9d3064-5057-70da-a0d1-249f722452d9"
+entity_name = ""
+type = &"Door:Terminal"
+position = Vector3i(15, 0, -2)
+facing = 1
+blocking = 0
+meta = {
+"trigger_active": false,
+"visible_in_play": true
+}
+
+[sub_resource type="Resource" id="Resource_xa4ej"]
+script = ExtResource("1_g2c6m")
+uuid = &"53693064-10db-745c-a415-fd221b681109"
+entity_name = ""
+type = &"Ramp:Exterior_A"
+position = Vector3i(6, 1, -1)
+facing = 8
+blocking = 0
 meta = {}
 
 [sub_resource type="Resource" id="Resource_q4egx"]
@@ -213,6 +166,16 @@ facing = 2
 blocking = 0
 meta = {}
 
+[sub_resource type="Resource" id="Resource_4v385"]
+script = ExtResource("1_g2c6m")
+uuid = &"72683064-80fb-7a85-3cd4-989b4a4b470e"
+entity_name = ""
+type = &"Ramp:Exterior_A"
+position = Vector3i(7, 1, 3)
+facing = 1
+blocking = 0
+meta = {}
+
 [sub_resource type="Resource" id="Resource_gaqfr"]
 script = ExtResource("1_g2c6m")
 uuid = &"7b6b3064-d0b4-7962-34ba-3ae10061f375"
@@ -231,6 +194,16 @@ type = &"Mob:PODPlant"
 position = Vector3i(13, 0, 0)
 facing = 4
 blocking = 63
+meta = {}
+
+[sub_resource type="Resource" id="Resource_xlknu"]
+script = ExtResource("1_g2c6m")
+uuid = &"8c693064-6058-72ed-38dd-ff91d1b5fd5b"
+entity_name = ""
+type = &"Ramp:Exterior_A"
+position = Vector3i(5, 0, -2)
+facing = 1
+blocking = 0
 meta = {}
 
 [sub_resource type="Resource" id="Resource_jn58m"]
@@ -273,6 +246,16 @@ facing = 4
 blocking = 63
 meta = {}
 
+[sub_resource type="Resource" id="Resource_lawc7"]
+script = ExtResource("1_g2c6m")
+uuid = &"d1683064-f0a7-7a78-2c05-f379672092fe"
+entity_name = ""
+type = &"Ramp:Exterior_A"
+position = Vector3i(8, 0, 2)
+facing = 2
+blocking = 0
+meta = {}
+
 [sub_resource type="Resource" id="Resource_ye58m"]
 script = ExtResource("1_g2c6m")
 uuid = &"dc6d3064-1064-7896-309e-e9c53c74985f"
@@ -283,6 +266,16 @@ facing = 1
 blocking = 0
 meta = {}
 
+[sub_resource type="Resource" id="Resource_dtejv"]
+script = ExtResource("1_g2c6m")
+uuid = &"e36a3064-108f-76ae-3c16-b9ec6f90d717"
+entity_name = ""
+type = &"Mob:PODPlant"
+position = Vector3i(5, 0, -5)
+facing = 8
+blocking = 63
+meta = {}
+
 [sub_resource type="Resource" id="Resource_6o6bk"]
 script = ExtResource("1_g2c6m")
 uuid = &"eb6d3064-3074-7686-a897-3c325c58977f"
@@ -290,6 +283,16 @@ entity_name = ""
 type = &"Item:Fruit"
 position = Vector3i(4, 2, 5)
 facing = 8
+blocking = 0
+meta = {}
+
+[sub_resource type="Resource" id="Resource_aaiwv"]
+script = ExtResource("1_g2c6m")
+uuid = &"ed663064-9028-7336-6ce8-330703a2db49"
+entity_name = ""
+type = &"Editor"
+position = Vector3i(16, 0, -5)
+facing = 1
 blocking = 0
 meta = {}
 
@@ -303,6 +306,16 @@ facing = 4
 blocking = 63
 meta = {}
 
+[sub_resource type="Resource" id="Resource_yo205"]
+script = ExtResource("1_g2c6m")
+uuid = &"fe6a3064-6076-7642-e80c-89910b7583e9"
+entity_name = ""
+type = &"Mob:Sprout"
+position = Vector3i(4, 0, -4)
+facing = 8
+blocking = 63
+meta = {}
+
 [sub_resource type="Resource" id="Resource_nr81f"]
 script = ExtResource("1_g2c6m")
 uuid = &"ff6d3064-b088-76bc-6cd0-e3552bdc88d0"
@@ -311,6 +324,46 @@ type = &"Item:Fruit"
 position = Vector3i(4, 2, 6)
 facing = 8
 blocking = 0
+meta = {}
+
+[sub_resource type="Resource" id="Resource_l84r8"]
+script = ExtResource("1_g2c6m")
+uuid = &"f1af3064-50aa-7e7f-6c8c-b8c5479c7f87"
+entity_name = ""
+type = &"Item:Fruit"
+position = Vector3i(17, 0, -5)
+facing = 1
+blocking = 0
+meta = {}
+
+[sub_resource type="Resource" id="Resource_ypff1"]
+script = ExtResource("1_g2c6m")
+uuid = &"f5af3064-f02b-722b-2cad-5192c1065249"
+entity_name = ""
+type = &"Item:Fruit"
+position = Vector3i(18, 0, -4)
+facing = 2
+blocking = 0
+meta = {}
+
+[sub_resource type="Resource" id="Resource_5ex2s"]
+script = ExtResource("1_g2c6m")
+uuid = &"faaf3064-6083-781c-b8c0-71cdb5425068"
+entity_name = ""
+type = &"Item:Fruit"
+position = Vector3i(18, 0, -3)
+facing = 2
+blocking = 0
+meta = {}
+
+[sub_resource type="Resource" id="Resource_ewcpa"]
+script = ExtResource("1_g2c6m")
+uuid = &"08b03064-9070-7489-bcc8-fc71af8d6942"
+entity_name = ""
+type = &"Mob:Sprout"
+position = Vector3i(17, 0, -2)
+facing = 1
+blocking = 63
 meta = {}
 
 [resource]
@@ -885,18 +938,59 @@ Vector3i(16, 0, -2): {
 "visited": false
 },
 Vector3i(16, 0, -1): {
-"blocking": 56,
-"rid": [-1, -1, -1, 2, 0, 1],
+"blocking": 48,
+"rid": [-1, -1, -1, -1, 0, 1],
 "visited": false
 },
 Vector3i(16, 0, 0): {
 "blocking": 57,
 "rid": [2, -1, -1, 2, 0, 1],
 "visited": false
+},
+Vector3i(17, 0, -5): {
+"blocking": 62,
+"rid": [-1, 2, 2, 2, 0, 56],
+"visited": false
+},
+Vector3i(17, 0, -4): {
+"blocking": 50,
+"rid": [-1, 2, -1, -1, 0, 56],
+"visited": false
+},
+Vector3i(17, 0, -3): {
+"blocking": 50,
+"rid": [-1, 2, -1, -1, 0, 56],
+"visited": false
+},
+Vector3i(17, 0, -2): {
+"blocking": 50,
+"rid": [-1, 2, -1, -1, 0, 56],
+"visited": false
+},
+Vector3i(17, 0, -1): {
+"blocking": 57,
+"rid": [2, -1, -1, 2, 0, 56],
+"visited": false
+},
+Vector3i(18, 0, -4): {
+"blocking": 61,
+"rid": [2, -1, 2, 2, 0, 56],
+"visited": false
+},
+Vector3i(18, 0, -3): {
+"blocking": 61,
+"rid": [2, -1, 2, 2, 0, 56],
+"visited": false
+},
+Vector3i(18, 0, -2): {
+"blocking": 61,
+"rid": [2, -1, 2, 2, 0, 56],
+"visited": false
 }
 }
 entities = {
 "066b3064-0057-757f-702e-6972085ca6e8": SubResource("Resource_pubv8"),
+"08b03064-9070-7489-bcc8-fc71af8d6942": SubResource("Resource_ewcpa"),
 "1f6b3064-60c0-7a16-a484-1e51858a83c4": SubResource("Resource_nnmit"),
 "236b3064-40ba-7613-2097-496fb959c204": SubResource("Resource_12tcp"),
 "276b3064-a069-7814-e063-9c74b061fa5d": SubResource("Resource_ub77r"),
@@ -906,6 +1000,7 @@ entities = {
 "3d6b3064-b0c2-7d93-3cba-f6337a2052ce": SubResource("Resource_htpru"),
 "40673064-10dc-7367-b491-b967ea357dcd": SubResource("Resource_edjgx"),
 "4a6b3064-201b-7641-a018-bf57873e6c99": SubResource("Resource_6vc0b"),
+"4d9d3064-5057-70da-a0d1-249f722452d9": SubResource("Resource_x2kak"),
 "53693064-10db-745c-a415-fd221b681109": SubResource("Resource_xa4ej"),
 "546b3064-e05b-7eb1-3c1b-f681cea8a503": SubResource("Resource_q4egx"),
 "666b3064-c01e-7526-f81b-fd8e48123b7e": SubResource("Resource_4r413"),
@@ -924,16 +1019,21 @@ entities = {
 "e36a3064-108f-76ae-3c16-b9ec6f90d717": SubResource("Resource_dtejv"),
 "eb6d3064-3074-7686-a897-3c325c58977f": SubResource("Resource_6o6bk"),
 "ed663064-9028-7336-6ce8-330703a2db49": SubResource("Resource_aaiwv"),
+"f1af3064-50aa-7e7f-6c8c-b8c5479c7f87": SubResource("Resource_l84r8"),
+"f5af3064-f02b-722b-2cad-5192c1065249": SubResource("Resource_ypff1"),
 "f96d3064-8095-7a8c-f076-27d908977c87": SubResource("Resource_oivjy"),
+"faaf3064-6083-781c-b8c0-71cdb5425068": SubResource("Resource_5ex2s"),
 "fe6a3064-6076-7642-e80c-89910b7583e9": SubResource("Resource_yo205"),
 "ff6d3064-b088-76bc-6cd0-e3552bdc88d0": SubResource("Resource_nr81f")
 }
 resources = {
-"": 45,
+"": 56,
+"basic": 46,
 "ceiling_pod": 22,
 "floor_pod": 19,
 "planet_ground": 0,
 "wall_planet_cliff_a": 2,
 "wall_pod_a": 18,
-"wall_pod_b": 41
+"wall_pod_b": 41,
+"wall_pod_c": 46
 }

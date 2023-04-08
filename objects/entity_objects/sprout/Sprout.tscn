@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dm20o8b7x2ysy"]
+[gd_scene load_steps=7 format=3 uid="uid://dm20o8b7x2ysy"]
 
 [ext_resource type="Texture2D" uid="uid://uety3y2l3vps" path="res://assets/textures/POD.png" id="1_ih7mt"]
 [ext_resource type="Script" path="res://objects/entity_objects/sprout/Sprout.gd" id="1_wemaf"]
+[ext_resource type="PackedScene" uid="uid://c4o2o417t2wrq" path="res://objects/SFX/SFX.tscn" id="3_xdmfe"]
+[ext_resource type="AudioStream" uid="uid://skje2mie6j6o" path="res://assets/audio/sfx/chop/chop_1.wav" id="4_ie8bf"]
+[ext_resource type="AudioStream" uid="uid://rfivwmlw7xja" path="res://assets/audio/sfx/chop/chop_2.wav" id="5_mfhai"]
+[ext_resource type="AudioStream" uid="uid://diqhma5vddlpg" path="res://assets/audio/sfx/chop/chop_3.wav" id="6_36bg2"]
 
 [node name="Sprout" type="Node3D"]
 script = ExtResource("1_wemaf")
@@ -15,3 +19,8 @@ texture_filter = 0
 texture = ExtResource("1_ih7mt")
 region_enabled = true
 region_rect = Rect2(0, 128, 64, 64)
+
+[node name="SFX" parent="." instance=ExtResource("3_xdmfe")]
+sample_names = Array[StringName]([&"chop1", &"chop2", &"chop3"])
+sample_streams = Array[AudioStream]([ExtResource("4_ie8bf"), ExtResource("5_mfhai"), ExtResource("6_36bg2")])
+sample_groups = Array[String](["chop,chop1,chop2,chop3"])

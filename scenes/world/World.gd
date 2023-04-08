@@ -31,8 +31,8 @@ var _dungeon_object : Node3D = null
 # ------------------------------------------------------------------------------
 func _ready() -> void:
 	CrawlTriggerRelay.request.connect(_on_request)
-	MusicBox.assign_player(_asp_music)
-	MusicBox.add_music_track("rise", "res://assets/audio/music/rise_of_the_early_dawn.ogg", true)
+	#MusicBox.assign_player(_asp_music)
+	#MusicBox.add_music_track("rise", "res://assets/audio/music/rise_of_the_early_dawn.ogg", true)
 	
 	if CrawlGlobals.Load_Config(CONFIG_PATH) != OK:
 		CrawlGlobals.Reset_Config()
@@ -45,6 +45,7 @@ func _ready() -> void:
 	
 	_ui.request.connect(_on_request)
 	_ui.show_menu("MainMenu")
+	_asp_music.play()
 
 
 # ------------------------------------------------------------------------------
@@ -52,6 +53,7 @@ func _ready() -> void:
 # ------------------------------------------------------------------------------
 func _StartGame() -> void:
 	if CrawlGlobals.Get_Player_Data() != null: return
+	_asp_music.stop()
 	CrawlGlobals.Create_New_Player_Data()
 	var pd : PlayerData = CrawlGlobals.Get_Player_Data()
 	pd.dead.connect(_on_player_dead)
@@ -69,6 +71,7 @@ func _QuitGame() -> void:
 	CrawlGlobals.Destroy_Player_Data()
 	_dungeon_object.viewer_mode = true
 	_dungeon_object.load_dungeon(DEFAULT_MENU_DUNGEON)
+	_asp_music.play()
 	_ui.show_menu("MainMenu")
 
 func _PauseGame() -> void:
@@ -83,7 +86,7 @@ func _PauseGame() -> void:
 # Handler Methods
 # ------------------------------------------------------------------------------
 func _on_player_dead() -> void:
-	_QuitGame()
+	_ui.show_menu("DeathScreen")
 
 
 func _on_request(req : Dictionary) -> void:
@@ -103,6 +106,8 @@ func _on_request(req : Dictionary) -> void:
 				(func() : _dungeon_object.load_dungeon(req["src"])),
 				CONNECT_ONE_SHOT
 			)
+		&"escaped":
+			_ui.show_menu("VictoryScreen")
 		&"pause_game":
 			if CrawlGlobals.Get_Player_Data() == null: return
 			if get_tree().paused:

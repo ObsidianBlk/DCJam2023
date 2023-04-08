@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://ba5kievmqs6ef"]
+[gd_scene load_steps=3 format=3 uid="uid://ba5kievmqs6ef"]
 
+[ext_resource type="Theme" uid="uid://caum3sr1cyurt" path="res://scenes/world/ui/themes/core.theme" id="1_8hsml"]
 [ext_resource type="Script" path="res://scenes/world/ui/hud/dialog/Dialog.gd" id="1_m0xus"]
 
 [node name="Dialog" type="Control"]
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_8hsml")
 script = ExtResource("1_m0xus")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -37,6 +39,7 @@ grow_vertical = 2
 [node name="PanelContainer" type="PanelContainer" parent="Layout"]
 custom_minimum_size = Vector2(800, 0)
 layout_mode = 2
+theme_type_variation = &"GreenBarMarginPanel"
 
 [node name="Label_Dialog" type="Label" parent="Layout/PanelContainer"]
 unique_name_in_owner = true

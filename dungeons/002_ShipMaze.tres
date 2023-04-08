@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CrawlMap" load_steps=36 format=3]
+[gd_resource type="Resource" script_class="CrawlMap" load_steps=42 format=3]
 
 [ext_resource type="Script" path="res://scripts/CrawlEntity.gd" id="1_exebb"]
 [ext_resource type="Script" path="res://scripts/CrawlMap.gd" id="2_74btm"]
@@ -293,8 +293,8 @@ script = ExtResource("1_exebb")
 uuid = &"e5832f64-f003-7c46-e4e8-96d6947940f8"
 entity_name = ""
 type = &"Editor"
-position = Vector3i(-3, 1, 13)
-facing = 8
+position = Vector3i(3, 1, 3)
+facing = 4
 blocking = 0
 meta = {}
 
@@ -339,6 +339,66 @@ type = &"Mob:Sprout"
 position = Vector3i(-5, 1, 1)
 facing = 8
 blocking = 63
+meta = {}
+
+[sub_resource type="Resource" id="Resource_dw0us"]
+script = ExtResource("1_exebb")
+uuid = &"15af3064-2039-7b28-741b-fd511825bc47"
+entity_name = ""
+type = &"Item:Fruit"
+position = Vector3i(-13, 0, 12)
+facing = 4
+blocking = 0
+meta = {}
+
+[sub_resource type="Resource" id="Resource_jgrcu"]
+script = ExtResource("1_exebb")
+uuid = &"3aaf3064-105c-710a-a4f4-35ce5825bd4d"
+entity_name = ""
+type = &"Item:Fruit"
+position = Vector3i(-17, 0, 11)
+facing = 1
+blocking = 0
+meta = {}
+
+[sub_resource type="Resource" id="Resource_v6rfa"]
+script = ExtResource("1_exebb")
+uuid = &"43af3064-70ea-739a-6c86-80ccc7e92e27"
+entity_name = ""
+type = &"Mob:Sprout"
+position = Vector3i(-16, 0, 10)
+facing = 2
+blocking = 63
+meta = {}
+
+[sub_resource type="Resource" id="Resource_h8ki5"]
+script = ExtResource("1_exebb")
+uuid = &"4aaf3064-7014-79b6-b02c-2aa0b4132a9d"
+entity_name = ""
+type = &"Mob:Sprout"
+position = Vector3i(-18, 0, 9)
+facing = 8
+blocking = 63
+meta = {}
+
+[sub_resource type="Resource" id="Resource_inpwd"]
+script = ExtResource("1_exebb")
+uuid = &"73af3064-b032-7b38-78f6-288570cc601b"
+entity_name = ""
+type = &"Item:Fruit"
+position = Vector3i(-14, 0, -1)
+facing = 4
+blocking = 0
+meta = {}
+
+[sub_resource type="Resource" id="Resource_y0exa"]
+script = ExtResource("1_exebb")
+uuid = &"9faf3064-007b-776f-b0ab-41b57b0ad354"
+entity_name = ""
+type = &"Item:Fruit"
+position = Vector3i(3, 1, 4)
+facing = 4
+blocking = 0
 meta = {}
 
 [resource]
@@ -422,6 +482,16 @@ Vector3i(-18, 0, 2): {
 "rid": [2, -1, 2, 2, 0, -1],
 "visited": false
 },
+Vector3i(-18, 0, 9): {
+"blocking": 55,
+"rid": [2, 2, 2, -1, 0, 176],
+"visited": false
+},
+Vector3i(-18, 0, 10): {
+"blocking": 55,
+"rid": [2, 2, 2, -1, 0, 176],
+"visited": false
+},
 Vector3i(-18, 1, -1): {
 "blocking": 36,
 "rid": [-1, -1, 159, -1, -1, 148],
@@ -498,8 +568,23 @@ Vector3i(-17, 0, 7): {
 "visited": false
 },
 Vector3i(-17, 0, 8): {
-"blocking": 51,
-"rid": [2, 2, -1, -1, 0, 85],
+"blocking": 50,
+"rid": [-1, 2, -1, -1, 0, 85],
+"visited": false
+},
+Vector3i(-17, 0, 9): {
+"blocking": 48,
+"rid": [-1, -1, -1, -1, 0, 176],
+"visited": false
+},
+Vector3i(-17, 0, 10): {
+"blocking": 48,
+"rid": [-1, -1, -1, -1, 0, 176],
+"visited": false
+},
+Vector3i(-17, 0, 11): {
+"blocking": 59,
+"rid": [2, 2, -1, 2, 0, 176],
 "visited": false
 },
 Vector3i(-17, 1, -1): {
@@ -545,6 +630,16 @@ Vector3i(-16, 0, 3): {
 Vector3i(-16, 0, 8): {
 "blocking": 53,
 "rid": [2, -1, 2, -1, 0, 85],
+"visited": false
+},
+Vector3i(-16, 0, 9): {
+"blocking": 61,
+"rid": [2, -1, 2, 2, 0, 176],
+"visited": false
+},
+Vector3i(-16, 0, 10): {
+"blocking": 61,
+"rid": [2, -1, 2, 2, 0, 176],
 "visited": false
 },
 Vector3i(-16, 1, -4): {
@@ -777,6 +872,16 @@ Vector3i(-13, 0, 8): {
 "rid": [2, -1, -1, 2, 0, 85],
 "visited": false
 },
+Vector3i(-13, 0, 12): {
+"blocking": 62,
+"rid": [-1, 2, 2, 2, 0, 176],
+"visited": false
+},
+Vector3i(-13, 0, 13): {
+"blocking": 51,
+"rid": [2, 2, -1, -1, 0, 176],
+"visited": false
+},
 Vector3i(-13, 1, 0): {
 "blocking": 61,
 "rid": [2, -1, 6, 2, 0, 42],
@@ -873,8 +978,13 @@ Vector3i(-12, 0, 11): {
 "visited": false
 },
 Vector3i(-12, 0, 12): {
-"blocking": 51,
-"rid": [2, 2, -1, -1, 0, 111],
+"blocking": 50,
+"rid": [-1, 2, -1, -1, 0, 111],
+"visited": false
+},
+Vector3i(-12, 0, 13): {
+"blocking": 57,
+"rid": [2, -1, -1, 2, 0, 176],
 "visited": false
 },
 Vector3i(-12, 1, 1): {
@@ -982,6 +1092,11 @@ Vector3i(-11, 1, 8): {
 "rid": [63, 62, -1, 2, 0, 54],
 "visited": false
 },
+Vector3i(-11, 1, 9): {
+"blocking": 55,
+"rid": [177, 178, 179, -1, 0, 176],
+"visited": false
+},
 Vector3i(-11, 1, 11): {
 "blocking": 63,
 "rid": [134, 135, 136, 133, 3, 137],
@@ -1069,8 +1184,8 @@ Vector3i(-10, 1, 8): {
 "visited": false
 },
 Vector3i(-10, 1, 9): {
-"blocking": 42,
-"rid": [-1, 126, -1, 2, -1, 111],
+"blocking": 40,
+"rid": [-1, -1, -1, 2, -1, 111],
 "visited": false
 },
 Vector3i(-10, 1, 10): {
@@ -1633,10 +1748,14 @@ entities = {
 "03663064-100d-7501-74f5-24e733ea8131": SubResource("Resource_w74nu"),
 "0c663064-80c3-7abf-fc74-d43cc326243c": SubResource("Resource_jusb0"),
 "0f293064-e0ce-7006-b012-220e92be2acb": SubResource("Resource_tjeiq"),
+"15af3064-2039-7b28-741b-fd511825bc47": SubResource("Resource_dw0us"),
 "1b663064-60ab-7722-bc32-c47d0983ee91": SubResource("Resource_eovbl"),
 "1d293064-1056-76ce-3c37-99d5d6f00403": SubResource("Resource_jp8gu"),
 "37663064-5003-752f-3453-3f7e4ebf2597": SubResource("Resource_51ehh"),
+"3aaf3064-105c-710a-a4f4-35ce5825bd4d": SubResource("Resource_jgrcu"),
+"43af3064-70ea-739a-6c86-80ccc7e92e27": SubResource("Resource_v6rfa"),
 "47663064-d058-7800-b47e-a1646f05bc9d": SubResource("Resource_vujef"),
+"4aaf3064-7014-79b6-b02c-2aa0b4132a9d": SubResource("Resource_h8ki5"),
 "4b283064-e026-7215-f478-f8f94fe76eba": SubResource("Resource_4bgpv"),
 "57653064-b012-75b0-a4b9-7441c54c186e": SubResource("Resource_f1ytd"),
 "58263064-80d6-799e-ece0-63de1f99554a": SubResource("Resource_7x14p"),
@@ -1645,11 +1764,13 @@ entities = {
 "60663064-40e1-7212-7432-042e7b63d6f8": SubResource("Resource_2hgo5"),
 "61653064-803e-7b9c-64c0-84e909ab13d8": SubResource("Resource_1xila"),
 "6c2a3064-d098-7533-34d8-3bce8e426ff3": SubResource("Resource_u4mlm"),
+"73af3064-b032-7b38-78f6-288570cc601b": SubResource("Resource_inpwd"),
 "78283064-a0b1-78c3-346b-06adf3bb2b86": SubResource("Resource_wuwm1"),
 "7a253064-b099-7777-b87e-c4aac95d4b4b": SubResource("Resource_0326y"),
 "7c2a3064-30a8-7ecd-a459-522b9afd5f2c": SubResource("Resource_qfkry"),
 "83283064-a06d-7836-a891-5b7475f975fd": SubResource("Resource_vtlp6"),
 "96653064-4028-709f-a4a8-28d1ed4e271b": SubResource("Resource_3ut2r"),
+"9faf3064-007b-776f-b0ab-41b57b0ad354": SubResource("Resource_y0exa"),
 "a1283064-1056-779d-742b-74ceca5060cb": SubResource("Resource_v6wc1"),
 "a8283064-908f-7a16-ecbe-5caa9c4f8cd9": SubResource("Resource_e65su"),
 "aa643064-80e9-7800-fcd1-7c97c342d587": SubResource("Resource_il15c"),
@@ -1665,7 +1786,7 @@ entities = {
 "f9653064-50ad-70a1-ace0-369e390c0a80": SubResource("Resource_d5e63")
 }
 resources = {
-"": 166,
+"": 179,
 "basic": 20,
 "ceiling_pod": 5,
 "floor_pod": 3,

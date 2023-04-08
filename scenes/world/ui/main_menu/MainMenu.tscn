@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dlqx0w5e6q15t"]
+[gd_scene load_steps=6 format=3 uid="uid://dlqx0w5e6q15t"]
 
 [ext_resource type="Theme" uid="uid://caum3sr1cyurt" path="res://scenes/world/ui/themes/core.theme" id="1_mnstw"]
 [ext_resource type="Script" path="res://scenes/world/ui/main_menu/MainMenu.gd" id="1_o7dr1"]
+[ext_resource type="Texture2D" uid="uid://b6iqptwgvuu6l" path="res://assets/textures/title.png" id="3_dubm1"]
+[ext_resource type="Texture2D" uid="uid://b6yqul6pkadq7" path="res://assets/textures/DCJ2023.png" id="4_51ui5"]
+[ext_resource type="Texture2D" uid="uid://c50c1bn3lvmxe" path="res://assets/textures/ObsidianLogo_Small.png" id="5_wo7jl"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -52,7 +55,49 @@ text = "Options"
 layout_mode = 2
 text = "Quit"
 
+[node name="Title" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 128
+
+[node name="TextureRect" type="TextureRect" parent="Title"]
+layout_mode = 2
+texture = ExtResource("3_dubm1")
+stretch_mode = 5
+
+[node name="Logos" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="Layout" type="HBoxContainer" parent="Logos"]
+layout_mode = 2
+
+[node name="DCJam" type="Button" parent="Logos/Layout"]
+layout_mode = 2
+icon = ExtResource("4_51ui5")
+flat = true
+
+[node name="Obsidian" type="Button" parent="Logos/Layout"]
+layout_mode = 2
+icon = ExtResource("5_wo7jl")
+flat = true
+
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="Panel/Layout/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Panel/Layout/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Panel/Layout/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Logos/Layout/DCJam" to="." method="_on_dc_jam_pressed"]
+[connection signal="pressed" from="Logos/Layout/Obsidian" to="." method="_on_obsidian_pressed"]

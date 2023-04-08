@@ -21,5 +21,8 @@ func _on_options_pressed():
 func _on_quit_pressed():
 	request.emit({"request":&"quit_application"})
 
+func _on_dc_jam_pressed():
+	OS.shell_open("https://itch.io/jam/dcjam2023")
 
-
+func _on_obsidian_pressed():
+	OS.shell_open("https://obsidianblk.itch.io/")

@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1h6vb8xev8ob"]
+
+[ext_resource type="Theme" uid="uid://caum3sr1cyurt" path="res://scenes/world/ui/themes/core.theme" id="1_21ros"]
+[ext_resource type="Script" path="res://scenes/world/ui/death_screen/DeathScreen.gd" id="2_wvkfv"]
+
+[node name="DeathScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_21ros")
+script = ExtResource("2_wvkfv")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.501961)
+
+[node name="Message" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Message"]
+custom_minimum_size = Vector2(512, 128)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Whether by suffication or surcoming to the vicious plantlife... 
+This planet did not deliver your salvation"
+horizontal_alignment = 1
+autowrap_mode = 2
+text_overrun_behavior = 2
+
+[node name="Button" type="Button" parent="Message"]
+layout_mode = 2
+text = "..."
+
+[connection signal="pressed" from="Message/Button" to="." method="_on_button_pressed"]

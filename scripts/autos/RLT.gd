@@ -31,7 +31,8 @@ const ENTITIES_LOOKUP : Dictionary = {
 		},
 	},
 	&"Door":{
-		&"Basic_Interactable":{&"name":&"Basic Door"}
+		&"Basic_Interactable":{&"name":&"Basic Door"},
+		&"Terminal":{&"name":&"Escape Terminal"}
 	},
 	&"Ramp":{
 		&"Exterior_A":{&"name":&"Planet Exterior Ramp A"}
@@ -77,6 +78,10 @@ const ENTITIES_LOOKUP : Dictionary = {
 			&"name":&"Dungeon Exit",
 			&"ui":"res://objects/entity_objects/trigger_exit/DE_trigger_exit_editor/DE_TriggerExitEditor.tscn"
 		},
+		&"Relay":{
+			&"name":&"Trigger Relay",
+			&"ui":"res://objects/entity_objects/trigger_relay/DE_trigger_relay_editor/DE_TriggerRelayEditor.tscn"
+		}
 	},
 }
 
@@ -173,6 +178,10 @@ const LOOKUP : Dictionary = {
 			&"src":"res://objects/entity_objects/door_basic_interactable/DoorBasicInteractable.tscn",
 			&"description":"Basic Interactable Door"
 		},
+		&"Door:Terminal":{
+			&"src":"res://objects/entity_objects/terminal/Terminal.tscn",
+			&"description":"Escape Terminal"
+		},
 		&"Ramp:Exterior_A":{
 			&"src":"res://objects/entity_objects/exterior_ramp_a/ExteriorRampA.tscn",
 			&"description":"Planet Exterior Ramp A"
@@ -237,6 +246,10 @@ const LOOKUP : Dictionary = {
 			&"src":"res://objects/entity_objects/trigger_exit/TriggerExit.tscn",
 			&"description":"Dungeon Exit"
 		},
+		&"Trigger:Relay":{
+			&"src":"res://objects/entity_objects/trigger_relay/TriggerRelay.tscn",
+			&"description":"Trigger Relay"
+		}
 	}
 }
 

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhln01rjmfq27"]
+
+[ext_resource type="Texture2D" uid="uid://c1gof8c5gcucd" path="res://assets/textures/gates/logic_memory.svg" id="1_ihso1"]
+[ext_resource type="Script" path="res://objects/entity_objects/trigger_relay/TriggerRelay.gd" id="1_qliab"]
+
+[node name="TriggerRelay" type="Node3D"]
+script = ExtResource("1_qliab")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+offset = Vector2(0, 512)
+pixel_size = 0.0009
+texture = ExtResource("1_ihso1")

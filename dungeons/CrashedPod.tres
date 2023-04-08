@@ -1,7 +1,20 @@
-[gd_resource type="Resource" script_class="CrawlMap" load_steps=11 format=3]
+[gd_resource type="Resource" script_class="CrawlMap" load_steps=16 format=3]
 
 [ext_resource type="Script" path="res://scripts/CrawlEntity.gd" id="1_eyt8x"]
 [ext_resource type="Script" path="res://scripts/CrawlMap.gd" id="2_nd4g6"]
+
+[sub_resource type="Resource" id="Resource_xno5x"]
+script = ExtResource("1_eyt8x")
+uuid = &"34b53064-d0e7-77bd-3029-97433077741c"
+entity_name = ""
+type = &"Door:Terminal"
+position = Vector3i(-2, 0, -3)
+facing = 4
+blocking = 0
+meta = {
+"trigger_active": false,
+"visible_in_play": true
+}
 
 [sub_resource type="Resource" id="Resource_kk2p8"]
 script = ExtResource("1_eyt8x")
@@ -85,8 +98,48 @@ script = ExtResource("1_eyt8x")
 uuid = &"a34c2b64-a0df-7428-24e5-ee4f3496ad55"
 entity_name = ""
 type = &"Editor"
-position = Vector3i(0, 0, -1)
-facing = 2
+position = Vector3i(-3, 0, 0)
+facing = 1
+blocking = 0
+meta = {}
+
+[sub_resource type="Resource" id="Resource_bmbss"]
+script = ExtResource("1_eyt8x")
+uuid = &"87b53064-1081-72da-345e-f70a2b18737d"
+entity_name = ""
+type = &"Item:Fruit"
+position = Vector3i(-3, 0, 3)
+facing = 1
+blocking = 0
+meta = {}
+
+[sub_resource type="Resource" id="Resource_natsq"]
+script = ExtResource("1_eyt8x")
+uuid = &"8cb53064-c0bd-77cb-2859-6014d38080c1"
+entity_name = ""
+type = &"Item:Fruit"
+position = Vector3i(-2, 0, 3)
+facing = 8
+blocking = 0
+meta = {}
+
+[sub_resource type="Resource" id="Resource_kr1ro"]
+script = ExtResource("1_eyt8x")
+uuid = &"8fb53064-c00f-7679-7c68-ab832c66bd9b"
+entity_name = ""
+type = &"Item:Fruit"
+position = Vector3i(-2, 0, 2)
+facing = 4
+blocking = 0
+meta = {}
+
+[sub_resource type="Resource" id="Resource_t071l"]
+script = ExtResource("1_eyt8x")
+uuid = &"93b53064-70fe-79fd-ec04-c46a76474a2c"
+entity_name = ""
+type = &"Item:Fruit"
+position = Vector3i(-3, 0, 2)
+facing = 4
 blocking = 0
 meta = {}
 
@@ -629,13 +682,18 @@ Vector3i(3, 1, 3): {
 }
 }
 entities = {
+"34b53064-d0e7-77bd-3029-97433077741c": SubResource("Resource_xno5x"),
 "5a562b64-e00e-73d2-2010-08e627d26267": SubResource("Resource_kk2p8"),
 "5e3a2e64-d08b-7d46-2076-e98ab3590d26": SubResource("Resource_dcniu"),
 "69562b64-807a-70e4-3407-4b5456ec338b": SubResource("Resource_4ettf"),
 "73562b64-007a-7705-243e-e6c530e2dd1a": SubResource("Resource_pnmmv"),
+"87b53064-1081-72da-345e-f70a2b18737d": SubResource("Resource_bmbss"),
 "89e32d64-805f-7e3b-e4a1-50cac06915b0": SubResource("Resource_dxmja"),
 "8c1a2e64-207c-75d4-bc0a-0e9e3b2f871b": SubResource("Resource_m3w5k"),
+"8cb53064-c0bd-77cb-2859-6014d38080c1": SubResource("Resource_natsq"),
 "8e192e64-102d-7d0e-7c35-048775e92df8": SubResource("Resource_ufrjt"),
+"8fb53064-c00f-7679-7c68-ab832c66bd9b": SubResource("Resource_kr1ro"),
+"93b53064-70fe-79fd-ec04-c46a76474a2c": SubResource("Resource_t071l"),
 "a34c2b64-a0df-7428-24e5-ee4f3496ad55": SubResource("Resource_gr82c")
 }
 resources = {

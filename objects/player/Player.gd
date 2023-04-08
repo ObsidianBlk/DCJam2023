@@ -20,6 +20,8 @@ const CONFIG_KEY_FOV : String = "fov"
 const WEAPON_REST_ROTATIONS : Vector3 = Vector3(0.0, 0.0, 45.0)
 const WEAPON_STRIKE_ROTATIONS : Vector3 = Vector3(30.0, 0.0, 10.0)
 
+const ATTACK_STRENGTH : float = 5.0
+
 # ------------------------------------------------------------------------------
 # Export Variables
 # ------------------------------------------------------------------------------
@@ -103,10 +105,6 @@ func _unhandled_input(event : InputEvent) -> void:
 	if entity != null:
 		if event.is_action_pressed("ui_cancel"):
 			CrawlTriggerRelay.relay_request({"request":&"pause_game"})
-		if event.is_action_pressed("ui_accept"):
-			var pd : PlayerData = CrawlGlobals.Get_Player_Data()
-			if pd == null: return
-			pd.hurt(25)
 		if event.is_action_pressed("move_foreward"):
 			move(&"foreward", false, _ignore_transitions)
 		if event.is_action_pressed("move_backward"):
@@ -178,11 +176,17 @@ func _Interact_Mob() -> bool:
 	var mobs : Array = entity.get_adjacent_entities(options)
 	if mobs.size() <= 0: return false
 	
+	var mult : float = 1.0
+	var pd : PlayerData = CrawlGlobals.Get_Player_Data()
+	if pd != null:
+		if pd.is_blob_active(2):
+			mult = 2.0
+	
 	for mob in mobs:
 		var _tween : Tween = create_tween()
 		_tween.tween_property(_weapon, "rotation_degrees", WEAPON_STRIKE_ROTATIONS, 0.2)
 		await _tween.finished
-		mob.attack(1.0, CrawlGlobals.ATTACK_TYPE.Physical)
+		mob.attack(ATTACK_STRENGTH * mult, CrawlGlobals.ATTACK_TYPE.Physical)
 		_tween = create_tween()
 		_tween.tween_property(_weapon, "rotation_degrees", WEAPON_REST_ROTATIONS, 0.3)
 		await _tween.finished

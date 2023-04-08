@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://4nffi6fxju2j"]
+[gd_scene load_steps=12 format=3 uid="uid://4nffi6fxju2j"]
 
 [ext_resource type="Script" path="res://scenes/world/World.gd" id="1_f50yl"]
 [ext_resource type="PackedScene" uid="uid://ch62t1oie4k6c" path="res://scenes/world/effect_layer/EffectLayer.tscn" id="1_kk3bi"]
@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://csrpxhtxb71gb" path="res://scenes/world/ui/options_menu/OptionsMenu.tscn" id="6_yl4a0"]
 [ext_resource type="PackedScene" uid="uid://dbubmhiyah67w" path="res://scenes/world/ui/pause_menu/PauseMenu.tscn" id="7_g5pmh"]
 [ext_resource type="PackedScene" uid="uid://s0mnoaopvlj3" path="res://scenes/world/ui/hud/hud.tscn" id="8_vbyrj"]
+[ext_resource type="AudioStream" uid="uid://cpnjqqjhb8i1a" path="res://assets/audio/music/rise_of_the_early_dawn.ogg" id="9_7tkk6"]
+[ext_resource type="PackedScene" uid="uid://b1h6vb8xev8ob" path="res://scenes/world/ui/death_screen/DeathScreen.tscn" id="9_wx8k7"]
+[ext_resource type="PackedScene" uid="uid://d16rdokg8ln2o" path="res://scenes/world/ui/victory_screen/VictoryScreen.tscn" id="10_xf61y"]
 
 [node name="World" type="Node3D"]
 process_mode = 3
@@ -32,5 +35,10 @@ script = ExtResource("3_22vqo")
 
 [node name="HUD" parent="UI" instance=ExtResource("8_vbyrj")]
 
+[node name="DeathScreen" parent="UI" instance=ExtResource("9_wx8k7")]
+
+[node name="VictoryScreen" parent="UI" instance=ExtResource("10_xf61y")]
+
 [node name="ASP_Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_7tkk6")
 bus = &"Music"

@@ -1,0 +1,105 @@
+[gd_scene load_steps=6 format=3 uid="uid://d16rdokg8ln2o"]
+
+[ext_resource type="Theme" uid="uid://caum3sr1cyurt" path="res://scenes/world/ui/themes/core.theme" id="1_nxef0"]
+[ext_resource type="Texture2D" uid="uid://du7xjfw0t1tex" path="res://assets/textures/DEF_man.png" id="1_wfeld"]
+[ext_resource type="Texture2D" uid="uid://3dedn0hwmw2i" path="res://assets/textures/Engineer_man.png" id="2_gk4b8"]
+[ext_resource type="Script" path="res://scenes/world/ui/victory_screen/VictoryScreen.gd" id="2_lra22"]
+[ext_resource type="Texture2D" uid="uid://7c3rtpfg12it" path="res://assets/textures/oxygenman.png" id="3_85r1k"]
+
+[node name="VictoryScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_nxef0")
+script = ExtResource("2_lra22")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.501961)
+
+[node name="Defender" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+theme_override_constants/margin_left = 128
+
+[node name="TextureRect" type="TextureRect" parent="Defender"]
+layout_mode = 2
+texture = ExtResource("1_wfeld")
+
+[node name="Engineer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_bottom = 64.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_right = 128
+
+[node name="TextureRect" type="TextureRect" parent="Engineer"]
+layout_mode = 2
+texture = ExtResource("2_gk4b8")
+
+[node name="Oxyman" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -128.0
+offset_right = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 64
+
+[node name="TextureRect" type="TextureRect" parent="Oxyman"]
+layout_mode = 2
+texture = ExtResource("3_85r1k")
+
+[node name="Announcement" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Announcement"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "You have managed to find a way off the planet!
+
+YOU HAVE FOUND DELIVERANCE"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Announcement"]
+layout_mode = 2
+text = "..."
+
+[connection signal="pressed" from="Announcement/Button" to="." method="_on_button_pressed"]
